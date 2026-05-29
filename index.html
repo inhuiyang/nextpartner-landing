@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="넥스트파트너 - 50+ 액티브 시니어를 위한 AI 기반 일자리 플랫폼. AI 자기소개서, 증명사진, 모의면접으로 구직 준비부터 채용 연결까지." />
+  <title>넥스트파트너 - AI 시니어 일자리 플랫폼</title>
+
+  <!-- Pretendard Variable Font -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+
+  <!-- Compiled Tailwind CSS -->
+  <link rel="stylesheet" href="dist/output.css" />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <style>
+    @keyframes scroll-fade {
+      0%, 100% { opacity: 0.5; transform: translateY(0); }
+      50%       { opacity: 1;   transform: translateY(6px); }
+    }
+    .scroll-cue { animation: scroll-fade 2s ease-in-out infinite; }
+  </style>
+</head>
+
+<body class="bg-white text-[#1F1F1F] antialiased">
+
+
+<!-- ============================================================
+     HERO - 전체화면 영상
+     ============================================================ -->
+<section id="hero" class="relative h-screen overflow-hidden">
+  <video
+    src="video/nextpartner_intro.mp4"
+    autoplay
+    muted
+    loop
+    playsinline
+    class="absolute inset-0 w-full h-full object-cover"
+    aria-label="넥스트파트너 서비스 소개 영상"
+  ></video>
+  <div class="absolute inset-0 bg-gradient-to-b from-black/35 via-black/15 to-black/55" aria-hidden="true"></div>
+
+  <!-- 중앙 텍스트 -->
+  <div class="absolute inset-0 flex items-center justify-center px-6">
+    <h1 class="text-center font-black text-white leading-[0.95] tracking-tighter
+                text-[56px] sm:text-[80px] md:text-[100px] lg:text-[120px] xl:text-[140px]">
+      Senior Talent<br>Marketplace
+    </h1>
+  </div>
+
+  <!-- 스크롤 유도 -->
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2.5 scroll-cue" aria-hidden="true">
+    <span class="text-white/55 text-[11px] font-semibold tracking-[0.22em] uppercase">Scroll</span>
+    <svg class="w-5 h-5 text-white/55" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+    </svg>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     브랜드 스토리 (구 Hero 텍스트 + 스토리 통합)
+     ============================================================ -->
+<section id="about" class="bg-white">
+
+  <!-- 브랜드 스토리 2열 -->
+  <div class="py-24 lg:py-32 bg-cream">
+    <div class="max-w-[1212px] mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+
+        <!-- 좌측: 스토리 텍스트 -->
+        <div>
+          <span class="section-label">Brand Story</span>
+          <h3 class="text-[36px] md:text-[42px] lg:text-[48px] font-bold leading-[1.2] text-[#1F1F1F] mb-7 tracking-tight">
+            시니어의 경험이<br>
+            다음 기회로<br>
+            이어지도록
+          </h3>
+          <p class="text-[32px] leading-[1.85] text-[#5F5F5F] mb-8 font-medium">
+            일하고 싶은 시니어와 좋은 인재가 필요한 기업 사이에는
+            아직 충분히 연결되지 못한 가능성이 있습니다.
+          </p>
+          <div class="space-y-5 text-[19px] leading-[1.9] text-[#5F5F5F]">
+            <p>
+              넥스트파트너는 50+ 액티브 시니어가 가진 경험과 태도, 일에 대한 책임감이
+              다시 의미 있는 기회로 이어질 수 있도록 돕는 플랫폼입니다.
+            </p>
+            <p>
+              구직자에게는 자기소개서 작성, 사진 준비, 면접 대비처럼 부담스러운 과정을
+              AI 기능으로 더 쉽게 시작할 수 있도록 돕고, 기업에게는 필요한 직무에 맞는
+              시니어 인재를 효율적으로 검토할 수 있는 채용 연결 흐름을 제공합니다.
+            </p>
+            <p>
+              우리는 단순히 공고를 보여주는 것이 아니라, 사람의 경험을 이해하고
+              그 경험이 필요한 자리와 연결되는 방식을 만듭니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- 우측: 키워드 카드 3개 -->
+        <div class="space-y-5 lg:pt-10">
+          <div class="bg-white border border-[#F1DDD4] rounded-2xl p-7 hover:border-primary/40 hover:shadow-md transition-all duration-300">
+            <div class="flex items-start gap-5">
+              <div class="w-12 h-12 bg-gradient-to-br from-primary to-coral rounded-xl flex items-center justify-center flex-shrink-0 shadow-md shadow-primary/20">
+                <span class="text-white font-bold text-[17px]">01</span>
+              </div>
+              <div>
+                <h4 class="text-[21px] font-bold text-[#1F1F1F] mb-2.5">경험</h4>
+                <p class="text-[18px] leading-[1.8] text-[#5F5F5F]">오랜 시간 쌓아온 경력과 태도를 새로운 일의 기회로 연결합니다.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white border border-[#F1DDD4] rounded-2xl p-7 hover:border-primary/40 hover:shadow-md transition-all duration-300">
+            <div class="flex items-start gap-5">
+              <div class="w-12 h-12 bg-gradient-to-br from-coral to-[#FF9A3D] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md shadow-coral/20">
+                <span class="text-white font-bold text-[17px]">02</span>
+              </div>
+              <div>
+                <h4 class="text-[21px] font-bold text-[#1F1F1F] mb-2.5">준비</h4>
+                <p class="text-[18px] leading-[1.8] text-[#5F5F5F]">자기소개서, 사진, 복장, 면접 준비를 AI로 더 쉽게 시작할 수 있도록 돕습니다.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white border border-[#F1DDD4] rounded-2xl p-7 hover:border-primary/40 hover:shadow-md transition-all duration-300">
+            <div class="flex items-start gap-5">
+              <div class="w-12 h-12 bg-gradient-to-br from-[#FF9A3D] to-[#FFB347] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md shadow-orange-200">
+                <span class="text-white font-bold text-[17px]">03</span>
+              </div>
+              <div>
+                <h4 class="text-[21px] font-bold text-[#1F1F1F] mb-2.5">연결</h4>
+                <p class="text-[18px] leading-[1.8] text-[#5F5F5F]">구직자와 기업이 서로에게 맞는 조건으로 만날 수 있는 흐름을 제공합니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ============================================================
+     AI 기반 해결 방식 소개
+     ============================================================ -->
+<section id="ai-features" class="py-24 lg:py-36 bg-cream">
+  <div class="max-w-[1212px] mx-auto px-6">
+
+    <!-- 섹션 헤더 -->
+    <div class="text-center max-w-[740px] mx-auto mb-16">
+      <span class="section-label">AI 기능</span>
+      <h2 class="text-[36px] md:text-[44px] lg:text-[48px] font-bold leading-[1.2] text-[#1F1F1F] mb-5 tracking-tight">
+        AI가 구직 준비의 막막함을<br>
+        하나씩 줄여드립니다
+      </h2>
+      <p class="text-[19px] leading-[1.85] text-[#5F5F5F]">
+        넥스트파트너의 AI 기능은 자기소개서 작성, 사진 준비, 면접 연습, 기업 이해까지
+        구직자가 실제 지원 과정에서 어려워하는 단계를 중심으로 설계됩니다.
+      </p>
+    </div>
+
+    <!-- AI 기능 카드: 3+2 그리드 -->
+    <!-- 상단 3개 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+
+      <!-- 카드 1: AI 자기소개서 -->
+      <div class="ai-card group" role="article">
+        <div class="w-14 h-14 bg-primary-light rounded-2xl flex items-center justify-center mb-5 group-hover:bg-primary/10 transition-colors">
+          <i data-lucide="file-text" class="w-7 h-7 text-primary"></i>
+        </div>
+        <h3 class="text-[32px] font-bold text-[#1F1F1F] mb-3">AI 자기소개서</h3>
+        <p class="text-[20px] leading-[1.8] text-[#5F5F5F] mb-5">
+          간단한 질문에 답하면 경력과 강점을 바탕으로 자기소개서 초안을 생성합니다.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">작성 부담 감소</span>
+          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">경력 정리</span>
+          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">완성도 향상</span>
+        </div>
+      </div>
+
+      <!-- 카드 2: AI 증명사진 생성 -->
+      <div class="ai-card group" role="article">
+        <div class="w-14 h-14 bg-primary-light rounded-2xl flex items-center justify-center mb-5 group-hover:bg-primary/10 transition-colors">
+          <i data-lucide="camera" class="w-7 h-7 text-primary"></i>
+        </div>
+        <h3 class="text-[32px] font-bold text-[#1F1F1F] mb-3">AI 증명사진 생성</h3>
+        <p class="text-[20px] leading-[1.8] text-[#5F5F5F] mb-5">
+          지원 서류에 필요한 프로필 사진을 간편하게 준비할 수 있도록 돕습니다.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">사진 준비 부담 감소</span>
+          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">비대면 준비</span>
+          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">서류 완성도</span>
+        </div>
+      </div>
+
+      <!-- 카드 3: AI 복장 점검 -->
+      <div class="ai-card group" role="article">
+        <div class="w-14 h-14 bg-primary-light rounded-2xl flex items-center justify-center mb-5 group-hover:bg-primary/10 transition-colors">
+          <i data-lucide="sparkles" class="w-7 h-7 text-primary"></i>
+        </div>
+        <h3 class="text-[32px] font-bold text-[#1F1F1F] mb-3">AI 복장 점검</h3>
+        <p class="text-[20px] leading-[1.8] text-[#5F5F5F] mb-5">
+          면접이나 프로필 촬영 전, 지원 직무와 상황에 어울리는 복장인지 점검할 수 있도록 돕습니다.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">첫인상 준비</span>
+          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">면접 불안 감소</span>
+          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">이미지 점검</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 하단 2개 (중앙 정렬) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:max-w-[816px] lg:mx-auto">
+
+      <!-- 카드 4: AI 모의면접 -->
+      <div class="ai-card group" role="article">
+        <div class="w-14 h-14 bg-primary-light rounded-2xl flex items-center justify-center mb-5 group-hover:bg-primary/10 transition-colors">
+          <i data-lucide="message-circle" class="w-7 h-7 text-primary"></i>
+        </div>
+        <h3 class="text-[32px] font-bold text-[#1F1F1F] mb-3">AI 모의면접</h3>
+        <p class="text-[20px] leading-[1.8] text-[#5F5F5F] mb-5">
+          예상 질문을 바탕으로 답변을 연습하고, 면접 전 말할 내용을 정리할 수 있도록 돕습니다.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">면접 연습</span>
+          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">답변 구조화</span>
+          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">자신감 향상</span>
+        </div>
+      </div>
+
+      <!-- 카드 5: AI 기업브리핑 -->
+      <div class="ai-card group" role="article">
+        <div class="w-14 h-14 bg-primary-light rounded-2xl flex items-center justify-center mb-5 group-hover:bg-primary/10 transition-colors">
+          <i data-lucide="building-2" class="w-7 h-7 text-primary"></i>
+        </div>
+        <h3 class="text-[32px] font-bold text-[#1F1F1F] mb-3">AI 기업브리핑</h3>
+        <p class="text-[20px] leading-[1.8] text-[#5F5F5F] mb-5">
+          지원하려는 기업과 직무 정보를 쉽게 이해할 수 있도록 핵심 내용을 요약해 제공합니다.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">기업 이해도 향상</span>
+          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">정보 탐색</span>
+          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">면접 준비 보완</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     이용 프로세스 (탭: 구직자 / 기업)
+     ============================================================ -->
+<section id="process" class="py-24 lg:py-36 bg-white">
+  <div class="max-w-[1212px] mx-auto px-6">
+
+    <!-- 섹션 헤더 -->
+    <div class="text-center max-w-[740px] mx-auto mb-12">
+      <span class="section-label">이용 방법</span>
+      <h2 class="text-[36px] md:text-[44px] lg:text-[48px] font-bold leading-[1.2] text-[#1F1F1F] mb-5 tracking-tight">
+        구직 준비부터 채용 연결까지<br>
+        단계별로 쉽게 진행합니다
+      </h2>
+      <p class="text-[19px] leading-[1.85] text-[#5F5F5F]">
+        구직자는 AI 기능을 활용해 지원 준비를 시작하고,
+        기업은 필요한 조건에 맞는 시니어 인재를 효율적으로 검토할 수 있습니다.
+      </p>
+    </div>
+
+    <!-- 탭 버튼 -->
+    <div class="flex justify-center mb-14" role="tablist" aria-label="이용자 구분 선택">
+      <div class="bg-cream border border-[#F1DDD4] rounded-2xl p-1.5 flex gap-1.5">
+        <button
+          id="tab-jobseeker"
+          role="tab"
+          aria-selected="true"
+          aria-controls="panel-jobseeker"
+          class="text-[17px] font-bold px-10 py-3.5 rounded-xl min-h-[52px] transition-all duration-200 bg-primary text-white shadow-md shadow-primary/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+          onclick="switchTab('jobseeker')"
+        >구직자</button>
+        <button
+          id="tab-company"
+          role="tab"
+          aria-selected="false"
+          aria-controls="panel-company"
+          class="text-[17px] font-bold px-10 py-3.5 rounded-xl min-h-[52px] transition-all duration-200 text-[#5F5F5F] hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+          onclick="switchTab('company')"
+        >기업</button>
+      </div>
+    </div>
+
+    <!-- 구직자 패널 -->
+    <div id="panel-jobseeker" role="tabpanel" aria-labelledby="tab-jobseeker">
+      <!-- 데스크탑: 4단계 가로 -->
+      <div class="hidden md:grid md:grid-cols-4 gap-6 relative">
+        <!-- 연결선 -->
+        <div class="absolute top-10 left-[12.5%] right-[12.5%] h-px bg-[#F1DDD4] hidden lg:block" aria-hidden="true"></div>
+
+        <div class="flex flex-col items-center text-center relative z-10">
+          <div class="w-20 h-20 bg-gradient-to-br from-primary to-coral rounded-2xl flex flex-col items-center justify-center mb-6 shadow-lg shadow-primary/25">
+            <span class="text-white/70 text-[10px] font-black uppercase tracking-wider">STEP</span>
+            <span class="text-white text-[24px] font-black leading-none">01</span>
+          </div>
+          <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2.5">기본 정보 입력</h3>
+          <p class="text-[17px] leading-[1.75] text-[#5F5F5F]">희망 직무, 근무 지역, 경력, 지원 목적을 간단히 입력합니다.</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center relative z-10">
+          <div class="w-20 h-20 bg-gradient-to-br from-coral to-[#FF9A3D] rounded-2xl flex flex-col items-center justify-center mb-6 shadow-lg shadow-coral/25">
+            <span class="text-white/70 text-[10px] font-black uppercase tracking-wider">STEP</span>
+            <span class="text-white text-[24px] font-black leading-none">02</span>
+          </div>
+          <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2.5">AI 구직 준비</h3>
+          <p class="text-[17px] leading-[1.75] text-[#5F5F5F]">AI 자기소개서, 증명사진, 복장 점검, 모의면접 기능으로 지원 준비를 시작합니다.</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center relative z-10">
+          <div class="w-20 h-20 bg-gradient-to-br from-[#FF9A3D] to-[#FFB347] rounded-2xl flex flex-col items-center justify-center mb-6 shadow-lg shadow-orange-200">
+            <span class="text-white/70 text-[10px] font-black uppercase tracking-wider">STEP</span>
+            <span class="text-white text-[24px] font-black leading-none">03</span>
+          </div>
+          <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2.5">기업 정보 확인</h3>
+          <p class="text-[17px] leading-[1.75] text-[#5F5F5F]">AI 기업브리핑을 통해 지원하려는 기업과 직무를 쉽게 이해합니다.</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center relative z-10">
+          <div class="w-20 h-20 bg-gradient-to-br from-[#FFB347] to-[#FFC66D] rounded-2xl flex flex-col items-center justify-center mb-6 shadow-lg shadow-amber-100">
+            <span class="text-white/70 text-[10px] font-black uppercase tracking-wider">STEP</span>
+            <span class="text-white text-[24px] font-black leading-none">04</span>
+          </div>
+          <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2.5">지원 및 연결</h3>
+          <p class="text-[17px] leading-[1.75] text-[#5F5F5F]">준비한 내용을 바탕으로 관심 있는 공고에 지원하고 기업과 연결됩니다.</p>
+        </div>
+      </div>
+
+      <!-- 모바일: 세로 타임라인 -->
+      <div class="md:hidden">
+        <div class="flex gap-5 mb-0">
+          <div class="flex flex-col items-center flex-shrink-0">
+            <div class="w-14 h-14 bg-gradient-to-br from-primary to-coral rounded-xl flex flex-col items-center justify-center shadow-md">
+              <span class="text-white/70 text-[9px] font-black">STEP</span>
+              <span class="text-white text-[28px] font-black leading-none">01</span>
+            </div>
+            <div class="flex-1 w-0.5 bg-[#F1DDD4] mt-3"></div>
+          </div>
+          <div class="pb-8 pt-1">
+            <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2">기본 정보 입력</h3>
+            <p class="text-[28px] leading-[1.8] text-[#5F5F5F]">희망 직무, 근무 지역, 경력, 지원 목적을 간단히 입력합니다.</p>
+          </div>
+        </div>
+        <div class="flex gap-5 mb-0">
+          <div class="flex flex-col items-center flex-shrink-0">
+            <div class="w-14 h-14 bg-gradient-to-br from-coral to-[#FF9A3D] rounded-xl flex flex-col items-center justify-center shadow-md">
+              <span class="text-white/70 text-[9px] font-black">STEP</span>
+              <span class="text-white text-[28px] font-black leading-none">02</span>
+            </div>
+            <div class="flex-1 w-0.5 bg-[#F1DDD4] mt-3"></div>
+          </div>
+          <div class="pb-8 pt-1">
+            <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2">AI 구직 준비</h3>
+            <p class="text-[28px] leading-[1.8] text-[#5F5F5F]">AI 자기소개서, 증명사진, 복장 점검, 모의면접 기능으로 지원 준비를 시작합니다.</p>
+          </div>
+        </div>
+        <div class="flex gap-5 mb-0">
+          <div class="flex flex-col items-center flex-shrink-0">
+            <div class="w-14 h-14 bg-gradient-to-br from-[#FF9A3D] to-[#FFB347] rounded-xl flex flex-col items-center justify-center shadow-md">
+              <span class="text-white/70 text-[9px] font-black">STEP</span>
+              <span class="text-white text-[28px] font-black leading-none">03</span>
+            </div>
+            <div class="flex-1 w-0.5 bg-[#F1DDD4] mt-3"></div>
+          </div>
+          <div class="pb-8 pt-1">
+            <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2">기업 정보 확인</h3>
+            <p class="text-[28px] leading-[1.8] text-[#5F5F5F]">AI 기업브리핑을 통해 지원하려는 기업과 직무를 쉽게 이해합니다.</p>
+          </div>
+        </div>
+        <div class="flex gap-5">
+          <div class="flex-shrink-0">
+            <div class="w-14 h-14 bg-gradient-to-br from-[#FFB347] to-[#FFC66D] rounded-xl flex flex-col items-center justify-center shadow-md">
+              <span class="text-white/70 text-[9px] font-black">STEP</span>
+              <span class="text-white text-[28px] font-black leading-none">04</span>
+            </div>
+          </div>
+          <div class="pt-1">
+            <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2">지원 및 연결</h3>
+            <p class="text-[28px] leading-[1.8] text-[#5F5F5F]">준비한 내용을 바탕으로 관심 있는 공고에 지원하고 기업과 연결됩니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 기업 패널 (기본 숨김) -->
+    <div id="panel-company" role="tabpanel" aria-labelledby="tab-company" class="hidden">
+      <!-- 데스크탑: 4단계 가로 -->
+      <div class="hidden md:grid md:grid-cols-4 gap-6 relative">
+        <div class="absolute top-10 left-[12.5%] right-[12.5%] h-px bg-[#F1DDD4] hidden lg:block" aria-hidden="true"></div>
+
+        <div class="flex flex-col items-center text-center relative z-10">
+          <div class="w-20 h-20 bg-gradient-to-br from-primary to-coral rounded-2xl flex flex-col items-center justify-center mb-6 shadow-lg shadow-primary/25">
+            <span class="text-white/70 text-[10px] font-black uppercase tracking-wider">STEP</span>
+            <span class="text-white text-[24px] font-black leading-none">01</span>
+          </div>
+          <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2.5">채용 정보 등록</h3>
+          <p class="text-[17px] leading-[1.75] text-[#5F5F5F]">필요한 직무, 근무 조건, 우대 경험을 등록합니다.</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center relative z-10">
+          <div class="w-20 h-20 bg-gradient-to-br from-coral to-[#FF9A3D] rounded-2xl flex flex-col items-center justify-center mb-6 shadow-lg shadow-coral/25">
+            <span class="text-white/70 text-[10px] font-black uppercase tracking-wider">STEP</span>
+            <span class="text-white text-[24px] font-black leading-none">02</span>
+          </div>
+          <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2.5">지원자 정보 확인</h3>
+          <p class="text-[17px] leading-[1.75] text-[#5F5F5F]">지원자의 경력, 자기소개서, 준비 상태를 한눈에 확인합니다.</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center relative z-10">
+          <div class="w-20 h-20 bg-gradient-to-br from-[#FF9A3D] to-[#FFB347] rounded-2xl flex flex-col items-center justify-center mb-6 shadow-lg shadow-orange-200">
+            <span class="text-white/70 text-[10px] font-black uppercase tracking-wider">STEP</span>
+            <span class="text-white text-[24px] font-black leading-none">03</span>
+          </div>
+          <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2.5">적합 인재 검토</h3>
+          <p class="text-[17px] leading-[1.75] text-[#5F5F5F]">직무 조건과 지원자 정보를 바탕으로 적합한 시니어 인재를 검토합니다.</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center relative z-10">
+          <div class="w-20 h-20 bg-gradient-to-br from-[#FFB347] to-[#FFC66D] rounded-2xl flex flex-col items-center justify-center mb-6 shadow-lg shadow-amber-100">
+            <span class="text-white/70 text-[10px] font-black uppercase tracking-wider">STEP</span>
+            <span class="text-white text-[24px] font-black leading-none">04</span>
+          </div>
+          <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2.5">면접 및 채용 진행</h3>
+          <p class="text-[17px] leading-[1.75] text-[#5F5F5F]">적합한 인재에게 면접을 제안하고 채용 과정을 진행합니다.</p>
+        </div>
+      </div>
+
+      <!-- 모바일: 세로 타임라인 -->
+      <div class="md:hidden">
+        <div class="flex gap-5 mb-0">
+          <div class="flex flex-col items-center flex-shrink-0">
+            <div class="w-14 h-14 bg-gradient-to-br from-primary to-coral rounded-xl flex flex-col items-center justify-center shadow-md">
+              <span class="text-white/70 text-[9px] font-black">STEP</span>
+              <span class="text-white text-[28px] font-black leading-none">01</span>
+            </div>
+            <div class="flex-1 w-0.5 bg-[#F1DDD4] mt-3"></div>
+          </div>
+          <div class="pb-8 pt-1">
+            <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2">채용 정보 등록</h3>
+            <p class="text-[28px] leading-[1.8] text-[#5F5F5F]">필요한 직무, 근무 조건, 우대 경험을 등록합니다.</p>
+          </div>
+        </div>
+        <div class="flex gap-5 mb-0">
+          <div class="flex flex-col items-center flex-shrink-0">
+            <div class="w-14 h-14 bg-gradient-to-br from-coral to-[#FF9A3D] rounded-xl flex flex-col items-center justify-center shadow-md">
+              <span class="text-white/70 text-[9px] font-black">STEP</span>
+              <span class="text-white text-[28px] font-black leading-none">02</span>
+            </div>
+            <div class="flex-1 w-0.5 bg-[#F1DDD4] mt-3"></div>
+          </div>
+          <div class="pb-8 pt-1">
+            <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2">지원자 정보 확인</h3>
+            <p class="text-[28px] leading-[1.8] text-[#5F5F5F]">지원자의 경력, 자기소개서, 준비 상태를 한눈에 확인합니다.</p>
+          </div>
+        </div>
+        <div class="flex gap-5 mb-0">
+          <div class="flex flex-col items-center flex-shrink-0">
+            <div class="w-14 h-14 bg-gradient-to-br from-[#FF9A3D] to-[#FFB347] rounded-xl flex flex-col items-center justify-center shadow-md">
+              <span class="text-white/70 text-[9px] font-black">STEP</span>
+              <span class="text-white text-[28px] font-black leading-none">03</span>
+            </div>
+            <div class="flex-1 w-0.5 bg-[#F1DDD4] mt-3"></div>
+          </div>
+          <div class="pb-8 pt-1">
+            <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2">적합 인재 검토</h3>
+            <p class="text-[28px] leading-[1.8] text-[#5F5F5F]">직무 조건과 지원자 정보를 바탕으로 적합한 시니어 인재를 검토합니다.</p>
+          </div>
+        </div>
+        <div class="flex gap-5">
+          <div class="flex-shrink-0">
+            <div class="w-14 h-14 bg-gradient-to-br from-[#FFB347] to-[#FFC66D] rounded-xl flex flex-col items-center justify-center shadow-md">
+              <span class="text-white/70 text-[9px] font-black">STEP</span>
+              <span class="text-white text-[28px] font-black leading-none">04</span>
+            </div>
+          </div>
+          <div class="pt-1">
+            <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2">면접 및 채용 진행</h3>
+            <p class="text-[28px] leading-[1.8] text-[#5F5F5F]">적합한 인재에게 면접을 제안하고 채용 과정을 진행합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     기업 채용 배너 (중간 CTA)
+     ============================================================ -->
+<section id="hiring" class="py-20 lg:py-24">
+  <div class="max-w-[1212px] mx-auto px-6">
+    <div class="bg-gradient-to-r from-primary via-coral to-[#FF9A3D] rounded-3xl overflow-hidden shadow-2xl shadow-primary/20">
+      <div class="relative px-8 py-14 md:px-12 lg:px-16 lg:py-16">
+        <!-- 배경 장식 -->
+        <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+          <div class="absolute -top-16 -right-16 w-64 h-64 bg-white/8 rounded-full"></div>
+          <div class="absolute -bottom-12 left-16 w-48 h-48 bg-white/6 rounded-full"></div>
+        </div>
+
+        <div class="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
+          <!-- 좌측: 카피 & 태그 -->
+          <div class="flex-1">
+            <h2 class="text-[28px] md:text-[34px] lg:text-[40px] font-bold leading-[1.25] text-white mb-4 tracking-tight">
+              경험 있는 시니어 인재,<br>
+              더 쉽게 만나고 검토하세요
+            </h2>
+            <p class="text-[19px] leading-[1.85] text-white/85 mb-7">
+              채용공고 등록부터 지원자 정보 확인, 면접 제안까지<br class="hidden md:block">
+              넥스트파트너가 기업의 채용 과정을 더 효율적으로 돕습니다.
+            </p>
+            <div class="flex flex-wrap gap-2.5" role="list" aria-label="기업 채용 서비스 특징">
+              <span role="listitem" class="text-[14px] font-semibold bg-white/20 text-white border border-white/30 px-4 py-2 rounded-full backdrop-blur-sm">시니어 인재풀</span>
+              <span role="listitem" class="text-[14px] font-semibold bg-white/20 text-white border border-white/30 px-4 py-2 rounded-full backdrop-blur-sm">지원자 검토</span>
+              <span role="listitem" class="text-[14px] font-semibold bg-white/20 text-white border border-white/30 px-4 py-2 rounded-full backdrop-blur-sm">AI 기반 정보 정리</span>
+              <span role="listitem" class="text-[14px] font-semibold bg-white/20 text-white border border-white/30 px-4 py-2 rounded-full backdrop-blur-sm">면접 제안</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     신뢰 지표 / 운영 강점
+     ============================================================ -->
+<section id="strengths" class="py-24 lg:py-36 bg-cream">
+  <div class="max-w-[1212px] mx-auto px-6">
+
+    <!-- 섹션 헤더 -->
+    <div class="text-center max-w-[740px] mx-auto mb-16">
+      <span class="section-label">운영 강점</span>
+      <h2 class="text-[36px] md:text-[44px] lg:text-[48px] font-bold leading-[1.2] text-[#1F1F1F] mb-5 tracking-tight">
+        구직자와 기업 모두에게<br>
+        안심할 수 있는 연결 경험을 제공합니다
+      </h2>
+      <p class="text-[19px] leading-[1.85] text-[#5F5F5F]">
+        넥스트파트너는 액티브 시니어의 구직 여정과 기업의 채용 흐름을 함께 고려해
+        더 쉽고 명확한 연결 경험을 설계합니다.
+      </p>
+    </div>
+
+    <!-- 강점 카드: 2×2 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+
+      <div class="strength-card" role="article">
+        <div class="flex items-start gap-5">
+          <div class="w-14 h-14 bg-primary-light rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors">
+            <i data-lucide="users" class="w-7 h-7 text-primary"></i>
+          </div>
+          <div>
+            <span class="text-[12px] font-bold text-primary uppercase tracking-wider mb-2 block">구직자 지원</span>
+            <h3 class="text-[32px] font-bold text-[#1F1F1F] mb-3">50+ 맞춤 구직 흐름</h3>
+            <p class="text-[20px] leading-[1.8] text-[#5F5F5F]">액티브 시니어가 복잡한 절차에 막히지 않도록 간결한 정보 구조와 큰 CTA를 제공합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="strength-card" role="article">
+        <div class="flex items-start gap-5">
+          <div class="w-14 h-14 bg-primary-light rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors">
+            <i data-lucide="cpu" class="w-7 h-7 text-primary"></i>
+          </div>
+          <div>
+            <span class="text-[12px] font-bold text-primary uppercase tracking-wider mb-2 block">AI 기술</span>
+            <h3 class="text-[32px] font-bold text-[#1F1F1F] mb-3">AI 기반 지원 준비</h3>
+            <p class="text-[20px] leading-[1.8] text-[#5F5F5F]">자기소개서, 사진, 복장, 면접, 기업 이해까지 실제 지원 과정에 필요한 준비를 돕습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="strength-card" role="article">
+        <div class="flex items-start gap-5">
+          <div class="w-14 h-14 bg-primary-light rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors">
+            <i data-lucide="briefcase" class="w-7 h-7 text-primary"></i>
+          </div>
+          <div>
+            <span class="text-[12px] font-bold text-primary uppercase tracking-wider mb-2 block">기업 지원</span>
+            <h3 class="text-[32px] font-bold text-[#1F1F1F] mb-3">기업 채용 검토 지원</h3>
+            <p class="text-[20px] leading-[1.8] text-[#5F5F5F]">기업이 지원자 정보를 빠르게 이해하고 검토할 수 있도록 채용 흐름을 정리합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="strength-card" role="article">
+        <div class="flex items-start gap-5">
+          <div class="w-14 h-14 bg-primary-light rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors">
+            <i data-lucide="link-2" class="w-7 h-7 text-primary"></i>
+          </div>
+          <div>
+            <span class="text-[12px] font-bold text-primary uppercase tracking-wider mb-2 block">연결 구조</span>
+            <h3 class="text-[32px] font-bold text-[#1F1F1F] mb-3">구직자·기업 연결 구조</h3>
+            <p class="text-[20px] leading-[1.8] text-[#5F5F5F]">구직자에게는 더 쉬운 지원 경험을, 기업에게는 더 효율적인 인재 검토 경험을 제공합니다.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 보조 문구형 지표 (수치 없음) -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="text-center p-6 bg-white rounded-2xl border border-[#F1DDD4] hover:border-primary/30 hover:shadow-md transition-all duration-300">
+        <i data-lucide="check-circle-2" class="w-8 h-8 text-primary mx-auto mb-3"></i>
+        <p class="text-[16px] font-bold text-[#1F1F1F]">구직 준비 지원</p>
+      </div>
+      <div class="text-center p-6 bg-white rounded-2xl border border-[#F1DDD4] hover:border-primary/30 hover:shadow-md transition-all duration-300">
+        <i data-lucide="search" class="w-8 h-8 text-primary mx-auto mb-3"></i>
+        <p class="text-[16px] font-bold text-[#1F1F1F]">기업 정보 이해</p>
+      </div>
+      <div class="text-center p-6 bg-white rounded-2xl border border-[#F1DDD4] hover:border-primary/30 hover:shadow-md transition-all duration-300">
+        <i data-lucide="mic" class="w-8 h-8 text-primary mx-auto mb-3"></i>
+        <p class="text-[16px] font-bold text-[#1F1F1F]">면접 대비</p>
+      </div>
+      <div class="text-center p-6 bg-white rounded-2xl border border-[#F1DDD4] hover:border-primary/30 hover:shadow-md transition-all duration-300">
+        <i data-lucide="link-2" class="w-8 h-8 text-primary mx-auto mb-3"></i>
+        <p class="text-[16px] font-bold text-[#1F1F1F]">채용 연결</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     Final CTA
+     ============================================================ -->
+<section id="cta" class="py-28 lg:py-40 relative overflow-hidden bg-gradient-to-br from-primary via-[#FF7055] to-[#FF9A3D]">
+  <!-- 배경 장식 -->
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <div class="absolute -top-32 -left-32 w-[500px] h-[500px] bg-white/6 rounded-full"></div>
+    <div class="absolute -bottom-24 -right-24 w-[450px] h-[450px] bg-white/5 rounded-full"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/3 rounded-full"></div>
+  </div>
+
+  <div class="max-w-[840px] mx-auto px-6 text-center relative z-10">
+    <h2 class="text-[36px] md:text-[46px] lg:text-[54px] font-bold leading-[1.2] text-white mb-6 tracking-tight">
+      경험이 다시 일로 이어지는 순간,<br>
+      넥스트파트너에서 시작하세요
+    </h2>
+    <p class="text-[19px] md:text-[32px] leading-[1.85] text-white/85 mb-3">
+      구직자에게는 AI 기반의 쉬운 지원 준비를,<br>
+      기업에게는 경험 있는 시니어 인재와의 효율적인 연결을 제공합니다.
+    </p>
+    <p class="text-[17px] text-white/65 mb-12">
+      자기소개서 작성부터 면접 준비, 기업 채용 연결까지 한 곳에서 경험해보세요.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer id="contact" class="bg-[#181818] text-white py-12">
+  <div class="max-w-[1212px] mx-auto px-6">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
+      <!-- 브랜드 -->
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 bg-gradient-to-br from-primary to-[#FF9A3D] rounded-xl flex items-center justify-center shadow-sm flex-shrink-0">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M10 2L17 6V14L10 18L3 14V6L10 2Z" fill="white" fill-opacity="0.85"/>
+            <path d="M10 5.5L13.5 7.5V11.5L10 13.5L6.5 11.5V7.5L10 5.5Z" fill="white"/>
+          </svg>
+        </div>
+        <span class="font-bold text-[32px] tracking-tight">넥스트파트너</span>
+      </div>
+      <!-- 이메일 -->
+      <div class="flex items-center gap-2 text-[15px] text-gray-400">
+        <i data-lucide="mail" class="w-4 h-4 text-primary flex-shrink-0"></i>
+        contact@nextpartner.co.kr
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-3">
+      <p class="text-[13px] text-gray-500">© 2025 넥스트파트너. All rights reserved.</p>
+      <p class="text-[13px] text-gray-500">AI 시니어 일자리 플랫폼</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     JavaScript
+     ============================================================ -->
+<script>
+  // Lucide 아이콘 초기화
+  lucide.createIcons();
+
+  // ──────────────────────────────────────────
+  // 이용 프로세스 탭 전환
+  // ──────────────────────────────────────────
+  function switchTab(tab) {
+    const tabJobseeker  = document.getElementById('tab-jobseeker');
+    const tabCompany    = document.getElementById('tab-company');
+    const panelJobseeker = document.getElementById('panel-jobseeker');
+    const panelCompany   = document.getElementById('panel-company');
+
+    const activeClasses   = ['bg-primary', 'text-white', 'shadow-md'];
+    const inactiveClasses = ['text-[#5F5F5F]', 'hover:text-primary'];
+
+    if (tab === 'jobseeker') {
+      tabJobseeker.classList.add(...activeClasses);
+      tabJobseeker.classList.remove(...inactiveClasses);
+      tabJobseeker.setAttribute('aria-selected', 'true');
+
+      tabCompany.classList.remove(...activeClasses);
+      tabCompany.classList.add(...inactiveClasses);
+      tabCompany.setAttribute('aria-selected', 'false');
+
+      panelJobseeker.classList.remove('hidden');
+      panelCompany.classList.add('hidden');
+    } else {
+      tabCompany.classList.add(...activeClasses);
+      tabCompany.classList.remove(...inactiveClasses);
+      tabCompany.setAttribute('aria-selected', 'true');
+
+      tabJobseeker.classList.remove(...activeClasses);
+      tabJobseeker.classList.add(...inactiveClasses);
+      tabJobseeker.setAttribute('aria-selected', 'false');
+
+      panelCompany.classList.remove('hidden');
+      panelJobseeker.classList.add('hidden');
+    }
+  }
+
+  // 탭 키보드 접근성
+  document.querySelectorAll('[role="tab"]').forEach(tab => {
+    tab.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        tab.click();
+      }
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        const tabs = [...document.querySelectorAll('[role="tab"]')];
+        const idx  = tabs.indexOf(tab);
+        const next = e.key === 'ArrowRight'
+          ? tabs[(idx + 1) % tabs.length]
+          : tabs[(idx - 1 + tabs.length) % tabs.length];
+        next.click();
+        next.focus();
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

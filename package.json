@@ -1,0 +1,12 @@
+{
+  "name": "nextpartner-landing",
+  "version": "1.0.0",
+  "description": "넥스트파트너 AI 시니어 일자리 플랫폼 랜딩페이지",
+  "scripts": {
+    "build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "dev": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}

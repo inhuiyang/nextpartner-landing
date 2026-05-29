@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .section-label {
+    @apply text-[20px] font-bold text-primary uppercase tracking-widest mb-5 block;
+  }
+  .ai-card {
+    @apply bg-white rounded-2xl p-7 border border-[#F1DDD4] hover:-translate-y-1 hover:border-primary hover:shadow-xl transition-all duration-300 cursor-default;
+  }
+  .strength-card {
+    @apply bg-white rounded-2xl p-8 border border-[#F1DDD4] hover:shadow-lg hover:border-primary/40 transition-all duration-300;
+  }
+}
