@@ -6,10 +6,6 @@
   <meta name="description" content="넥스트파트너 - 50+ 액티브 시니어를 위한 AI 기반 일자리 플랫폼. AI 자기소개서, 증명사진, 모의면접으로 구직 준비부터 채용 연결까지." />
   <title>넥스트파트너 - AI 시니어 일자리 플랫폼</title>
 
-  <!-- Pretendard Variable Font -->
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
-
   <!-- Compiled Tailwind CSS -->
   <link rel="stylesheet" href="dist/output.css" />
 
@@ -17,283 +13,1242 @@
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
   <style>
-    @keyframes scroll-fade {
-      0%, 100% { opacity: 0.5; transform: translateY(0); }
-      50%       { opacity: 1;   transform: translateY(6px); }
+    /* ═══════════════════════════════════════════════
+       LOCAL PRETENDARD FONTS
+    ═══════════════════════════════════════════════ */
+    @font-face {
+      font-family: 'Pretendard';
+      src: url('src/fonts/Pretendard-Regular.woff2') format('woff2');
+      font-weight: 400; font-style: normal; font-display: swap;
     }
-    .scroll-cue { animation: scroll-fade 2s ease-in-out infinite; }
+    @font-face {
+      font-family: 'Pretendard';
+      src: url('src/fonts/Pretendard-Medium.woff2') format('woff2');
+      font-weight: 500; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Pretendard';
+      src: url('src/fonts/Pretendard-SemiBold.woff2') format('woff2');
+      font-weight: 600; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Pretendard';
+      src: url('src/fonts/Pretendard-Bold.woff2') format('woff2');
+      font-weight: 700; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Pretendard';
+      src: url('src/fonts/Pretendard-ExtraBold.woff2') format('woff2');
+      font-weight: 800; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Pretendard';
+      src: url('src/fonts/Pretendard-Black.woff2') format('woff2');
+      font-weight: 900; font-style: normal; font-display: swap;
+    }
+
+    /* ═══════════════════════════════════════════════
+       DESIGN TOKENS
+    ═══════════════════════════════════════════════ */
+    :root {
+      --bg-0:      #060B17;
+      --bg-1:      #09101E;
+      --bg-2:      #0D1526;
+      --surface:   rgba(255,255,255,0.04);
+      --surface-2: rgba(255,255,255,0.07);
+      --border:    rgba(255,255,255,0.07);
+      --border-m:  rgba(255,255,255,0.14);
+      --border-h:  rgba(255,255,255,0.26);
+      --coral:     #FF6B4A;
+      --coral-2:   #FF8C71;
+      --amber:     #FF9A3D;
+      --teal:      #00DEB8;
+      --grad:      linear-gradient(135deg, #FF6B4A, #FF9A3D);
+      --text-1:    #EEF2FF;
+      --text-2:    #94A3B8;
+      --text-3:    #4E6080;
+      --r:         14px;
+      --r-lg:      20px;
+      --r-xl:      28px;
+    }
+
+    /* ═══════════════════════════════════════════════
+       BASE RESET
+    ═══════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-0);
+      color: var(--text-1);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* Tailwind bg-white/bg-cream/text-[#1F1F1F] overrides */
+    .bg-white  { background: var(--surface) !important; }
+    .bg-cream  { background: var(--bg-1) !important; background-image: none !important; }
+    .text-\[\#1F1F1F\] { color: var(--text-1) !important; }
+    .text-\[\#5F5F5F\] { color: var(--text-2) !important; }
+    .border-\[\#F1DDD4\] { border-color: var(--border-m) !important; }
+    .bg-\[\#141414\]  { background: #040810 !important; }
+
+    /* ═══════════════════════════════════════════════
+       SHARED COMPONENTS
+    ═══════════════════════════════════════════════ */
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 20px;
+    }
+    .section-tag::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1.5px;
+      background: var(--coral);
+      opacity: 0.6;
+      flex-shrink: 0;
+    }
+
+    .wrap { max-width: 1212px; margin: 0 auto; padding: 0 24px; }
+
+    /* Scroll reveal */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    }
+    [data-reveal].revealed { opacity: 1 !important; transform: none !important; }
+    [data-reveal-delay="1"] { transition-delay: 0.1s; }
+    [data-reveal-delay="2"] { transition-delay: 0.2s; }
+    [data-reveal-delay="3"] { transition-delay: 0.3s; }
+    [data-reveal-delay="4"] { transition-delay: 0.4s; }
+
+    /* ═══════════════════════════════════════════════
+       1. HERO
+    ═══════════════════════════════════════════════ */
+    #hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--bg-0);
+    }
+    #hero video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.25;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 100%, rgba(255,107,74,0.12) 0%, transparent 70%),
+        linear-gradient(to bottom, rgba(6,11,23,0.3) 0%, rgba(6,11,23,0.6) 100%);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 24px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,107,74,0.1);
+      border: 1px solid rgba(255,107,74,0.3);
+      color: var(--coral-2);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 99px;
+      margin-bottom: 32px;
+      backdrop-filter: blur(8px);
+      animation: fadeUp 0.8s 0.2s cubic-bezier(0.16,1,0.3,1) both;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--coral);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(0.7); }
+    }
+    .hero-title {
+      font-weight: 900;
+      line-height: 0.88;
+      letter-spacing: -0.04em;
+      font-size: clamp(52px, 10vw, 140px);
+      margin: 0;
+    }
+    .hero-line-1 {
+      display: block;
+      color: var(--text-1);
+      animation: fadeUp 0.9s 0.35s cubic-bezier(0.16,1,0.3,1) both;
+    }
+    .hero-line-2 {
+      display: block;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeUp 0.9s 0.5s cubic-bezier(0.16,1,0.3,1) both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: none; }
+    }
+    /* corner brackets */
+    .hero-brackets {
+      position: absolute;
+      inset: 40px;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-brackets::before,
+    .hero-brackets::after {
+      content: '';
+      position: absolute;
+      width: 32px; height: 32px;
+      border-color: rgba(255,107,74,0.3);
+      border-style: solid;
+    }
+    .hero-brackets::before {
+      top: 0; left: 0;
+      border-width: 1.5px 0 0 1.5px;
+    }
+    .hero-brackets::after {
+      bottom: 0; right: 0;
+      border-width: 0 1.5px 1.5px 0;
+    }
+    /* scroll cue */
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      animation: fadeUp 1s 0.8s both;
+    }
+    .hero-scroll span {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+    .hero-scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(255,107,74,0.6), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%, 100% { transform: scaleY(1); opacity: 0.6; }
+      50%       { transform: scaleY(0.5) translateY(20px); opacity: 0.3; }
+    }
+
+    /* ═══════════════════════════════════════════════
+       2. BRAND STORY — Split layout + value cards
+    ═══════════════════════════════════════════════ */
+    #about {
+      background: var(--bg-1);
+      position: relative;
+      overflow: hidden;
+    }
+    #about::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,107,74,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .about-inner {
+      max-width: 1212px;
+      margin: 0 auto;
+      padding: 100px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .about-inner { grid-template-columns: 1fr; gap: 56px; padding: 72px 24px; }
+    }
+    .about-story-heading {
+      font-size: clamp(34px, 4.5vw, 52px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: var(--text-1);
+      margin: 0 0 28px;
+    }
+    .about-lead {
+      font-size: 18px;
+      line-height: 1.85;
+      color: var(--text-2);
+      margin-bottom: 24px;
+      font-weight: 500;
+      padding-left: 16px;
+      border-left: 2px solid var(--coral);
+    }
+    .about-body p {
+      font-size: 16px;
+      line-height: 1.9;
+      color: var(--text-3);
+      margin-bottom: 16px;
+    }
+    .about-body p:last-child { margin-bottom: 0; }
+
+    /* Value cards stack */
+    .value-stack {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .value-stack::before {
+      content: '';
+      position: absolute;
+      left: 22px;
+      top: 44px;
+      bottom: 44px;
+      width: 1px;
+      background: linear-gradient(to bottom, rgba(255,107,74,0.5), rgba(255,154,61,0.5));
+    }
+    .value-card {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      margin-bottom: 12px;
+      position: relative;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .value-card:last-child { margin-bottom: 0; }
+    .value-card:hover {
+      border-color: rgba(255,107,74,0.3);
+      background: rgba(255,107,74,0.04);
+    }
+    .value-num {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--grad);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 900;
+      color: white;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .value-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-1);
+      margin-bottom: 6px;
+    }
+    .value-desc {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-2);
+    }
+
+    /* ═══════════════════════════════════════════════
+       3. AI FEATURES — Dark bento + glow cards
+    ═══════════════════════════════════════════════ */
+    #ai-features {
+      background: var(--bg-0);
+      position: relative;
+      overflow: hidden;
+    }
+    /* Subtle grid background */
+    #ai-features::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .ai-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 56px;
+    }
+    .ai-heading {
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      color: var(--text-1);
+      margin-bottom: 16px;
+    }
+    .ai-sub {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--text-2);
+    }
+    /* AI cards */
+    .ai-grid-top { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+    .ai-grid-bot { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    @media (max-width: 900px) {
+      .ai-grid-top { grid-template-columns: 1fr; }
+      .ai-grid-bot { grid-template-columns: 1fr; }
+    }
+    @media (min-width: 640px) and (max-width: 900px) {
+      .ai-grid-top { grid-template-columns: repeat(2, 1fr); }
+      .ai-grid-bot { grid-template-columns: repeat(2, 1fr); }
+    }
+    .ai-card-new {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: 32px;
+      overflow: hidden;
+      cursor: default;
+      transition: border-color 0.4s, transform 0.4s cubic-bezier(0.16,1,0.3,1),
+                  box-shadow 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+    .ai-card-new::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--grad);
+      opacity: 0;
+      transition: opacity 0.35s;
+    }
+    .ai-card-new:hover {
+      border-color: rgba(255,107,74,0.25);
+      transform: translateY(-5px);
+      box-shadow: 0 24px 48px -12px rgba(255,107,74,0.15), 0 0 0 1px rgba(255,107,74,0.08);
+    }
+    .ai-card-new:hover::before { opacity: 1; }
+    /* Card number watermark */
+    .ai-card-num {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 72px;
+      font-weight: 900;
+      color: rgba(255,255,255,0.04);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      pointer-events: none;
+    }
+    /* Card icon */
+    .ai-icon-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(255,107,74,0.1);
+      border: 1px solid rgba(255,107,74,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .ai-icon-wrap svg { color: var(--coral); }
+    .ai-card-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-1);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .ai-card-desc {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text-2);
+      margin-bottom: 18px;
+    }
+    .ai-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .ai-tag {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 99px;
+      background: rgba(255,107,74,0.08);
+      border: 1px solid rgba(255,107,74,0.15);
+      color: var(--coral-2);
+    }
+
+    /* ═══════════════════════════════════════════════
+       4. PROCESS — Timeline with step cards
+    ═══════════════════════════════════════════════ */
+    #process {
+      background: var(--bg-2);
+      position: relative;
+    }
+    .process-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 48px;
+    }
+    .section-heading {
+      font-size: clamp(28px, 4vw, 46px);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      color: var(--text-1);
+      margin-bottom: 14px;
+    }
+    .section-sub {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--text-2);
+    }
+
+    /* Tab redesign */
+    .tab-bar {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 48px;
+    }
+    .tab-wrap {
+      display: flex;
+      background: var(--surface);
+      border: 1px solid var(--border-m);
+      border-radius: 16px;
+      padding: 5px;
+      gap: 4px;
+    }
+    .tab-btn {
+      font-family: 'Pretendard', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 10px 36px;
+      border-radius: 11px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16,1,0.3,1);
+      background: transparent;
+      color: var(--text-3);
+      min-height: 48px;
+    }
+    .tab-btn[aria-selected="true"] {
+      background: var(--grad);
+      color: white;
+      box-shadow: 0 4px 16px rgba(255,107,74,0.3);
+    }
+    .tab-btn:not([aria-selected="true"]):hover {
+      color: var(--text-2);
+      background: var(--surface-2);
+    }
+
+    /* Step layout desktop */
+    .step-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      position: relative;
+    }
+    @media (max-width: 768px) { .step-grid { grid-template-columns: 1fr; } }
+    /* Connecting line */
+    .step-line {
+      position: absolute;
+      top: 28px;
+      left: calc(12.5% + 10px);
+      right: calc(12.5% + 10px);
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,107,74,0.4) 20%, rgba(255,154,61,0.4) 80%, transparent);
+      display: none;
+    }
+    @media (min-width: 1024px) { .step-line { display: block; } }
+
+    .step-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .step-num-wrap {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: var(--grad);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(255,107,74,0.25);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .step-card:hover .step-num-wrap {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(255,107,74,0.35);
+    }
+    .step-num-wrap .step-label {
+      font-size: 8px;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.7);
+      text-transform: uppercase;
+    }
+    .step-num-wrap .step-n {
+      font-size: 20px;
+      font-weight: 900;
+      color: white;
+      line-height: 1;
+    }
+    .step-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-1);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .step-desc {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-2);
+    }
+
+    /* Mobile step layout */
+    .step-mobile { display: none; }
+    @media (max-width: 767px) {
+      .step-mobile { display: flex; flex-direction: column; }
+      .step-desktop { display: none; }
+    }
+    @media (min-width: 768px) {
+      .step-mobile { display: none; }
+      .step-desktop { display: block; }
+    }
+    .step-row-mobile {
+      display: flex;
+      gap: 16px;
+      padding-bottom: 0;
+    }
+    .step-timeline-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .step-line-v {
+      flex: 1;
+      width: 1px;
+      background: linear-gradient(to bottom, rgba(255,107,74,0.5), rgba(255,154,61,0.3));
+      margin-top: 8px;
+    }
+    .step-content-col { padding-bottom: 32px; padding-top: 4px; }
+    .step-title-m { font-size: 20px; font-weight: 800; color: var(--text-1); margin-bottom: 6px; }
+    .step-desc-m { font-size: 17px; line-height: 1.8; color: var(--text-2); }
+
+    /* ═══════════════════════════════════════════════
+       5. HIRING BANNER — Full gradient + diagonal
+    ═══════════════════════════════════════════════ */
+    #hiring {
+      padding: 80px 24px;
+      background: var(--bg-1);
+    }
+    .hiring-card {
+      background: var(--grad);
+      border-radius: 28px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 32px 64px -16px rgba(255,107,74,0.3);
+    }
+    .hiring-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(-55deg,
+          rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px,
+          transparent 1px, transparent 16px);
+      pointer-events: none;
+    }
+    .hiring-card::after {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      pointer-events: none;
+    }
+    .hiring-inner {
+      position: relative;
+      z-index: 1;
+      padding: 56px 56px;
+      max-width: 1212px;
+      margin: 0 auto;
+    }
+    @media (max-width: 768px) { .hiring-inner { padding: 40px 28px; } }
+    .hiring-heading {
+      font-size: clamp(24px, 3.5vw, 40px);
+      font-weight: 900;
+      line-height: 1.2;
+      color: white;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+    .hiring-sub {
+      font-size: 17px;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 24px;
+      max-width: 540px;
+    }
+    .hiring-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .hiring-tag {
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 16px;
+      border-radius: 99px;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: white;
+      backdrop-filter: blur(8px);
+    }
+
+    /* ═══════════════════════════════════════════════
+       6. STRENGTHS — Bento grid
+    ═══════════════════════════════════════════════ */
+    #strengths {
+      background: var(--bg-0);
+      position: relative;
+    }
+    .strengths-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 56px;
+    }
+    .str-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 640px) { .str-grid { grid-template-columns: 1fr; } }
+
+    .str-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.4s, transform 0.4s cubic-bezier(0.16,1,0.3,1),
+                  box-shadow 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+    .str-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 0;
+      background: var(--grad);
+      transition: height 0.45s cubic-bezier(0.16,1,0.3,1);
+    }
+    .str-card:hover {
+      border-color: rgba(255,107,74,0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(255,107,74,0.1);
+    }
+    .str-card:hover::before { height: 100%; }
+    .str-icon-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(255,107,74,0.1);
+      border: 1px solid rgba(255,107,74,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .str-icon-wrap svg { color: var(--coral); }
+    .str-badge {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .str-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-1);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .str-desc {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-2);
+    }
+
+    /* Indicator row */
+    .ind-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 640px) { .ind-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .ind-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .ind-card:hover {
+      border-color: rgba(255,107,74,0.25);
+      transform: translateY(-2px);
+    }
+    .ind-card svg { color: var(--coral); }
+    .ind-label {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-1);
+      text-align: center;
+    }
+
+    /* ═══════════════════════════════════════════════
+       7. FINAL CTA — Ambient glow dark
+    ═══════════════════════════════════════════════ */
+    #cta {
+      background: var(--bg-0);
+      position: relative;
+      overflow: hidden;
+    }
+    #cta::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 800px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,107,74,0.1) 0%, rgba(255,154,61,0.05) 40%, transparent 70%);
+      pointer-events: none;
+    }
+    /* Lattice pattern */
+    #cta::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(60deg, rgba(255,255,255,0.018) 0px, rgba(255,255,255,0.018) 1px, transparent 1px, transparent 48px),
+        repeating-linear-gradient(-60deg, rgba(255,255,255,0.018) 0px, rgba(255,255,255,0.018) 1px, transparent 1px, transparent 48px);
+      pointer-events: none;
+    }
+    .cta-inner {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 120px 24px;
+    }
+    .cta-heading {
+      font-size: clamp(30px, 5vw, 54px);
+      font-weight: 900;
+      line-height: 1.18;
+      letter-spacing: -0.04em;
+      color: var(--text-1);
+      margin-bottom: 24px;
+    }
+    .cta-heading span {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .cta-sub-lg {
+      font-size: clamp(16px, 2.5vw, 22px);
+      line-height: 1.8;
+      color: var(--text-2);
+      margin-bottom: 12px;
+    }
+    .cta-sub-sm {
+      font-size: 15px;
+      color: var(--text-3);
+    }
+    /* Decorative orbit ring */
+    .cta-ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,107,74,0.08);
+      pointer-events: none;
+    }
+    .cta-ring-2 {
+      width: 350px;
+      height: 350px;
+      border-color: rgba(255,107,74,0.05);
+    }
+
+    /* ═══════════════════════════════════════════════
+       8. FOOTER
+    ═══════════════════════════════════════════════ */
+    #contact {
+      background: #040810;
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      max-width: 1212px;
+      margin: 0 auto;
+      padding: 48px 24px 36px;
+    }
+    .footer-top {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-logo {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: var(--grad);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .footer-name {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-1);
+      letter-spacing: -0.02em;
+    }
+    .footer-email {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--text-3);
+    }
+    .footer-email svg { color: var(--coral); }
+    .footer-divider {
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 24px;
+    }
+    .footer-bot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .footer-copy { font-size: 13px; color: var(--text-3); }
+
+    /* ═══════════════════════════════════════════════
+       SECTION PADDING (shared)
+    ═══════════════════════════════════════════════ */
+    .sec-pad { padding: 100px 0; }
+    @media (max-width: 768px) { .sec-pad { padding: 72px 0; } }
+
+    /* ═══════════════════════════════════════════════
+       TAILWIND OVERRIDES
+    ═══════════════════════════════════════════════ */
+    /* Kill old section-label styling */
+    .section-label { display: none !important; }
   </style>
 </head>
 
-<body class="bg-white text-[#1F1F1F] antialiased">
+<body>
 
 
-<!-- ============================================================
-     HERO - 전체화면 영상
-     ============================================================ -->
-<section id="hero" class="relative h-screen overflow-hidden">
+<!-- ════════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════ -->
+<section id="hero">
   <video
     src="video/nextpartner_intro.mp4"
-    autoplay
-    muted
-    loop
-    playsinline
-    class="absolute inset-0 w-full h-full object-cover"
+    autoplay muted loop playsinline
     aria-label="넥스트파트너 서비스 소개 영상"
   ></video>
-  <div class="absolute inset-0 bg-gradient-to-b from-black/35 via-black/15 to-black/55" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-brackets" aria-hidden="true"></div>
 
-  <!-- 중앙 텍스트 -->
-  <div class="absolute inset-0 flex items-center justify-center px-6">
-    <h1 class="text-center font-black text-white leading-[0.95] tracking-tighter
-                text-[56px] sm:text-[80px] md:text-[100px] lg:text-[120px] xl:text-[140px]">
-      Senior Talent<br>Marketplace
+  <div class="hero-content">
+    <div class="hero-badge" aria-hidden="true">AI 시니어 일자리 플랫폼</div>
+    <h1 class="hero-title">
+      <span class="hero-line-1">Senior Talent</span>
+      <span class="hero-line-2">Marketplace</span>
     </h1>
   </div>
 
-  <!-- 스크롤 유도 -->
-  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2.5 scroll-cue" aria-hidden="true">
-    <span class="text-white/55 text-[11px] font-semibold tracking-[0.22em] uppercase">Scroll</span>
-    <svg class="w-5 h-5 text-white/55" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-    </svg>
+  <div class="hero-scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
   </div>
 </section>
 
 
-<!-- ============================================================
-     브랜드 스토리 (구 Hero 텍스트 + 스토리 통합)
-     ============================================================ -->
-<section id="about" class="bg-white">
+<!-- ════════════════════════════════════════════════
+     BRAND STORY
+════════════════════════════════════════════════ -->
+<section id="about">
+  <div class="about-inner">
 
-  <!-- 브랜드 스토리 2열 -->
-  <div class="py-24 lg:py-32 bg-cream">
-    <div class="max-w-[1212px] mx-auto px-6">
-      <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-
-        <!-- 좌측: 스토리 텍스트 -->
-        <div>
-          <span class="section-label">Brand Story</span>
-          <h3 class="text-[36px] md:text-[42px] lg:text-[48px] font-bold leading-[1.2] text-[#1F1F1F] mb-7 tracking-tight">
-            시니어의 경험이<br>
-            다음 기회로<br>
-            이어지도록
-          </h3>
-          <p class="text-[32px] leading-[1.85] text-[#5F5F5F] mb-8 font-medium">
-            일하고 싶은 시니어와 좋은 인재가 필요한 기업 사이에는
-            아직 충분히 연결되지 못한 가능성이 있습니다.
-          </p>
-          <div class="space-y-5 text-[19px] leading-[1.9] text-[#5F5F5F]">
-            <p>
-              넥스트파트너는 50+ 액티브 시니어가 가진 경험과 태도, 일에 대한 책임감이
-              다시 의미 있는 기회로 이어질 수 있도록 돕는 플랫폼입니다.
-            </p>
-            <p>
-              구직자에게는 자기소개서 작성, 사진 준비, 면접 대비처럼 부담스러운 과정을
-              AI 기능으로 더 쉽게 시작할 수 있도록 돕고, 기업에게는 필요한 직무에 맞는
-              시니어 인재를 효율적으로 검토할 수 있는 채용 연결 흐름을 제공합니다.
-            </p>
-            <p>
-              우리는 단순히 공고를 보여주는 것이 아니라, 사람의 경험을 이해하고
-              그 경험이 필요한 자리와 연결되는 방식을 만듭니다.
-            </p>
-          </div>
-        </div>
-
-        <!-- 우측: 키워드 카드 3개 -->
-        <div class="space-y-5 lg:pt-10">
-          <div class="bg-white border border-[#F1DDD4] rounded-2xl p-7 hover:border-primary/40 hover:shadow-md transition-all duration-300">
-            <div class="flex items-start gap-5">
-              <div class="w-12 h-12 bg-gradient-to-br from-primary to-coral rounded-xl flex items-center justify-center flex-shrink-0 shadow-md shadow-primary/20">
-                <span class="text-white font-bold text-[17px]">01</span>
-              </div>
-              <div>
-                <h4 class="text-[21px] font-bold text-[#1F1F1F] mb-2.5">경험</h4>
-                <p class="text-[18px] leading-[1.8] text-[#5F5F5F]">오랜 시간 쌓아온 경력과 태도를 새로운 일의 기회로 연결합니다.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-white border border-[#F1DDD4] rounded-2xl p-7 hover:border-primary/40 hover:shadow-md transition-all duration-300">
-            <div class="flex items-start gap-5">
-              <div class="w-12 h-12 bg-gradient-to-br from-coral to-[#FF9A3D] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md shadow-coral/20">
-                <span class="text-white font-bold text-[17px]">02</span>
-              </div>
-              <div>
-                <h4 class="text-[21px] font-bold text-[#1F1F1F] mb-2.5">준비</h4>
-                <p class="text-[18px] leading-[1.8] text-[#5F5F5F]">자기소개서, 사진, 복장, 면접 준비를 AI로 더 쉽게 시작할 수 있도록 돕습니다.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-white border border-[#F1DDD4] rounded-2xl p-7 hover:border-primary/40 hover:shadow-md transition-all duration-300">
-            <div class="flex items-start gap-5">
-              <div class="w-12 h-12 bg-gradient-to-br from-[#FF9A3D] to-[#FFB347] rounded-xl flex items-center justify-center flex-shrink-0 shadow-md shadow-orange-200">
-                <span class="text-white font-bold text-[17px]">03</span>
-              </div>
-              <div>
-                <h4 class="text-[21px] font-bold text-[#1F1F1F] mb-2.5">연결</h4>
-                <p class="text-[18px] leading-[1.8] text-[#5F5F5F]">구직자와 기업이 서로에게 맞는 조건으로 만날 수 있는 흐름을 제공합니다.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
+    <!-- Left: Story -->
+    <div data-reveal>
+      <span class="section-tag">Brand Story</span>
+      <h2 class="about-story-heading">
+        시니어의 경험이<br>
+        다음 기회로<br>
+        연결되도록
+      </h2>
+      <p class="about-lead">
+        일하고 싶은 시니어와 좋은 인재가 필요한 기업 사이에는
+        아직 충분히 연결되지 못한 가능성이 있습니다.
+      </p>
+      <div class="about-body">
+        <p>
+          넥스트파트너는 50+ 액티브 시니어가 가진 경험과 태도, 일에 대한 책임감이
+          다시 의미 있는 기회로 이어질 수 있도록 돕는 플랫폼입니다.
+        </p>
+        <p>
+          구직자에게는 자기소개서 작성, 사진 준비, 면접 대비처럼 부담스러운 과정을
+          AI 기능으로 더 쉽게 시작할 수 있도록 돕고, 기업에게는 필요한 직무에 맞는
+          시니어 인재를 효율적으로 검토할 수 있는 채용 연결 흐름을 제공합니다.
+        </p>
+        <p>
+          우리는 단순히 공고를 보여주는 것이 아니라, 사람의 경험을 이해하고
+          그 경험이 필요한 자리와 연결되는 방식을 만듭니다.
+        </p>
       </div>
     </div>
-  </div>
 
+    <!-- Right: Value cards -->
+    <div class="value-stack">
+      <div class="value-card" data-reveal data-reveal-delay="1">
+        <div class="value-num">01</div>
+        <div>
+          <div class="value-title">경험</div>
+          <div class="value-desc">오랜 시간 쌓아온 경력과 태도를 새로운 일의 기회로 연결합니다.</div>
+        </div>
+      </div>
+      <div class="value-card" data-reveal data-reveal-delay="2">
+        <div class="value-num">02</div>
+        <div>
+          <div class="value-title">준비</div>
+          <div class="value-desc">자기소개서, 사진, 복장, 면접 준비를 AI로 더 쉽게 시작할 수 있도록 돕습니다.</div>
+        </div>
+      </div>
+      <div class="value-card" data-reveal data-reveal-delay="3">
+        <div class="value-num">03</div>
+        <div>
+          <div class="value-title">연결</div>
+          <div class="value-desc">구직자와 기업이 서로에게 맞는 조건으로 만날 수 있는 흐름을 제공합니다.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 
-<!-- ============================================================
-     AI 기반 해결 방식 소개
-     ============================================================ -->
-<section id="ai-features" class="py-24 lg:py-36 bg-cream">
-  <div class="max-w-[1212px] mx-auto px-6">
+<!-- ════════════════════════════════════════════════
+     AI FEATURES
+════════════════════════════════════════════════ -->
+<section id="ai-features" class="sec-pad">
+  <div class="wrap">
 
-    <!-- 섹션 헤더 -->
-    <div class="text-center max-w-[740px] mx-auto mb-16">
-      <span class="section-label">AI 기능</span>
-      <h2 class="text-[36px] md:text-[44px] lg:text-[48px] font-bold leading-[1.2] text-[#1F1F1F] mb-5 tracking-tight">
-        AI가 구직 준비의 막막함을<br>
-        하나씩 줄여드립니다
+    <div class="ai-header" data-reveal>
+      <span class="section-tag" style="justify-content:center;">AI 기능</span>
+      <h2 class="ai-heading">
+        AI가 구직 준비의 막막함을<br>하나씩 줄여드립니다
       </h2>
-      <p class="text-[19px] leading-[1.85] text-[#5F5F5F]">
+      <p class="ai-sub">
         넥스트파트너의 AI 기능은 자기소개서 작성, 사진 준비, 면접 연습, 기업 이해까지
         구직자가 실제 지원 과정에서 어려워하는 단계를 중심으로 설계됩니다.
       </p>
     </div>
 
-    <!-- AI 기능 카드: 3+2 그리드 -->
-    <!-- 상단 3개 -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+    <!-- Top 3 cards -->
+    <div class="ai-grid-top">
 
-      <!-- 카드 1: AI 자기소개서 -->
-      <div class="ai-card group" role="article">
-        <div class="w-14 h-14 bg-primary-light rounded-2xl flex items-center justify-center mb-5 group-hover:bg-primary/10 transition-colors">
-          <i data-lucide="file-text" class="w-7 h-7 text-primary"></i>
+      <div class="ai-card-new" role="article" data-reveal data-reveal-delay="1">
+        <div class="ai-card-num">01</div>
+        <div class="ai-icon-wrap">
+          <i data-lucide="file-text" style="width:24px;height:24px;"></i>
         </div>
-        <h3 class="text-[32px] font-bold text-[#1F1F1F] mb-3">AI 자기소개서</h3>
-        <p class="text-[20px] leading-[1.8] text-[#5F5F5F] mb-5">
-          간단한 질문에 답하면 경력과 강점을 바탕으로 자기소개서 초안을 생성합니다.
-        </p>
-        <div class="flex flex-wrap gap-2">
-          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">작성 부담 감소</span>
-          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">경력 정리</span>
-          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">완성도 향상</span>
+        <h3 class="ai-card-title">AI 자기소개서</h3>
+        <p class="ai-card-desc">간단한 질문에 답하면 경력과 강점을 바탕으로 자기소개서 초안을 생성합니다.</p>
+        <div class="ai-tags">
+          <span class="ai-tag">작성 부담 감소</span>
+          <span class="ai-tag">경력 정리</span>
+          <span class="ai-tag">완성도 향상</span>
         </div>
       </div>
 
-      <!-- 카드 2: AI 증명사진 생성 -->
-      <div class="ai-card group" role="article">
-        <div class="w-14 h-14 bg-primary-light rounded-2xl flex items-center justify-center mb-5 group-hover:bg-primary/10 transition-colors">
-          <i data-lucide="camera" class="w-7 h-7 text-primary"></i>
+      <div class="ai-card-new" role="article" data-reveal data-reveal-delay="2">
+        <div class="ai-card-num">02</div>
+        <div class="ai-icon-wrap">
+          <i data-lucide="camera" style="width:24px;height:24px;"></i>
         </div>
-        <h3 class="text-[32px] font-bold text-[#1F1F1F] mb-3">AI 증명사진 생성</h3>
-        <p class="text-[20px] leading-[1.8] text-[#5F5F5F] mb-5">
-          지원 서류에 필요한 프로필 사진을 간편하게 준비할 수 있도록 돕습니다.
-        </p>
-        <div class="flex flex-wrap gap-2">
-          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">사진 준비 부담 감소</span>
-          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">비대면 준비</span>
-          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">서류 완성도</span>
+        <h3 class="ai-card-title">AI 증명사진 생성</h3>
+        <p class="ai-card-desc">지원 서류에 필요한 프로필 사진을 간편하게 준비할 수 있도록 돕습니다.</p>
+        <div class="ai-tags">
+          <span class="ai-tag">사진 준비 부담 감소</span>
+          <span class="ai-tag">비대면 준비</span>
+          <span class="ai-tag">서류 완성도</span>
         </div>
       </div>
 
-      <!-- 카드 3: AI 복장 점검 -->
-      <div class="ai-card group" role="article">
-        <div class="w-14 h-14 bg-primary-light rounded-2xl flex items-center justify-center mb-5 group-hover:bg-primary/10 transition-colors">
-          <i data-lucide="sparkles" class="w-7 h-7 text-primary"></i>
+      <div class="ai-card-new" role="article" data-reveal data-reveal-delay="3">
+        <div class="ai-card-num">03</div>
+        <div class="ai-icon-wrap">
+          <i data-lucide="sparkles" style="width:24px;height:24px;"></i>
         </div>
-        <h3 class="text-[32px] font-bold text-[#1F1F1F] mb-3">AI 복장 점검</h3>
-        <p class="text-[20px] leading-[1.8] text-[#5F5F5F] mb-5">
-          면접이나 프로필 촬영 전, 지원 직무와 상황에 어울리는 복장인지 점검할 수 있도록 돕습니다.
-        </p>
-        <div class="flex flex-wrap gap-2">
-          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">첫인상 준비</span>
-          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">면접 불안 감소</span>
-          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">이미지 점검</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 하단 2개 (중앙 정렬) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:max-w-[816px] lg:mx-auto">
-
-      <!-- 카드 4: AI 모의면접 -->
-      <div class="ai-card group" role="article">
-        <div class="w-14 h-14 bg-primary-light rounded-2xl flex items-center justify-center mb-5 group-hover:bg-primary/10 transition-colors">
-          <i data-lucide="message-circle" class="w-7 h-7 text-primary"></i>
-        </div>
-        <h3 class="text-[32px] font-bold text-[#1F1F1F] mb-3">AI 모의면접</h3>
-        <p class="text-[20px] leading-[1.8] text-[#5F5F5F] mb-5">
-          예상 질문을 바탕으로 답변을 연습하고, 면접 전 말할 내용을 정리할 수 있도록 돕습니다.
-        </p>
-        <div class="flex flex-wrap gap-2">
-          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">면접 연습</span>
-          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">답변 구조화</span>
-          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">자신감 향상</span>
-        </div>
-      </div>
-
-      <!-- 카드 5: AI 기업브리핑 -->
-      <div class="ai-card group" role="article">
-        <div class="w-14 h-14 bg-primary-light rounded-2xl flex items-center justify-center mb-5 group-hover:bg-primary/10 transition-colors">
-          <i data-lucide="building-2" class="w-7 h-7 text-primary"></i>
-        </div>
-        <h3 class="text-[32px] font-bold text-[#1F1F1F] mb-3">AI 기업브리핑</h3>
-        <p class="text-[20px] leading-[1.8] text-[#5F5F5F] mb-5">
-          지원하려는 기업과 직무 정보를 쉽게 이해할 수 있도록 핵심 내용을 요약해 제공합니다.
-        </p>
-        <div class="flex flex-wrap gap-2">
-          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">기업 이해도 향상</span>
-          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">정보 탐색</span>
-          <span class="text-[14px] font-semibold bg-primary-light text-primary px-3 py-1.5 rounded-full">면접 준비 보완</span>
+        <h3 class="ai-card-title">AI 복장 점검</h3>
+        <p class="ai-card-desc">면접이나 프로필 촬영 전, 지원 직무와 상황에 어울리는 복장인지 점검할 수 있도록 돕습니다.</p>
+        <div class="ai-tags">
+          <span class="ai-tag">첫인상 준비</span>
+          <span class="ai-tag">면접 불안 감소</span>
+          <span class="ai-tag">이미지 점검</span>
         </div>
       </div>
 
     </div>
+
+    <!-- Bottom 2 cards -->
+    <div class="ai-grid-bot">
+
+      <div class="ai-card-new" role="article" data-reveal data-reveal-delay="1">
+        <div class="ai-card-num">04</div>
+        <div class="ai-icon-wrap">
+          <i data-lucide="message-circle" style="width:24px;height:24px;"></i>
+        </div>
+        <h3 class="ai-card-title">AI 모의면접</h3>
+        <p class="ai-card-desc">예상 질문을 바탕으로 답변을 연습하고, 면접 전 말할 내용을 정리할 수 있도록 돕습니다.</p>
+        <div class="ai-tags">
+          <span class="ai-tag">면접 연습</span>
+          <span class="ai-tag">답변 구조화</span>
+          <span class="ai-tag">자신감 향상</span>
+        </div>
+      </div>
+
+      <div class="ai-card-new" role="article" data-reveal data-reveal-delay="2">
+        <div class="ai-card-num">05</div>
+        <div class="ai-icon-wrap">
+          <i data-lucide="building-2" style="width:24px;height:24px;"></i>
+        </div>
+        <h3 class="ai-card-title">AI 기업브리핑</h3>
+        <p class="ai-card-desc">지원하려는 기업과 직무 정보를 쉽게 이해할 수 있도록 핵심 내용을 요약해 제공합니다.</p>
+        <div class="ai-tags">
+          <span class="ai-tag">기업 이해도 향상</span>
+          <span class="ai-tag">정보 탐색</span>
+          <span class="ai-tag">면접 준비 보완</span>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </section>
 
 
-<!-- ============================================================
-     이용 프로세스 (탭: 구직자 / 기업)
-     ============================================================ -->
-<section id="process" class="py-24 lg:py-36 bg-white">
-  <div class="max-w-[1212px] mx-auto px-6">
+<!-- ════════════════════════════════════════════════
+     PROCESS
+════════════════════════════════════════════════ -->
+<section id="process" class="sec-pad">
+  <div class="wrap">
 
-    <!-- 섹션 헤더 -->
-    <div class="text-center max-w-[740px] mx-auto mb-12">
-      <span class="section-label">이용 방법</span>
-      <h2 class="text-[36px] md:text-[44px] lg:text-[48px] font-bold leading-[1.2] text-[#1F1F1F] mb-5 tracking-tight">
-        구직 준비부터 채용 연결까지<br>
-        단계별로 쉽게 진행합니다
+    <div class="process-header" data-reveal>
+      <span class="section-tag" style="justify-content:center;">이용 방법</span>
+      <h2 class="section-heading">
+        구직 준비부터 채용 연결까지<br>단계별로 쉽게 진행합니다
       </h2>
-      <p class="text-[19px] leading-[1.85] text-[#5F5F5F]">
+      <p class="section-sub">
         구직자는 AI 기능을 활용해 지원 준비를 시작하고,
         기업은 필요한 조건에 맞는 시니어 인재를 효율적으로 검토할 수 있습니다.
       </p>
     </div>
 
-    <!-- 탭 버튼 -->
-    <div class="flex justify-center mb-14" role="tablist" aria-label="이용자 구분 선택">
-      <div class="bg-cream border border-[#F1DDD4] rounded-2xl p-1.5 flex gap-1.5">
+    <!-- Tab bar -->
+    <div class="tab-bar" role="tablist" aria-label="이용자 구분 선택">
+      <div class="tab-wrap">
         <button
-          id="tab-jobseeker"
-          role="tab"
-          aria-selected="true"
+          id="tab-jobseeker" role="tab" aria-selected="true"
           aria-controls="panel-jobseeker"
-          class="text-[17px] font-bold px-10 py-3.5 rounded-xl min-h-[52px] transition-all duration-200 bg-primary text-white shadow-md shadow-primary/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+          class="tab-btn"
           onclick="switchTab('jobseeker')"
         >구직자</button>
         <button
-          id="tab-company"
-          role="tab"
-          aria-selected="false"
+          id="tab-company" role="tab" aria-selected="false"
           aria-controls="panel-company"
-          class="text-[17px] font-bold px-10 py-3.5 rounded-xl min-h-[52px] transition-all duration-200 text-[#5F5F5F] hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+          class="tab-btn"
           onclick="switchTab('company')"
         >기업</button>
       </div>
@@ -301,198 +1256,157 @@
 
     <!-- 구직자 패널 -->
     <div id="panel-jobseeker" role="tabpanel" aria-labelledby="tab-jobseeker">
-      <!-- 데스크탑: 4단계 가로 -->
-      <div class="hidden md:grid md:grid-cols-4 gap-6 relative">
-        <!-- 연결선 -->
-        <div class="absolute top-10 left-[12.5%] right-[12.5%] h-px bg-[#F1DDD4] hidden lg:block" aria-hidden="true"></div>
-
-        <div class="flex flex-col items-center text-center relative z-10">
-          <div class="w-20 h-20 bg-gradient-to-br from-primary to-coral rounded-2xl flex flex-col items-center justify-center mb-6 shadow-lg shadow-primary/25">
-            <span class="text-white/70 text-[10px] font-black uppercase tracking-wider">STEP</span>
-            <span class="text-white text-[24px] font-black leading-none">01</span>
+      <!-- Desktop -->
+      <div class="step-desktop">
+        <div class="step-grid">
+          <div class="step-line" aria-hidden="true"></div>
+          <div class="step-card" data-reveal data-reveal-delay="1">
+            <div class="step-num-wrap">
+              <span class="step-label">STEP</span>
+              <span class="step-n">01</span>
+            </div>
+            <h3 class="step-title">기본 정보 입력</h3>
+            <p class="step-desc">희망 직무, 근무 지역, 경력, 지원 목적을 간단히 입력합니다.</p>
           </div>
-          <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2.5">기본 정보 입력</h3>
-          <p class="text-[17px] leading-[1.75] text-[#5F5F5F]">희망 직무, 근무 지역, 경력, 지원 목적을 간단히 입력합니다.</p>
-        </div>
-
-        <div class="flex flex-col items-center text-center relative z-10">
-          <div class="w-20 h-20 bg-gradient-to-br from-coral to-[#FF9A3D] rounded-2xl flex flex-col items-center justify-center mb-6 shadow-lg shadow-coral/25">
-            <span class="text-white/70 text-[10px] font-black uppercase tracking-wider">STEP</span>
-            <span class="text-white text-[24px] font-black leading-none">02</span>
+          <div class="step-card" data-reveal data-reveal-delay="2">
+            <div class="step-num-wrap">
+              <span class="step-label">STEP</span>
+              <span class="step-n">02</span>
+            </div>
+            <h3 class="step-title">AI 구직 준비</h3>
+            <p class="step-desc">AI 자기소개서, 증명사진, 복장 점검, 모의면접 기능으로 지원 준비를 시작합니다.</p>
           </div>
-          <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2.5">AI 구직 준비</h3>
-          <p class="text-[17px] leading-[1.75] text-[#5F5F5F]">AI 자기소개서, 증명사진, 복장 점검, 모의면접 기능으로 지원 준비를 시작합니다.</p>
-        </div>
-
-        <div class="flex flex-col items-center text-center relative z-10">
-          <div class="w-20 h-20 bg-gradient-to-br from-[#FF9A3D] to-[#FFB347] rounded-2xl flex flex-col items-center justify-center mb-6 shadow-lg shadow-orange-200">
-            <span class="text-white/70 text-[10px] font-black uppercase tracking-wider">STEP</span>
-            <span class="text-white text-[24px] font-black leading-none">03</span>
+          <div class="step-card" data-reveal data-reveal-delay="3">
+            <div class="step-num-wrap">
+              <span class="step-label">STEP</span>
+              <span class="step-n">03</span>
+            </div>
+            <h3 class="step-title">기업 정보 확인</h3>
+            <p class="step-desc">AI 기업브리핑을 통해 지원하려는 기업과 직무를 쉽게 이해합니다.</p>
           </div>
-          <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2.5">기업 정보 확인</h3>
-          <p class="text-[17px] leading-[1.75] text-[#5F5F5F]">AI 기업브리핑을 통해 지원하려는 기업과 직무를 쉽게 이해합니다.</p>
-        </div>
-
-        <div class="flex flex-col items-center text-center relative z-10">
-          <div class="w-20 h-20 bg-gradient-to-br from-[#FFB347] to-[#FFC66D] rounded-2xl flex flex-col items-center justify-center mb-6 shadow-lg shadow-amber-100">
-            <span class="text-white/70 text-[10px] font-black uppercase tracking-wider">STEP</span>
-            <span class="text-white text-[24px] font-black leading-none">04</span>
+          <div class="step-card" data-reveal data-reveal-delay="4">
+            <div class="step-num-wrap">
+              <span class="step-label">STEP</span>
+              <span class="step-n">04</span>
+            </div>
+            <h3 class="step-title">지원 및 연결</h3>
+            <p class="step-desc">준비한 내용을 바탕으로 관심 있는 공고에 지원하고 기업과 연결됩니다.</p>
           </div>
-          <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2.5">지원 및 연결</h3>
-          <p class="text-[17px] leading-[1.75] text-[#5F5F5F]">준비한 내용을 바탕으로 관심 있는 공고에 지원하고 기업과 연결됩니다.</p>
         </div>
       </div>
 
-      <!-- 모바일: 세로 타임라인 -->
-      <div class="md:hidden">
-        <div class="flex gap-5 mb-0">
-          <div class="flex flex-col items-center flex-shrink-0">
-            <div class="w-14 h-14 bg-gradient-to-br from-primary to-coral rounded-xl flex flex-col items-center justify-center shadow-md">
-              <span class="text-white/70 text-[9px] font-black">STEP</span>
-              <span class="text-white text-[28px] font-black leading-none">01</span>
-            </div>
-            <div class="flex-1 w-0.5 bg-[#F1DDD4] mt-3"></div>
+      <!-- Mobile -->
+      <div class="step-mobile">
+        <div class="step-row-mobile">
+          <div class="step-timeline-col">
+            <div class="step-num-wrap"><span class="step-label">STEP</span><span class="step-n">01</span></div>
+            <div class="step-line-v"></div>
           </div>
-          <div class="pb-8 pt-1">
-            <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2">기본 정보 입력</h3>
-            <p class="text-[28px] leading-[1.8] text-[#5F5F5F]">희망 직무, 근무 지역, 경력, 지원 목적을 간단히 입력합니다.</p>
+          <div class="step-content-col">
+            <h3 class="step-title-m">기본 정보 입력</h3>
+            <p class="step-desc-m">희망 직무, 근무 지역, 경력, 지원 목적을 간단히 입력합니다.</p>
           </div>
         </div>
-        <div class="flex gap-5 mb-0">
-          <div class="flex flex-col items-center flex-shrink-0">
-            <div class="w-14 h-14 bg-gradient-to-br from-coral to-[#FF9A3D] rounded-xl flex flex-col items-center justify-center shadow-md">
-              <span class="text-white/70 text-[9px] font-black">STEP</span>
-              <span class="text-white text-[28px] font-black leading-none">02</span>
-            </div>
-            <div class="flex-1 w-0.5 bg-[#F1DDD4] mt-3"></div>
+        <div class="step-row-mobile">
+          <div class="step-timeline-col">
+            <div class="step-num-wrap"><span class="step-label">STEP</span><span class="step-n">02</span></div>
+            <div class="step-line-v"></div>
           </div>
-          <div class="pb-8 pt-1">
-            <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2">AI 구직 준비</h3>
-            <p class="text-[28px] leading-[1.8] text-[#5F5F5F]">AI 자기소개서, 증명사진, 복장 점검, 모의면접 기능으로 지원 준비를 시작합니다.</p>
+          <div class="step-content-col">
+            <h3 class="step-title-m">AI 구직 준비</h3>
+            <p class="step-desc-m">AI 자기소개서, 증명사진, 복장 점검, 모의면접 기능으로 지원 준비를 시작합니다.</p>
           </div>
         </div>
-        <div class="flex gap-5 mb-0">
-          <div class="flex flex-col items-center flex-shrink-0">
-            <div class="w-14 h-14 bg-gradient-to-br from-[#FF9A3D] to-[#FFB347] rounded-xl flex flex-col items-center justify-center shadow-md">
-              <span class="text-white/70 text-[9px] font-black">STEP</span>
-              <span class="text-white text-[28px] font-black leading-none">03</span>
-            </div>
-            <div class="flex-1 w-0.5 bg-[#F1DDD4] mt-3"></div>
+        <div class="step-row-mobile">
+          <div class="step-timeline-col">
+            <div class="step-num-wrap"><span class="step-label">STEP</span><span class="step-n">03</span></div>
+            <div class="step-line-v"></div>
           </div>
-          <div class="pb-8 pt-1">
-            <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2">기업 정보 확인</h3>
-            <p class="text-[28px] leading-[1.8] text-[#5F5F5F]">AI 기업브리핑을 통해 지원하려는 기업과 직무를 쉽게 이해합니다.</p>
+          <div class="step-content-col">
+            <h3 class="step-title-m">기업 정보 확인</h3>
+            <p class="step-desc-m">AI 기업브리핑을 통해 지원하려는 기업과 직무를 쉽게 이해합니다.</p>
           </div>
         </div>
-        <div class="flex gap-5">
-          <div class="flex-shrink-0">
-            <div class="w-14 h-14 bg-gradient-to-br from-[#FFB347] to-[#FFC66D] rounded-xl flex flex-col items-center justify-center shadow-md">
-              <span class="text-white/70 text-[9px] font-black">STEP</span>
-              <span class="text-white text-[28px] font-black leading-none">04</span>
-            </div>
+        <div class="step-row-mobile">
+          <div class="step-timeline-col">
+            <div class="step-num-wrap"><span class="step-label">STEP</span><span class="step-n">04</span></div>
           </div>
-          <div class="pt-1">
-            <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2">지원 및 연결</h3>
-            <p class="text-[28px] leading-[1.8] text-[#5F5F5F]">준비한 내용을 바탕으로 관심 있는 공고에 지원하고 기업과 연결됩니다.</p>
+          <div class="step-content-col">
+            <h3 class="step-title-m">지원 및 연결</h3>
+            <p class="step-desc-m">준비한 내용을 바탕으로 관심 있는 공고에 지원하고 기업과 연결됩니다.</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 기업 패널 (기본 숨김) -->
-    <div id="panel-company" role="tabpanel" aria-labelledby="tab-company" class="hidden">
-      <!-- 데스크탑: 4단계 가로 -->
-      <div class="hidden md:grid md:grid-cols-4 gap-6 relative">
-        <div class="absolute top-10 left-[12.5%] right-[12.5%] h-px bg-[#F1DDD4] hidden lg:block" aria-hidden="true"></div>
-
-        <div class="flex flex-col items-center text-center relative z-10">
-          <div class="w-20 h-20 bg-gradient-to-br from-primary to-coral rounded-2xl flex flex-col items-center justify-center mb-6 shadow-lg shadow-primary/25">
-            <span class="text-white/70 text-[10px] font-black uppercase tracking-wider">STEP</span>
-            <span class="text-white text-[24px] font-black leading-none">01</span>
+    <!-- 기업 패널 -->
+    <div id="panel-company" role="tabpanel" aria-labelledby="tab-company" style="display:none;">
+      <!-- Desktop -->
+      <div class="step-desktop">
+        <div class="step-grid">
+          <div class="step-line" aria-hidden="true"></div>
+          <div class="step-card">
+            <div class="step-num-wrap"><span class="step-label">STEP</span><span class="step-n">01</span></div>
+            <h3 class="step-title">채용 정보 등록</h3>
+            <p class="step-desc">필요한 직무, 근무 조건, 우대 경험을 등록합니다.</p>
           </div>
-          <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2.5">채용 정보 등록</h3>
-          <p class="text-[17px] leading-[1.75] text-[#5F5F5F]">필요한 직무, 근무 조건, 우대 경험을 등록합니다.</p>
-        </div>
-
-        <div class="flex flex-col items-center text-center relative z-10">
-          <div class="w-20 h-20 bg-gradient-to-br from-coral to-[#FF9A3D] rounded-2xl flex flex-col items-center justify-center mb-6 shadow-lg shadow-coral/25">
-            <span class="text-white/70 text-[10px] font-black uppercase tracking-wider">STEP</span>
-            <span class="text-white text-[24px] font-black leading-none">02</span>
+          <div class="step-card">
+            <div class="step-num-wrap"><span class="step-label">STEP</span><span class="step-n">02</span></div>
+            <h3 class="step-title">지원자 정보 확인</h3>
+            <p class="step-desc">지원자의 경력, 자기소개서, 준비 상태를 한눈에 확인합니다.</p>
           </div>
-          <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2.5">지원자 정보 확인</h3>
-          <p class="text-[17px] leading-[1.75] text-[#5F5F5F]">지원자의 경력, 자기소개서, 준비 상태를 한눈에 확인합니다.</p>
-        </div>
-
-        <div class="flex flex-col items-center text-center relative z-10">
-          <div class="w-20 h-20 bg-gradient-to-br from-[#FF9A3D] to-[#FFB347] rounded-2xl flex flex-col items-center justify-center mb-6 shadow-lg shadow-orange-200">
-            <span class="text-white/70 text-[10px] font-black uppercase tracking-wider">STEP</span>
-            <span class="text-white text-[24px] font-black leading-none">03</span>
+          <div class="step-card">
+            <div class="step-num-wrap"><span class="step-label">STEP</span><span class="step-n">03</span></div>
+            <h3 class="step-title">적합 인재 검토</h3>
+            <p class="step-desc">직무 조건과 지원자 정보를 바탕으로 적합한 시니어 인재를 검토합니다.</p>
           </div>
-          <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2.5">적합 인재 검토</h3>
-          <p class="text-[17px] leading-[1.75] text-[#5F5F5F]">직무 조건과 지원자 정보를 바탕으로 적합한 시니어 인재를 검토합니다.</p>
-        </div>
-
-        <div class="flex flex-col items-center text-center relative z-10">
-          <div class="w-20 h-20 bg-gradient-to-br from-[#FFB347] to-[#FFC66D] rounded-2xl flex flex-col items-center justify-center mb-6 shadow-lg shadow-amber-100">
-            <span class="text-white/70 text-[10px] font-black uppercase tracking-wider">STEP</span>
-            <span class="text-white text-[24px] font-black leading-none">04</span>
+          <div class="step-card">
+            <div class="step-num-wrap"><span class="step-label">STEP</span><span class="step-n">04</span></div>
+            <h3 class="step-title">면접 및 채용 진행</h3>
+            <p class="step-desc">적합한 인재에게 면접을 제안하고 채용 과정을 진행합니다.</p>
           </div>
-          <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2.5">면접 및 채용 진행</h3>
-          <p class="text-[17px] leading-[1.75] text-[#5F5F5F]">적합한 인재에게 면접을 제안하고 채용 과정을 진행합니다.</p>
         </div>
       </div>
 
-      <!-- 모바일: 세로 타임라인 -->
-      <div class="md:hidden">
-        <div class="flex gap-5 mb-0">
-          <div class="flex flex-col items-center flex-shrink-0">
-            <div class="w-14 h-14 bg-gradient-to-br from-primary to-coral rounded-xl flex flex-col items-center justify-center shadow-md">
-              <span class="text-white/70 text-[9px] font-black">STEP</span>
-              <span class="text-white text-[28px] font-black leading-none">01</span>
-            </div>
-            <div class="flex-1 w-0.5 bg-[#F1DDD4] mt-3"></div>
+      <!-- Mobile -->
+      <div class="step-mobile">
+        <div class="step-row-mobile">
+          <div class="step-timeline-col">
+            <div class="step-num-wrap"><span class="step-label">STEP</span><span class="step-n">01</span></div>
+            <div class="step-line-v"></div>
           </div>
-          <div class="pb-8 pt-1">
-            <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2">채용 정보 등록</h3>
-            <p class="text-[28px] leading-[1.8] text-[#5F5F5F]">필요한 직무, 근무 조건, 우대 경험을 등록합니다.</p>
+          <div class="step-content-col">
+            <h3 class="step-title-m">채용 정보 등록</h3>
+            <p class="step-desc-m">필요한 직무, 근무 조건, 우대 경험을 등록합니다.</p>
           </div>
         </div>
-        <div class="flex gap-5 mb-0">
-          <div class="flex flex-col items-center flex-shrink-0">
-            <div class="w-14 h-14 bg-gradient-to-br from-coral to-[#FF9A3D] rounded-xl flex flex-col items-center justify-center shadow-md">
-              <span class="text-white/70 text-[9px] font-black">STEP</span>
-              <span class="text-white text-[28px] font-black leading-none">02</span>
-            </div>
-            <div class="flex-1 w-0.5 bg-[#F1DDD4] mt-3"></div>
+        <div class="step-row-mobile">
+          <div class="step-timeline-col">
+            <div class="step-num-wrap"><span class="step-label">STEP</span><span class="step-n">02</span></div>
+            <div class="step-line-v"></div>
           </div>
-          <div class="pb-8 pt-1">
-            <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2">지원자 정보 확인</h3>
-            <p class="text-[28px] leading-[1.8] text-[#5F5F5F]">지원자의 경력, 자기소개서, 준비 상태를 한눈에 확인합니다.</p>
+          <div class="step-content-col">
+            <h3 class="step-title-m">지원자 정보 확인</h3>
+            <p class="step-desc-m">지원자의 경력, 자기소개서, 준비 상태를 한눈에 확인합니다.</p>
           </div>
         </div>
-        <div class="flex gap-5 mb-0">
-          <div class="flex flex-col items-center flex-shrink-0">
-            <div class="w-14 h-14 bg-gradient-to-br from-[#FF9A3D] to-[#FFB347] rounded-xl flex flex-col items-center justify-center shadow-md">
-              <span class="text-white/70 text-[9px] font-black">STEP</span>
-              <span class="text-white text-[28px] font-black leading-none">03</span>
-            </div>
-            <div class="flex-1 w-0.5 bg-[#F1DDD4] mt-3"></div>
+        <div class="step-row-mobile">
+          <div class="step-timeline-col">
+            <div class="step-num-wrap"><span class="step-label">STEP</span><span class="step-n">03</span></div>
+            <div class="step-line-v"></div>
           </div>
-          <div class="pb-8 pt-1">
-            <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2">적합 인재 검토</h3>
-            <p class="text-[28px] leading-[1.8] text-[#5F5F5F]">직무 조건과 지원자 정보를 바탕으로 적합한 시니어 인재를 검토합니다.</p>
+          <div class="step-content-col">
+            <h3 class="step-title-m">적합 인재 검토</h3>
+            <p class="step-desc-m">직무 조건과 지원자 정보를 바탕으로 적합한 시니어 인재를 검토합니다.</p>
           </div>
         </div>
-        <div class="flex gap-5">
-          <div class="flex-shrink-0">
-            <div class="w-14 h-14 bg-gradient-to-br from-[#FFB347] to-[#FFC66D] rounded-xl flex flex-col items-center justify-center shadow-md">
-              <span class="text-white/70 text-[9px] font-black">STEP</span>
-              <span class="text-white text-[28px] font-black leading-none">04</span>
-            </div>
+        <div class="step-row-mobile">
+          <div class="step-timeline-col">
+            <div class="step-num-wrap"><span class="step-label">STEP</span><span class="step-n">04</span></div>
           </div>
-          <div class="pt-1">
-            <h3 class="text-[28px] font-bold text-[#1F1F1F] mb-2">면접 및 채용 진행</h3>
-            <p class="text-[28px] leading-[1.8] text-[#5F5F5F]">적합한 인재에게 면접을 제안하고 채용 과정을 진행합니다.</p>
+          <div class="step-content-col">
+            <h3 class="step-title-m">면접 및 채용 진행</h3>
+            <p class="step-desc-m">적합한 인재에게 면접을 제안하고 채용 과정을 진행합니다.</p>
           </div>
         </div>
       </div>
@@ -502,38 +1416,26 @@
 </section>
 
 
-<!-- ============================================================
-     기업 채용 배너 (중간 CTA)
-     ============================================================ -->
-<section id="hiring" class="py-20 lg:py-24">
-  <div class="max-w-[1212px] mx-auto px-6">
-    <div class="bg-gradient-to-r from-primary via-coral to-[#FF9A3D] rounded-3xl overflow-hidden shadow-2xl shadow-primary/20">
-      <div class="relative px-8 py-14 md:px-12 lg:px-16 lg:py-16">
-        <!-- 배경 장식 -->
-        <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-          <div class="absolute -top-16 -right-16 w-64 h-64 bg-white/8 rounded-full"></div>
-          <div class="absolute -bottom-12 left-16 w-48 h-48 bg-white/6 rounded-full"></div>
-        </div>
-
-        <div class="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
-          <!-- 좌측: 카피 & 태그 -->
-          <div class="flex-1">
-            <h2 class="text-[28px] md:text-[34px] lg:text-[40px] font-bold leading-[1.25] text-white mb-4 tracking-tight">
-              경험 있는 시니어 인재,<br>
-              더 쉽게 만나고 검토하세요
-            </h2>
-            <p class="text-[19px] leading-[1.85] text-white/85 mb-7">
-              채용공고 등록부터 지원자 정보 확인, 면접 제안까지<br class="hidden md:block">
-              넥스트파트너가 기업의 채용 과정을 더 효율적으로 돕습니다.
-            </p>
-            <div class="flex flex-wrap gap-2.5" role="list" aria-label="기업 채용 서비스 특징">
-              <span role="listitem" class="text-[14px] font-semibold bg-white/20 text-white border border-white/30 px-4 py-2 rounded-full backdrop-blur-sm">시니어 인재풀</span>
-              <span role="listitem" class="text-[14px] font-semibold bg-white/20 text-white border border-white/30 px-4 py-2 rounded-full backdrop-blur-sm">지원자 검토</span>
-              <span role="listitem" class="text-[14px] font-semibold bg-white/20 text-white border border-white/30 px-4 py-2 rounded-full backdrop-blur-sm">AI 기반 정보 정리</span>
-              <span role="listitem" class="text-[14px] font-semibold bg-white/20 text-white border border-white/30 px-4 py-2 rounded-full backdrop-blur-sm">면접 제안</span>
-            </div>
-          </div>
-
+<!-- ════════════════════════════════════════════════
+     HIRING CTA BANNER
+════════════════════════════════════════════════ -->
+<section id="hiring">
+  <div class="wrap">
+    <div class="hiring-card" data-reveal>
+      <div class="hiring-inner">
+        <h2 class="hiring-heading">
+          경험 있는 시니어 인재,<br>
+          더 쉽게 만나고 검토하세요
+        </h2>
+        <p class="hiring-sub">
+          채용공고 등록부터 지원자 정보 확인, 면접 제안까지
+          넥스트파트너가 기업의 채용 과정을 더 효율적으로 돕습니다.
+        </p>
+        <div class="hiring-tags" role="list" aria-label="기업 채용 서비스 특징">
+          <span class="hiring-tag" role="listitem">시니어 인재풀</span>
+          <span class="hiring-tag" role="listitem">지원자 검토</span>
+          <span class="hiring-tag" role="listitem">AI 기반 정보 정리</span>
+          <span class="hiring-tag" role="listitem">면접 제안</span>
         </div>
       </div>
     </div>
@@ -541,99 +1443,81 @@
 </section>
 
 
-<!-- ============================================================
-     신뢰 지표 / 운영 강점
-     ============================================================ -->
-<section id="strengths" class="py-24 lg:py-36 bg-cream">
-  <div class="max-w-[1212px] mx-auto px-6">
+<!-- ════════════════════════════════════════════════
+     STRENGTHS
+════════════════════════════════════════════════ -->
+<section id="strengths" class="sec-pad">
+  <div class="wrap">
 
-    <!-- 섹션 헤더 -->
-    <div class="text-center max-w-[740px] mx-auto mb-16">
-      <span class="section-label">운영 강점</span>
-      <h2 class="text-[36px] md:text-[44px] lg:text-[48px] font-bold leading-[1.2] text-[#1F1F1F] mb-5 tracking-tight">
-        구직자와 기업 모두에게<br>
-        안심할 수 있는 연결 경험을 제공합니다
+    <div class="strengths-header" data-reveal>
+      <span class="section-tag" style="justify-content:center;">운영 강점</span>
+      <h2 class="section-heading">
+        구직자와 기업 모두에게<br>안심할 수 있는 연결 경험을 제공합니다
       </h2>
-      <p class="text-[19px] leading-[1.85] text-[#5F5F5F]">
+      <p class="section-sub">
         넥스트파트너는 액티브 시니어의 구직 여정과 기업의 채용 흐름을 함께 고려해
         더 쉽고 명확한 연결 경험을 설계합니다.
       </p>
     </div>
 
-    <!-- 강점 카드: 2×2 -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+    <!-- 2×2 Strength cards -->
+    <div class="str-grid">
 
-      <div class="strength-card" role="article">
-        <div class="flex items-start gap-5">
-          <div class="w-14 h-14 bg-primary-light rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors">
-            <i data-lucide="users" class="w-7 h-7 text-primary"></i>
-          </div>
-          <div>
-            <span class="text-[12px] font-bold text-primary uppercase tracking-wider mb-2 block">구직자 지원</span>
-            <h3 class="text-[32px] font-bold text-[#1F1F1F] mb-3">50+ 맞춤 구직 흐름</h3>
-            <p class="text-[20px] leading-[1.8] text-[#5F5F5F]">액티브 시니어가 복잡한 절차에 막히지 않도록 간결한 정보 구조와 큰 CTA를 제공합니다.</p>
-          </div>
+      <div class="str-card" role="article" data-reveal data-reveal-delay="1">
+        <div class="str-icon-wrap">
+          <i data-lucide="users" style="width:24px;height:24px;"></i>
         </div>
+        <span class="str-badge">구직자 지원</span>
+        <h3 class="str-title">50+ 맞춤 구직 흐름</h3>
+        <p class="str-desc">액티브 시니어가 복잡한 절차에 막히지 않도록 간결한 정보 구조와 큰 CTA를 제공합니다.</p>
       </div>
 
-      <div class="strength-card" role="article">
-        <div class="flex items-start gap-5">
-          <div class="w-14 h-14 bg-primary-light rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors">
-            <i data-lucide="cpu" class="w-7 h-7 text-primary"></i>
-          </div>
-          <div>
-            <span class="text-[12px] font-bold text-primary uppercase tracking-wider mb-2 block">AI 기술</span>
-            <h3 class="text-[32px] font-bold text-[#1F1F1F] mb-3">AI 기반 지원 준비</h3>
-            <p class="text-[20px] leading-[1.8] text-[#5F5F5F]">자기소개서, 사진, 복장, 면접, 기업 이해까지 실제 지원 과정에 필요한 준비를 돕습니다.</p>
-          </div>
+      <div class="str-card" role="article" data-reveal data-reveal-delay="2">
+        <div class="str-icon-wrap">
+          <i data-lucide="cpu" style="width:24px;height:24px;"></i>
         </div>
+        <span class="str-badge">AI 기술</span>
+        <h3 class="str-title">AI 기반 지원 준비</h3>
+        <p class="str-desc">자기소개서, 사진, 복장, 면접, 기업 이해까지 실제 지원 과정에 필요한 준비를 돕습니다.</p>
       </div>
 
-      <div class="strength-card" role="article">
-        <div class="flex items-start gap-5">
-          <div class="w-14 h-14 bg-primary-light rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors">
-            <i data-lucide="briefcase" class="w-7 h-7 text-primary"></i>
-          </div>
-          <div>
-            <span class="text-[12px] font-bold text-primary uppercase tracking-wider mb-2 block">기업 지원</span>
-            <h3 class="text-[32px] font-bold text-[#1F1F1F] mb-3">기업 채용 검토 지원</h3>
-            <p class="text-[20px] leading-[1.8] text-[#5F5F5F]">기업이 지원자 정보를 빠르게 이해하고 검토할 수 있도록 채용 흐름을 정리합니다.</p>
-          </div>
+      <div class="str-card" role="article" data-reveal data-reveal-delay="3">
+        <div class="str-icon-wrap">
+          <i data-lucide="briefcase" style="width:24px;height:24px;"></i>
         </div>
+        <span class="str-badge">기업 지원</span>
+        <h3 class="str-title">기업 채용 검토 지원</h3>
+        <p class="str-desc">기업이 지원자 정보를 빠르게 이해하고 검토할 수 있도록 채용 흐름을 정리합니다.</p>
       </div>
 
-      <div class="strength-card" role="article">
-        <div class="flex items-start gap-5">
-          <div class="w-14 h-14 bg-primary-light rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors">
-            <i data-lucide="link-2" class="w-7 h-7 text-primary"></i>
-          </div>
-          <div>
-            <span class="text-[12px] font-bold text-primary uppercase tracking-wider mb-2 block">연결 구조</span>
-            <h3 class="text-[32px] font-bold text-[#1F1F1F] mb-3">구직자·기업 연결 구조</h3>
-            <p class="text-[20px] leading-[1.8] text-[#5F5F5F]">구직자에게는 더 쉬운 지원 경험을, 기업에게는 더 효율적인 인재 검토 경험을 제공합니다.</p>
-          </div>
+      <div class="str-card" role="article" data-reveal data-reveal-delay="4">
+        <div class="str-icon-wrap">
+          <i data-lucide="link-2" style="width:24px;height:24px;"></i>
         </div>
+        <span class="str-badge">연결 구조</span>
+        <h3 class="str-title">구직자·기업 연결 구조</h3>
+        <p class="str-desc">구직자에게는 더 쉬운 지원 경험을, 기업에게는 더 효율적인 인재 검토 경험을 제공합니다.</p>
       </div>
 
     </div>
 
-    <!-- 보조 문구형 지표 (수치 없음) -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <div class="text-center p-6 bg-white rounded-2xl border border-[#F1DDD4] hover:border-primary/30 hover:shadow-md transition-all duration-300">
-        <i data-lucide="check-circle-2" class="w-8 h-8 text-primary mx-auto mb-3"></i>
-        <p class="text-[16px] font-bold text-[#1F1F1F]">구직 준비 지원</p>
+    <!-- 4 indicator cards -->
+    <div class="ind-grid" style="margin-top:16px;">
+      <div class="ind-card" data-reveal data-reveal-delay="1">
+        <i data-lucide="check-circle-2" style="width:28px;height:28px;"></i>
+        <span class="ind-label">구직 준비 지원</span>
       </div>
-      <div class="text-center p-6 bg-white rounded-2xl border border-[#F1DDD4] hover:border-primary/30 hover:shadow-md transition-all duration-300">
-        <i data-lucide="search" class="w-8 h-8 text-primary mx-auto mb-3"></i>
-        <p class="text-[16px] font-bold text-[#1F1F1F]">기업 정보 이해</p>
+      <div class="ind-card" data-reveal data-reveal-delay="2">
+        <i data-lucide="search" style="width:28px;height:28px;"></i>
+        <span class="ind-label">기업 정보 이해</span>
       </div>
-      <div class="text-center p-6 bg-white rounded-2xl border border-[#F1DDD4] hover:border-primary/30 hover:shadow-md transition-all duration-300">
-        <i data-lucide="mic" class="w-8 h-8 text-primary mx-auto mb-3"></i>
-        <p class="text-[16px] font-bold text-[#1F1F1F]">면접 대비</p>
+      <div class="ind-card" data-reveal data-reveal-delay="3">
+        <i data-lucide="mic" style="width:28px;height:28px;"></i>
+        <span class="ind-label">면접 대비</span>
       </div>
-      <div class="text-center p-6 bg-white rounded-2xl border border-[#F1DDD4] hover:border-primary/30 hover:shadow-md transition-all duration-300">
-        <i data-lucide="link-2" class="w-8 h-8 text-primary mx-auto mb-3"></i>
-        <p class="text-[16px] font-bold text-[#1F1F1F]">채용 연결</p>
+      <div class="ind-card" data-reveal data-reveal-delay="4">
+        <i data-lucide="link-2" style="width:28px;height:28px;"></i>
+        <span class="ind-label">채용 연결</span>
       </div>
     </div>
 
@@ -641,127 +1525,102 @@
 </section>
 
 
-<!-- ============================================================
-     Final CTA
-     ============================================================ -->
-<section id="cta" class="py-28 lg:py-40 relative overflow-hidden bg-gradient-to-br from-primary via-[#FF7055] to-[#FF9A3D]">
-  <!-- 배경 장식 -->
-  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-    <div class="absolute -top-32 -left-32 w-[500px] h-[500px] bg-white/6 rounded-full"></div>
-    <div class="absolute -bottom-24 -right-24 w-[450px] h-[450px] bg-white/5 rounded-full"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/3 rounded-full"></div>
-  </div>
-
-  <div class="max-w-[840px] mx-auto px-6 text-center relative z-10">
-    <h2 class="text-[36px] md:text-[46px] lg:text-[54px] font-bold leading-[1.2] text-white mb-6 tracking-tight">
+<!-- ════════════════════════════════════════════════
+     FINAL CTA
+════════════════════════════════════════════════ -->
+<section id="cta">
+  <div class="cta-ring" aria-hidden="true"></div>
+  <div class="cta-ring cta-ring-2" aria-hidden="true"></div>
+  <div class="cta-inner" data-reveal>
+    <h2 class="cta-heading">
       경험이 다시 일로 이어지는 순간,<br>
-      넥스트파트너에서 시작하세요
+      <span>넥스트파트너에서 시작하세요</span>
     </h2>
-    <p class="text-[19px] md:text-[32px] leading-[1.85] text-white/85 mb-3">
+    <p class="cta-sub-lg">
       구직자에게는 AI 기반의 쉬운 지원 준비를,<br>
       기업에게는 경험 있는 시니어 인재와의 효율적인 연결을 제공합니다.
     </p>
-    <p class="text-[17px] text-white/65 mb-12">
+    <p class="cta-sub-sm">
       자기소개서 작성부터 면접 준비, 기업 채용 연결까지 한 곳에서 경험해보세요.
     </p>
-
   </div>
 </section>
 
 
-<!-- ============================================================
+<!-- ════════════════════════════════════════════════
      FOOTER
-     ============================================================ -->
-<footer id="contact" class="bg-[#181818] text-white py-12">
-  <div class="max-w-[1212px] mx-auto px-6">
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
-      <!-- 브랜드 -->
-      <div class="flex items-center gap-2.5">
-        <div class="w-9 h-9 bg-gradient-to-br from-primary to-[#FF9A3D] rounded-xl flex items-center justify-center shadow-sm flex-shrink-0">
+════════════════════════════════════════════════ -->
+<footer id="contact">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
             <path d="M10 2L17 6V14L10 18L3 14V6L10 2Z" fill="white" fill-opacity="0.85"/>
             <path d="M10 5.5L13.5 7.5V11.5L10 13.5L6.5 11.5V7.5L10 5.5Z" fill="white"/>
           </svg>
         </div>
-        <span class="font-bold text-[32px] tracking-tight">넥스트파트너</span>
+        <span class="footer-name">넥스트파트너</span>
       </div>
-      <!-- 이메일 -->
-      <div class="flex items-center gap-2 text-[15px] text-gray-400">
-        <i data-lucide="mail" class="w-4 h-4 text-primary flex-shrink-0"></i>
+      <div class="footer-email">
+        <i data-lucide="mail" style="width:16px;height:16px;"></i>
         contact@nextpartner.co.kr
       </div>
     </div>
-    <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-3">
-      <p class="text-[13px] text-gray-500">© 2025 넥스트파트너. All rights reserved.</p>
-      <p class="text-[13px] text-gray-500">AI 시니어 일자리 플랫폼</p>
+    <div class="footer-divider"></div>
+    <div class="footer-bot">
+      <p class="footer-copy">© 2025 넥스트파트너. All rights reserved.</p>
+      <p class="footer-copy">AI 시니어 일자리 플랫폼</p>
     </div>
   </div>
 </footer>
 
 
-<!-- ============================================================
-     JavaScript
-     ============================================================ -->
 <script>
-  // Lucide 아이콘 초기화
   lucide.createIcons();
 
-  // ──────────────────────────────────────────
-  // 이용 프로세스 탭 전환
-  // ──────────────────────────────────────────
+  // ── Tab switching ──────────────────────────────
   function switchTab(tab) {
-    const tabJobseeker  = document.getElementById('tab-jobseeker');
-    const tabCompany    = document.getElementById('tab-company');
-    const panelJobseeker = document.getElementById('panel-jobseeker');
-    const panelCompany   = document.getElementById('panel-company');
-
-    const activeClasses   = ['bg-primary', 'text-white', 'shadow-md'];
-    const inactiveClasses = ['text-[#5F5F5F]', 'hover:text-primary'];
+    const jBtn = document.getElementById('tab-jobseeker');
+    const cBtn = document.getElementById('tab-company');
+    const jPanel = document.getElementById('panel-jobseeker');
+    const cPanel = document.getElementById('panel-company');
 
     if (tab === 'jobseeker') {
-      tabJobseeker.classList.add(...activeClasses);
-      tabJobseeker.classList.remove(...inactiveClasses);
-      tabJobseeker.setAttribute('aria-selected', 'true');
-
-      tabCompany.classList.remove(...activeClasses);
-      tabCompany.classList.add(...inactiveClasses);
-      tabCompany.setAttribute('aria-selected', 'false');
-
-      panelJobseeker.classList.remove('hidden');
-      panelCompany.classList.add('hidden');
+      jBtn.setAttribute('aria-selected', 'true');
+      cBtn.setAttribute('aria-selected', 'false');
+      jPanel.style.display = '';
+      cPanel.style.display = 'none';
     } else {
-      tabCompany.classList.add(...activeClasses);
-      tabCompany.classList.remove(...inactiveClasses);
-      tabCompany.setAttribute('aria-selected', 'true');
-
-      tabJobseeker.classList.remove(...activeClasses);
-      tabJobseeker.classList.add(...inactiveClasses);
-      tabJobseeker.setAttribute('aria-selected', 'false');
-
-      panelCompany.classList.remove('hidden');
-      panelJobseeker.classList.add('hidden');
+      cBtn.setAttribute('aria-selected', 'true');
+      jBtn.setAttribute('aria-selected', 'false');
+      cPanel.style.display = '';
+      jPanel.style.display = 'none';
     }
   }
 
-  // 탭 키보드 접근성
+  // Tab keyboard nav
   document.querySelectorAll('[role="tab"]').forEach(tab => {
     tab.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        tab.click();
-      }
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tab.click(); }
       if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
         e.preventDefault();
         const tabs = [...document.querySelectorAll('[role="tab"]')];
         const idx  = tabs.indexOf(tab);
-        const next = e.key === 'ArrowRight'
-          ? tabs[(idx + 1) % tabs.length]
-          : tabs[(idx - 1 + tabs.length) % tabs.length];
-        next.click();
-        next.focus();
+        const next = e.key === 'ArrowRight' ? tabs[(idx+1) % tabs.length] : tabs[(idx-1+tabs.length) % tabs.length];
+        next.click(); next.focus();
       }
     });
   });
+
+  // ── Scroll reveal ──────────────────────────────
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('revealed'); ro.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+
+  document.querySelectorAll('[data-reveal]').forEach(el => ro.observe(el));
 </script>
 
 </body>
