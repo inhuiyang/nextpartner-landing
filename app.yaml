@@ -1,0 +1,24 @@
+runtime: nodejs22
+service: frontend
+
+handlers:
+  # CSS / 정적 에셋 디렉터리
+  - url: /dist
+    static_dir: dist
+
+  - url: /src
+    static_dir: src
+
+  - url: /video
+    static_dir: video
+
+  # 루트 접속 → index.html
+  - url: /
+    static_files: index.html
+    upload: index.html
+
+  # 그 외 모든 경로도 index.html 로
+  - url: /.*
+    static_files: index.html
+    upload: index.html
+    script: auto

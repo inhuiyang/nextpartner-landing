@@ -1,1867 +1,2668 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="넥스트파트너 - 50+ 액티브 시니어를 위한 AI 기반 일자리 플랫폼. AI 자기소개서, 증명사진, 모의면접으로 구직 준비부터 채용 연결까지." />
-  <title>넥스트파트너 - AI 시니어 일자리 플랫폼</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="넥스트파트너 - 50+ 액티브 시니어를 위한 AI 기반 일자리 플랫폼. AI 자기소개서, 증명사진, 모의면접으로 구직 준비부터 채용 연결까지."
+    />
+    <title>넥스트파트너 - AI 시니어 일자리 플랫폼</title>
 
-  <!-- Compiled Tailwind CSS -->
-  <link rel="stylesheet" href="dist/output.css" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="src/img/favicon.svg" />
 
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <!-- Compiled Tailwind CSS -->
+    <link rel="stylesheet" href="dist/output.css" />
 
-  <style>
-    /* ═══════════════════════════════════════════════
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <style>
+      /* ═══════════════════════════════════════════════
        LOCAL PRETENDARD FONTS
     ═══════════════════════════════════════════════ */
-    @font-face {
-      font-family: 'Pretendard';
-      src: url('src/fonts/Pretendard-Regular.woff2') format('woff2');
-      font-weight: 400; font-style: normal; font-display: swap;
-    }
-    @font-face {
-      font-family: 'Pretendard';
-      src: url('src/fonts/Pretendard-Medium.woff2') format('woff2');
-      font-weight: 500; font-style: normal; font-display: swap;
-    }
-    @font-face {
-      font-family: 'Pretendard';
-      src: url('src/fonts/Pretendard-SemiBold.woff2') format('woff2');
-      font-weight: 600; font-style: normal; font-display: swap;
-    }
-    @font-face {
-      font-family: 'Pretendard';
-      src: url('src/fonts/Pretendard-Bold.woff2') format('woff2');
-      font-weight: 700; font-style: normal; font-display: swap;
-    }
-    @font-face {
-      font-family: 'Pretendard';
-      src: url('src/fonts/Pretendard-ExtraBold.woff2') format('woff2');
-      font-weight: 800; font-style: normal; font-display: swap;
-    }
-    @font-face {
-      font-family: 'Pretendard';
-      src: url('src/fonts/Pretendard-Black.woff2') format('woff2');
-      font-weight: 900; font-style: normal; font-display: swap;
-    }
+      @font-face {
+        font-family: 'Pretendard';
+        src: url('src/fonts/Pretendard-Regular.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Pretendard';
+        src: url('src/fonts/Pretendard-Medium.woff2') format('woff2');
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Pretendard';
+        src: url('src/fonts/Pretendard-SemiBold.woff2') format('woff2');
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Pretendard';
+        src: url('src/fonts/Pretendard-Bold.woff2') format('woff2');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Pretendard';
+        src: url('src/fonts/Pretendard-ExtraBold.woff2') format('woff2');
+        font-weight: 800;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Pretendard';
+        src: url('src/fonts/Pretendard-Black.woff2') format('woff2');
+        font-weight: 900;
+        font-style: normal;
+        font-display: swap;
+      }
 
-    /* ═══════════════════════════════════════════════
+      /* ═══════════════════════════════════════════════
        DESIGN TOKENS
     ═══════════════════════════════════════════════ */
-    :root {
-      --bg-0:      #0D0705;
-      --bg-1:      #160C07;
-      --bg-2:      #1D1108;
-      --surface:   rgba(255,255,255,0.04);
-      --surface-2: rgba(255,255,255,0.07);
-      --border:    rgba(255,255,255,0.07);
-      --border-m:  rgba(255,255,255,0.14);
-      --border-h:  rgba(255,255,255,0.26);
-      --coral:     #FF6B4A;
-      --coral-2:   #FF8C71;
-      --amber:     #FF9A3D;
-      --teal:      #00DEB8;
-      --grad:      linear-gradient(135deg, #FF6B4A, #FF9A3D);
-      --text-1:    #FFF4EE;
-      --text-2:    #B0957D;
-      --text-3:    #6A4E38;
-      --r:         14px;
-      --r-lg:      20px;
-      --r-xl:      28px;
-    }
+      :root {
+        --bg-0: #0d0705;
+        --bg-1: #160c07;
+        --bg-2: #1d1108;
+        --surface: rgba(255, 255, 255, 0.04);
+        --surface-2: rgba(255, 255, 255, 0.07);
+        --border: rgba(255, 255, 255, 0.07);
+        --border-m: rgba(255, 255, 255, 0.14);
+        --border-h: rgba(255, 255, 255, 0.26);
+        --coral: #ff6b4a;
+        --coral-2: #ff8c71;
+        --amber: #ff9a3d;
+        --teal: #00deb8;
+        --grad: linear-gradient(135deg, #ff6b4a, #ff9a3d);
+        --text-1: #fff4ee;
+        --text-2: #b0957d;
+        --text-3: #6a4e38;
+        --r: 14px;
+        --r-lg: 20px;
+        --r-xl: 28px;
+      }
 
-    /* ═══════════════════════════════════════════════
+      /* ═══════════════════════════════════════════════
        BASE RESET
     ═══════════════════════════════════════════════ */
-    *, *::before, *::after { box-sizing: border-box; }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
 
-    html { scroll-behavior: smooth; }
+      html {
+        scroll-behavior: smooth;
+      }
 
-    body {
-      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg-0);
-      color: var(--text-1);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-    }
+      body {
+        font-family:
+          'Pretendard',
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        background: var(--bg-0);
+        color: var(--text-1);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+      }
 
-    /* Tailwind bg-white/bg-cream/text-[#1F1F1F] overrides */
-    .bg-white  { background: var(--surface) !important; }
-    .bg-cream  { background: var(--bg-1) !important; background-image: none !important; }
-    .text-\[\#1F1F1F\] { color: var(--text-1) !important; }
-    .text-\[\#5F5F5F\] { color: var(--text-2) !important; }
-    .border-\[\#F1DDD4\] { border-color: var(--border-m) !important; }
-    .bg-\[\#141414\]  { background: #0A0604 !important; }
+      /* Tailwind bg-white/bg-cream/text-[#1F1F1F] overrides */
+      .bg-white {
+        background: var(--surface) !important;
+      }
+      .bg-cream {
+        background: var(--bg-1) !important;
+        background-image: none !important;
+      }
+      .text-\[\#1F1F1F\] {
+        color: var(--text-1) !important;
+      }
+      .text-\[\#5F5F5F\] {
+        color: var(--text-2) !important;
+      }
+      .border-\[\#F1DDD4\] {
+        border-color: var(--border-m) !important;
+      }
+      .bg-\[\#141414\] {
+        background: #0a0604 !important;
+      }
 
-    /* ═══════════════════════════════════════════════
+      /* ═══════════════════════════════════════════════
        SHARED COMPONENTS
     ═══════════════════════════════════════════════ */
-    .section-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--coral);
-      margin-bottom: 20px;
-    }
-    .section-tag::before {
-      content: '';
-      display: block;
-      width: 20px;
-      height: 1.5px;
-      background: var(--coral);
-      opacity: 0.6;
-      flex-shrink: 0;
-    }
+      .section-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--coral);
+        margin-bottom: 20px;
+      }
+      .section-tag::before {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 1.5px;
+        background: var(--coral);
+        opacity: 0.6;
+        flex-shrink: 0;
+      }
 
-    .wrap { max-width: 1212px; margin: 0 auto; padding: 0 24px; }
+      .wrap {
+        max-width: 1212px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
 
-    /* Scroll reveal */
-    [data-reveal] {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1),
-                  transform 0.7s cubic-bezier(0.16,1,0.3,1);
-    }
-    [data-reveal].revealed { opacity: 1 !important; transform: none !important; }
-    [data-reveal-delay="1"] { transition-delay: 0.1s; }
-    [data-reveal-delay="2"] { transition-delay: 0.2s; }
-    [data-reveal-delay="3"] { transition-delay: 0.3s; }
-    [data-reveal-delay="4"] { transition-delay: 0.4s; }
+      /* Scroll reveal */
+      [data-reveal] {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+          opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      [data-reveal].revealed {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      [data-reveal-delay='1'] {
+        transition-delay: 0.1s;
+      }
+      [data-reveal-delay='2'] {
+        transition-delay: 0.2s;
+      }
+      [data-reveal-delay='3'] {
+        transition-delay: 0.3s;
+      }
+      [data-reveal-delay='4'] {
+        transition-delay: 0.4s;
+      }
 
-    /* ═══════════════════════════════════════════════
+      /* ═══════════════════════════════════════════════
        1. HERO
     ═══════════════════════════════════════════════ */
-    #hero {
-      position: relative;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      background: var(--bg-0);
-    }
-    #hero video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.55;
-    }
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 50% 100%, rgba(255,107,74,0.1) 0%, transparent 70%),
-        linear-gradient(to bottom, rgba(40,18,8,0.25) 0%, rgba(40,18,8,0.52) 100%);
-      pointer-events: none;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      padding: 0 24px;
-    }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255,107,74,0.1);
-      border: 1px solid rgba(255,107,74,0.3);
-      color: var(--coral-2);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      padding: 6px 16px;
-      border-radius: 99px;
-      margin-bottom: 32px;
-      backdrop-filter: blur(8px);
-      animation: fadeUp 0.8s 0.2s cubic-bezier(0.16,1,0.3,1) both;
-    }
-    .hero-badge::before {
-      content: '';
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--coral);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50%       { opacity: 0.5; transform: scale(0.7); }
-    }
-    .hero-title {
-      font-weight: 700;
-      line-height: 0.88;
-      letter-spacing: -0.04em;
-      font-size: clamp(52px, 10vw, 140px);
-      margin: 0;
-    }
-    .hero-line-1 {
-      display: block;
-      color: var(--text-1);
-      animation: fadeUp 0.9s 0.35s cubic-bezier(0.16,1,0.3,1) both;
-    }
-    .hero-line-2 {
-      display: block;
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: fadeUp 0.9s 0.5s cubic-bezier(0.16,1,0.3,1) both;
-    }
-    .hero-subtitle {
-      margin-top: 14px;
-      font-size: clamp(20px, 3.5vw, 48px);
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      line-height: 1;
-      color: rgba(255,255,255,0.9);
-      animation: fadeUp 0.9s 0.5s cubic-bezier(0.16,1,0.3,1) both;
-    }
-    .hero-coming-soon {
-      margin-top: 12px;
-      font-size: 22px;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      color: rgba(255,255,255,0.55);
-      text-transform: uppercase;
-      animation: fadeUp 0.9s 0.65s cubic-bezier(0.16,1,0.3,1) both;
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: none; }
-    }
-    /* corner brackets */
-    .hero-brackets {
-      position: absolute;
-      inset: 40px;
-      pointer-events: none;
-      z-index: 1;
-    }
-    .hero-brackets::before,
-    .hero-brackets::after {
-      content: '';
-      position: absolute;
-      width: 32px; height: 32px;
-      border-color: rgba(255,107,74,0.3);
-      border-style: solid;
-    }
-    .hero-brackets::before {
-      top: 0; left: 0;
-      border-width: 1.5px 0 0 1.5px;
-    }
-    .hero-brackets::after {
-      bottom: 0; right: 0;
-      border-width: 0 1.5px 1.5px 0;
-    }
-    /* scroll cue */
-    .hero-scroll {
-      position: absolute;
-      bottom: 36px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 3;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      animation: fadeUp 1s 0.8s both;
-    }
-    .hero-scroll span {
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
-    }
-    .hero-scroll-line {
-      width: 1px;
-      height: 40px;
-      background: linear-gradient(to bottom, rgba(255,107,74,0.6), transparent);
-      animation: scrollLine 2s ease-in-out infinite;
-    }
-    @keyframes scrollLine {
-      0%, 100% { transform: scaleY(1); opacity: 0.6; }
-      50%       { transform: scaleY(0.5) translateY(20px); opacity: 0.3; }
-    }
+      #hero {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: var(--bg-0);
+      }
+      #hero video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.55;
+        transition: opacity 0.6s ease;
+      }
+      .hero-sound {
+        position: absolute;
+        bottom: 28px;
+        right: 28px;
+        z-index: 3;
+        width: 48px;
+        height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 99px;
+        background: rgba(255, 107, 74, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: var(--text-1);
+        cursor: pointer;
+        backdrop-filter: blur(8px);
+        transition:
+          background 0.2s ease,
+          border-color 0.2s ease,
+          transform 0.2s ease;
+      }
+      .hero-sound:hover {
+        background: rgba(255, 107, 74, 0.24);
+        border-color: rgba(255, 255, 255, 0.32);
+        transform: translateY(-2px);
+      }
+      .hero-sound i {
+        width: 20px;
+        height: 20px;
+      }
+      @media (max-width: 768px) {
+        .hero-sound {
+          bottom: 20px;
+          right: 20px;
+          width: 44px;
+          height: 44px;
+        }
+      }
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse 80% 60% at 50% 100%,
+            rgba(255, 107, 74, 0.1) 0%,
+            transparent 70%
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(40, 18, 8, 0.25) 0%,
+            rgba(40, 18, 8, 0.52) 100%
+          );
+        pointer-events: none;
+        transition: opacity 0.6s ease;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        transition: opacity 0.6s ease;
+        padding: 0 24px;
+      }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 107, 74, 0.1);
+        border: 1px solid rgba(255, 107, 74, 0.3);
+        color: var(--coral-2);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        padding: 6px 16px;
+        border-radius: 99px;
+        margin-bottom: 32px;
+        backdrop-filter: blur(8px);
+        animation: fadeUp 0.8s 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+      .hero-badge::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--coral);
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.5;
+          transform: scale(0.7);
+        }
+      }
+      .hero-title {
+        font-weight: 700;
+        line-height: 0.88;
+        letter-spacing: -0.04em;
+        font-size: clamp(52px, 10vw, 140px);
+        margin: 0;
+      }
+      .hero-line-1 {
+        display: block;
+        color: var(--text-1);
+        animation: fadeUp 0.9s 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+      .hero-line-2 {
+        display: block;
+        background: var(--grad);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: fadeUp 0.9s 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+      .hero-subtitle {
+        margin-top: 14px;
+        font-size: clamp(20px, 3.5vw, 48px);
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        line-height: 1;
+        color: rgba(255, 255, 255, 0.9);
+        animation: fadeUp 0.9s 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+      .hero-coming-soon {
+        margin-top: 12px;
+        font-size: 22px;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        color: rgba(255, 255, 255, 0.55);
+        text-transform: uppercase;
+        animation: fadeUp 0.9s 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      /* corner brackets */
+      .hero-brackets {
+        position: absolute;
+        inset: 40px;
+        pointer-events: none;
+        z-index: 1;
+        transition: opacity 0.6s ease;
+      }
+      .hero-brackets::before,
+      .hero-brackets::after {
+        content: '';
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        border-color: rgba(255, 107, 74, 0.3);
+        border-style: solid;
+      }
+      .hero-brackets::before {
+        top: 0;
+        left: 0;
+        border-width: 1.5px 0 0 1.5px;
+      }
+      .hero-brackets::after {
+        bottom: 0;
+        right: 0;
+        border-width: 0 1.5px 1.5px 0;
+      }
+      /* scroll cue */
+      .hero-scroll {
+        position: absolute;
+        bottom: 36px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        animation: fadeUp 1s 0.8s both;
+        transition: opacity 0.6s ease;
+      }
+      /* focus mode caption — badge-style label (top-left, shown when sound is on) */
+      .hero-focus-caption {
+        position: absolute;
+        top: 40px;
+        left: clamp(20px, 5vw, 48px);
+        z-index: 3;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 18px;
+        border-radius: 99px;
+        background: rgba(13, 7, 5, 0.55);
+        border: 1px solid rgba(255, 107, 74, 0.35);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        color: var(--text-1);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.6s ease;
+      }
+      .hero-focus-caption::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--coral);
+        animation: pulse 2s infinite;
+        flex-shrink: 0;
+      }
+      .hero-focus-caption .dot {
+        color: var(--coral);
+      }
+      /* sound ON → focus mode */
+      #hero.hero--focus video {
+        opacity: 1;
+      }
+      #hero.hero--focus .hero-overlay {
+        opacity: 0;
+      }
+      #hero.hero--focus .hero-content,
+      #hero.hero--focus .hero-scroll {
+        opacity: 0;
+        pointer-events: none;
+      }
+      #hero.hero--focus .hero-brackets {
+        opacity: 0;
+      }
+      #hero.hero--focus .hero-focus-caption {
+        opacity: 1;
+      }
+      @media (max-width: 768px) {
+        .hero-focus-caption {
+          top: 24px;
+          font-size: 12px;
+        }
+      }
+      .hero-scroll span {
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.35);
+      }
+      .hero-scroll-line {
+        width: 1px;
+        height: 40px;
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 107, 74, 0.6),
+          transparent
+        );
+        animation: scrollLine 2s ease-in-out infinite;
+      }
+      @keyframes scrollLine {
+        0%,
+        100% {
+          transform: scaleY(1);
+          opacity: 0.6;
+        }
+        50% {
+          transform: scaleY(0.5) translateY(20px);
+          opacity: 0.3;
+        }
+      }
 
-    /* ═══════════════════════════════════════════════
+      /* ═══════════════════════════════════════════════
        2. BRAND STORY — Split layout + value cards
     ═══════════════════════════════════════════════ */
-    #about {
-      background: var(--bg-1);
-      position: relative;
-      overflow: hidden;
-    }
-    #about::before {
-      content: '';
-      position: absolute;
-      top: -200px;
-      right: -200px;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,107,74,0.05) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .about-inner {
-      max-width: 1212px;
-      margin: 0 auto;
-      padding: 100px 24px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
-    @media (max-width: 900px) {
-      .about-inner { grid-template-columns: 1fr; gap: 56px; padding: 72px 24px; }
-    }
-    .about-story-heading {
-      font-size: clamp(34px, 4.5vw, 52px);
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-      color: var(--text-1);
-      margin: 0 0 28px;
-    }
-    .about-lead {
-      font-size: 18px;
-      line-height: 1.85;
-      color: var(--text-2);
-      margin-bottom: 24px;
-      font-weight: 500;
-      padding-left: 16px;
-      border-left: 2px solid var(--coral);
-    }
-    .about-body p {
-      font-size: 16px;
-      line-height: 1.9;
-      color: var(--text-3);
-      margin-bottom: 16px;
-    }
-    .about-body p:last-child { margin-bottom: 0; }
+      #about {
+        background: var(--bg-1);
+        position: relative;
+        overflow: hidden;
+      }
+      #about::before {
+        content: '';
+        position: absolute;
+        top: -200px;
+        right: -200px;
+        width: 600px;
+        height: 600px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 107, 74, 0.05) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .about-inner {
+        max-width: 1212px;
+        margin: 0 auto;
+        padding: 100px 24px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: stretch;
+      }
+      @media (max-width: 900px) {
+        .about-inner {
+          grid-template-columns: 1fr;
+          gap: 56px;
+          padding: 72px 24px;
+        }
+      }
+      .about-story-heading {
+        font-size: clamp(34px, 4.5vw, 52px);
+        font-weight: 800;
+        line-height: 1.15;
+        letter-spacing: -0.03em;
+        color: var(--text-1);
+        margin: 0 0 28px;
+      }
+      .about-lead {
+        font-size: 18px;
+        line-height: 1.85;
+        color: var(--text-2);
+        margin-bottom: 24px;
+        font-weight: 500;
+        padding-left: 16px;
+        border-left: 2px solid var(--coral);
+      }
+      .about-body p {
+        font-size: 16px;
+        line-height: 1.9;
+        color: var(--text-3);
+        margin-bottom: 4px;
+      }
+      .about-body p:last-child {
+        margin-bottom: 0;
+      }
 
-    /* Value cards stack */
-    .value-stack {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-    }
+      /* Value cards stack */
+      .value-stack {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        height: 100%;
+      }
 
-    .value-card {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-      padding: 24px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--r-lg);
-      margin-bottom: 12px;
-      position: relative;
-      transition: border-color 0.3s, background 0.3s;
-    }
-    .value-card:last-child { margin-bottom: 0; }
-    .value-card:hover {
-      border-color: rgba(255,107,74,0.3);
-      background: rgba(255,107,74,0.04);
-    }
-    .value-num {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: var(--grad);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      font-weight: 900;
-      color: white;
-      flex-shrink: 0;
-      position: relative;
-      z-index: 1;
-    }
-    .value-title {
-      font-size: 18px;
-      font-weight: 800;
-      color: var(--text-1);
-      margin-bottom: 6px;
-    }
-    .value-desc {
-      font-size: 15px;
-      line-height: 1.75;
-      color: var(--text-2);
-    }
+      .value-card {
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+        padding: 24px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--r-lg);
+        margin-bottom: 12px;
+        position: relative;
+        transition:
+          border-color 0.3s,
+          background 0.3s;
+      }
+      .value-card:last-child {
+        margin-bottom: 0;
+      }
+      .value-card:hover {
+        border-color: rgba(255, 107, 74, 0.3);
+        background: rgba(255, 107, 74, 0.04);
+      }
+      .value-num {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: var(--grad);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 900;
+        color: white;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 1;
+      }
+      .value-title {
+        font-size: 18px;
+        font-weight: 800;
+        color: var(--text-1);
+        margin-bottom: 6px;
+      }
+      .value-desc {
+        font-size: 15px;
+        line-height: 1.75;
+        color: var(--text-2);
+      }
 
-    /* ═══════════════════════════════════════════════
+      /* ═══════════════════════════════════════════════
        3. AI FEATURES — Dark bento + glow cards
     ═══════════════════════════════════════════════ */
-    #ai-features {
-      background: var(--bg-0);
-      position: relative;
-      overflow: hidden;
-    }
-    /* Subtle grid background */
-    #ai-features::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
-    }
-    .ai-header {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 56px;
-    }
-    .ai-heading {
-      font-size: clamp(30px, 4vw, 48px);
-      font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: -0.03em;
-      color: var(--text-1);
-      margin-bottom: 16px;
-    }
-    .ai-sub {
-      font-size: 17px;
-      line-height: 1.8;
-      color: var(--text-2);
-    }
-    /* AI cards */
-    .ai-grid-top { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
-    .ai-grid-bot { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    @media (max-width: 900px) {
-      .ai-grid-top { grid-template-columns: 1fr; }
-      .ai-grid-bot { grid-template-columns: 1fr; }
-    }
-    @media (min-width: 640px) and (max-width: 900px) {
-      .ai-grid-top { grid-template-columns: repeat(2, 1fr); }
-      .ai-grid-bot { grid-template-columns: repeat(2, 1fr); }
-    }
-    .ai-card-new {
-      position: relative;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--r-xl);
-      padding: 32px;
-      overflow: hidden;
-      cursor: default;
-      transition: border-color 0.4s, transform 0.4s cubic-bezier(0.16,1,0.3,1),
-                  box-shadow 0.4s cubic-bezier(0.16,1,0.3,1);
-    }
-    .ai-card-new::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--grad);
-      opacity: 0;
-      transition: opacity 0.35s;
-    }
-    .ai-card-new:hover {
-      border-color: rgba(255,107,74,0.25);
-      transform: translateY(-5px);
-      box-shadow: 0 24px 48px -12px rgba(255,107,74,0.15), 0 0 0 1px rgba(255,107,74,0.08);
-    }
-    .ai-card-new:hover::before { opacity: 1; }
-    /* Card number watermark */
-    .ai-card-num {
-      position: absolute;
-      top: 16px;
-      right: 20px;
-      font-size: 72px;
-      font-weight: 900;
-      color: rgba(255,255,255,0.04);
-      line-height: 1;
-      letter-spacing: -0.05em;
-      pointer-events: none;
-    }
-    /* Card icon */
-    .ai-icon-wrap {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      background: rgba(255,107,74,0.1);
-      border: 1px solid rgba(255,107,74,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-      position: relative;
-      z-index: 1;
-    }
-    .ai-icon-wrap svg { color: var(--coral); }
-    .ai-card-title {
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--text-1);
-      margin-bottom: 10px;
-      line-height: 1.3;
-    }
-    .ai-card-desc {
-      font-size: 15px;
-      line-height: 1.8;
-      color: var(--text-2);
-      margin-bottom: 18px;
-    }
-    .ai-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-    .ai-tag {
-      font-size: 12px;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 99px;
-      background: rgba(255,107,74,0.08);
-      border: 1px solid rgba(255,107,74,0.15);
-      color: var(--coral-2);
-    }
+      #ai-features {
+        background: var(--bg-0);
+        position: relative;
+        overflow: hidden;
+      }
+      /* Subtle grid background */
+      #ai-features::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        background-size: 60px 60px;
+        pointer-events: none;
+      }
+      .ai-header {
+        text-align: center;
+        max-width: 720px;
+        margin: 0 auto 56px;
+      }
+      .ai-heading {
+        font-size: clamp(30px, 4vw, 48px);
+        font-weight: 800;
+        line-height: 1.2;
+        letter-spacing: -0.03em;
+        color: var(--text-1);
+        margin-bottom: 16px;
+      }
+      .ai-sub {
+        font-size: 17px;
+        line-height: 1.8;
+        color: var(--text-2);
+      }
+      /* AI cards */
+      .ai-grid-top {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-bottom: 16px;
+      }
+      .ai-grid-bot {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      @media (max-width: 900px) {
+        .ai-grid-top {
+          grid-template-columns: 1fr;
+        }
+        .ai-grid-bot {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (min-width: 640px) and (max-width: 900px) {
+        .ai-grid-top {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .ai-grid-bot {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      .ai-card-new {
+        position: relative;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--r-xl);
+        padding: 32px;
+        overflow: hidden;
+        cursor: default;
+        transition:
+          border-color 0.4s,
+          transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+          box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .ai-card-new::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--grad);
+        opacity: 0;
+        transition: opacity 0.35s;
+      }
+      .ai-card-new:hover {
+        border-color: rgba(255, 107, 74, 0.25);
+        transform: translateY(-5px);
+        box-shadow:
+          0 24px 48px -12px rgba(255, 107, 74, 0.15),
+          0 0 0 1px rgba(255, 107, 74, 0.08);
+      }
+      .ai-card-new:hover::before {
+        opacity: 1;
+      }
+      /* Card number watermark */
+      .ai-card-num {
+        position: absolute;
+        top: 16px;
+        right: 20px;
+        font-size: 72px;
+        font-weight: 900;
+        color: rgba(255, 255, 255, 0.04);
+        line-height: 1;
+        letter-spacing: -0.05em;
+        pointer-events: none;
+      }
+      /* Card icon */
+      .ai-icon-wrap {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        background: rgba(255, 107, 74, 0.1);
+        border: 1px solid rgba(255, 107, 74, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 1;
+      }
+      .ai-icon-wrap svg {
+        color: var(--coral);
+      }
+      .ai-card-title {
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--text-1);
+        margin-bottom: 10px;
+        line-height: 1.3;
+      }
+      .ai-card-desc {
+        font-size: 15px;
+        line-height: 1.8;
+        color: var(--text-2);
+        margin-bottom: 18px;
+      }
+      .ai-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .ai-tag {
+        font-size: 12px;
+        font-weight: 600;
+        padding: 4px 10px;
+        border-radius: 99px;
+        background: rgba(255, 107, 74, 0.08);
+        border: 1px solid rgba(255, 107, 74, 0.15);
+        color: var(--coral-2);
+      }
 
-    /* ═══════════════════════════════════════════════
+      /* ═══════════════════════════════════════════════
        4. PROCESS — Timeline with step cards
     ═══════════════════════════════════════════════ */
-    #process {
-      background: var(--bg-2);
-      position: relative;
-    }
-    .process-header {
-      text-align: center;
-      max-width: 680px;
-      margin: 0 auto 48px;
-    }
-    .section-heading {
-      font-size: clamp(28px, 4vw, 46px);
-      font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: -0.03em;
-      color: var(--text-1);
-      margin-bottom: 14px;
-    }
-    .section-sub {
-      font-size: 17px;
-      line-height: 1.8;
-      color: var(--text-2);
-    }
+      #process {
+        background: var(--bg-2);
+        position: relative;
+      }
+      .process-header {
+        text-align: center;
+        max-width: 680px;
+        margin: 0 auto 48px;
+      }
+      .section-heading {
+        font-size: clamp(28px, 4vw, 46px);
+        font-weight: 800;
+        line-height: 1.2;
+        letter-spacing: -0.03em;
+        color: var(--text-1);
+        margin-bottom: 14px;
+      }
+      .section-sub {
+        font-size: 17px;
+        line-height: 1.8;
+        color: var(--text-2);
+      }
 
-    /* Tab redesign */
-    .tab-bar {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 48px;
-    }
-    .tab-wrap {
-      display: flex;
-      background: var(--surface);
-      border: 1px solid var(--border-m);
-      border-radius: 16px;
-      padding: 5px;
-      gap: 4px;
-    }
-    .tab-btn {
-      font-family: 'Pretendard', sans-serif;
-      font-size: 16px;
-      font-weight: 700;
-      padding: 10px 36px;
-      border-radius: 11px;
-      border: none;
-      cursor: pointer;
-      transition: all 0.25s cubic-bezier(0.16,1,0.3,1);
-      background: transparent;
-      color: var(--text-3);
-      min-height: 48px;
-    }
-    .tab-btn[aria-selected="true"] {
-      background: var(--grad);
-      color: white;
-      box-shadow: 0 4px 16px rgba(255,107,74,0.3);
-    }
-    .tab-btn:not([aria-selected="true"]):hover {
-      color: var(--text-2);
-      background: var(--surface-2);
-    }
+      /* Tab redesign */
+      .tab-bar {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 48px;
+      }
+      .tab-wrap {
+        display: flex;
+        background: var(--surface);
+        border: 1px solid var(--border-m);
+        border-radius: 16px;
+        padding: 5px;
+        gap: 4px;
+      }
+      .tab-btn {
+        font-family: 'Pretendard', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        padding: 10px 36px;
+        border-radius: 11px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        background: transparent;
+        color: var(--text-3);
+        min-height: 48px;
+      }
+      .tab-btn[aria-selected='true'] {
+        background: var(--grad);
+        color: white;
+        box-shadow: 0 4px 16px rgba(255, 107, 74, 0.3);
+      }
+      .tab-btn:not([aria-selected='true']):hover {
+        color: var(--text-2);
+        background: var(--surface-2);
+      }
 
-    /* Step layout desktop */
-    .step-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      position: relative;
-    }
-    @media (max-width: 768px) { .step-grid { grid-template-columns: 1fr; } }
-    /* Connecting line */
-    .step-line {
-      position: absolute;
-      top: 28px;
-      left: calc(12.5% + 10px);
-      right: calc(12.5% + 10px);
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,107,74,0.4) 20%, rgba(255,154,61,0.4) 80%, transparent);
-      display: none;
-    }
-    @media (min-width: 1024px) { .step-line { display: block; } }
+      /* Step layout desktop */
+      .step-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        position: relative;
+      }
+      @media (max-width: 768px) {
+        .step-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      /* Connecting line */
+      .step-line {
+        position: absolute;
+        top: 28px;
+        left: calc(12.5% + 10px);
+        right: calc(12.5% + 10px);
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 107, 74, 0.4) 20%,
+          rgba(255, 154, 61, 0.4) 80%,
+          transparent
+        );
+        display: none;
+      }
+      @media (min-width: 1024px) {
+        .step-line {
+          display: block;
+        }
+      }
 
-    .step-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-    .step-num-wrap {
-      width: 56px;
-      height: 56px;
-      border-radius: 16px;
-      background: var(--grad);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-      box-shadow: 0 8px 24px rgba(255,107,74,0.25);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .step-card:hover .step-num-wrap {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 32px rgba(255,107,74,0.35);
-    }
-    .step-num-wrap .step-label {
-      font-size: 8px;
-      font-weight: 900;
-      letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.7);
-      text-transform: uppercase;
-    }
-    .step-num-wrap .step-n {
-      font-size: 20px;
-      font-weight: 900;
-      color: white;
-      line-height: 1;
-    }
-    .step-title {
-      font-size: 18px;
-      font-weight: 800;
-      color: var(--text-1);
-      margin-bottom: 8px;
-      line-height: 1.3;
-    }
-    .step-desc {
-      font-size: 15px;
-      line-height: 1.75;
-      color: var(--text-2);
-    }
+      .step-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+      }
+      .step-num-wrap {
+        width: 56px;
+        height: 56px;
+        border-radius: 16px;
+        background: var(--grad);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 24px rgba(255, 107, 74, 0.25);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+      .step-card:hover .step-num-wrap {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 32px rgba(255, 107, 74, 0.35);
+      }
+      .step-num-wrap .step-label {
+        font-size: 8px;
+        font-weight: 900;
+        letter-spacing: 0.1em;
+        color: rgba(255, 255, 255, 0.7);
+        text-transform: uppercase;
+      }
+      .step-num-wrap .step-n {
+        font-size: 20px;
+        font-weight: 900;
+        color: white;
+        line-height: 1;
+      }
+      .step-title {
+        font-size: 18px;
+        font-weight: 800;
+        color: var(--text-1);
+        margin-bottom: 8px;
+        line-height: 1.3;
+      }
+      .step-desc {
+        font-size: 15px;
+        line-height: 1.75;
+        color: var(--text-2);
+      }
 
-    /* Mobile step layout */
-    .step-mobile { display: none; }
-    @media (max-width: 767px) {
-      .step-mobile { display: flex; flex-direction: column; }
-      .step-desktop { display: none; }
-    }
-    @media (min-width: 768px) {
-      .step-mobile { display: none; }
-      .step-desktop { display: block; }
-    }
-    .step-row-mobile {
-      display: flex;
-      gap: 16px;
-      padding-bottom: 0;
-    }
-    .step-timeline-col {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      flex-shrink: 0;
-    }
-    .step-line-v {
-      flex: 1;
-      width: 1px;
-      background: linear-gradient(to bottom, rgba(255,107,74,0.5), rgba(255,154,61,0.3));
-      margin-top: 8px;
-    }
-    .step-content-col { padding-bottom: 32px; padding-top: 4px; }
-    .step-title-m { font-size: 20px; font-weight: 800; color: var(--text-1); margin-bottom: 6px; }
-    .step-desc-m { font-size: 17px; line-height: 1.8; color: var(--text-2); }
+      /* Mobile step layout */
+      .step-mobile {
+        display: none;
+      }
+      @media (max-width: 767px) {
+        .step-mobile {
+          display: flex;
+          flex-direction: column;
+        }
+        .step-desktop {
+          display: none;
+        }
+      }
+      @media (min-width: 768px) {
+        .step-mobile {
+          display: none;
+        }
+        .step-desktop {
+          display: block;
+        }
+      }
+      .step-row-mobile {
+        display: flex;
+        gap: 16px;
+        padding-bottom: 0;
+      }
+      .step-timeline-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0;
+      }
+      .step-line-v {
+        flex: 1;
+        width: 1px;
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 107, 74, 0.5),
+          rgba(255, 154, 61, 0.3)
+        );
+        margin-top: 8px;
+      }
+      .step-content-col {
+        padding-bottom: 32px;
+        padding-top: 4px;
+      }
+      .step-title-m {
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--text-1);
+        margin-bottom: 6px;
+      }
+      .step-desc-m {
+        font-size: 17px;
+        line-height: 1.8;
+        color: var(--text-2);
+      }
 
-    /* ═══════════════════════════════════════════════
+      /* ═══════════════════════════════════════════════
        5. HIRING BANNER — Full gradient + diagonal
     ═══════════════════════════════════════════════ */
-    #hiring {
-      padding: 80px 24px;
-      background: var(--bg-1);
-    }
-    .hiring-card {
-      background: var(--grad);
-      border-radius: 28px;
-      overflow: hidden;
-      position: relative;
-      box-shadow: 0 32px 64px -16px rgba(255,107,74,0.3);
-    }
-    .hiring-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        repeating-linear-gradient(-55deg,
-          rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px,
-          transparent 1px, transparent 16px);
-      pointer-events: none;
-    }
-    .hiring-card::after {
-      content: '';
-      position: absolute;
-      top: -100px;
-      right: -100px;
-      width: 400px;
-      height: 400px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.06);
-      pointer-events: none;
-    }
-    .hiring-inner {
-      position: relative;
-      z-index: 1;
-      padding: 56px 56px;
-      max-width: 1212px;
-      margin: 0 auto;
-    }
-    @media (max-width: 768px) { .hiring-inner { padding: 40px 28px; } }
-    .hiring-heading {
-      font-size: clamp(24px, 3.5vw, 40px);
-      font-weight: 900;
-      line-height: 1.2;
-      color: white;
-      letter-spacing: -0.03em;
-      margin-bottom: 16px;
-    }
-    .hiring-sub {
-      font-size: 17px;
-      line-height: 1.85;
-      color: rgba(255,255,255,0.82);
-      margin-bottom: 24px;
-      max-width: 540px;
-    }
-    .hiring-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .hiring-tag {
-      font-size: 13px;
-      font-weight: 600;
-      padding: 7px 16px;
-      border-radius: 99px;
-      background: rgba(255,255,255,0.18);
-      border: 1px solid rgba(255,255,255,0.3);
-      color: white;
-      backdrop-filter: blur(8px);
-    }
+      #hiring {
+        padding: 80px 24px;
+        background: var(--bg-1);
+      }
+      .hiring-card {
+        background: var(--grad);
+        border-radius: 28px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 32px 64px -16px rgba(255, 107, 74, 0.3);
+      }
+      .hiring-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          -55deg,
+          rgba(255, 255, 255, 0.03) 0px,
+          rgba(255, 255, 255, 0.03) 1px,
+          transparent 1px,
+          transparent 16px
+        );
+        pointer-events: none;
+      }
+      .hiring-card::after {
+        content: '';
+        position: absolute;
+        top: -100px;
+        right: -100px;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.06);
+        pointer-events: none;
+      }
+      .hiring-inner {
+        position: relative;
+        z-index: 1;
+        padding: 56px 56px;
+        max-width: 1212px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      @media (max-width: 768px) {
+        .hiring-inner {
+          padding: 40px 28px;
+        }
+      }
+      .hiring-heading {
+        font-size: clamp(24px, 3.5vw, 40px);
+        font-weight: 900;
+        line-height: 1.2;
+        color: white;
+        letter-spacing: -0.03em;
+        margin-bottom: 16px;
+      }
+      .hiring-sub {
+        font-size: 17px;
+        line-height: 1.85;
+        color: rgba(255, 255, 255, 0.82);
+        margin: 0 auto 24px;
+        max-width: 540px;
+      }
+      .hiring-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+      }
+      .hiring-tag {
+        font-size: 13px;
+        font-weight: 600;
+        padding: 7px 16px;
+        border-radius: 99px;
+        background: rgba(255, 255, 255, 0.18);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        backdrop-filter: blur(8px);
+      }
 
-    /* ═══════════════════════════════════════════════
+      /* ═══════════════════════════════════════════════
        6. STRENGTHS — Bento grid
     ═══════════════════════════════════════════════ */
-    #strengths {
-      background: var(--bg-0);
-      position: relative;
-    }
-    .strengths-header {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 56px;
-    }
-    .str-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      margin-bottom: 16px;
-    }
-    @media (max-width: 640px) { .str-grid { grid-template-columns: 1fr; } }
+      #strengths {
+        background: var(--bg-0);
+        position: relative;
+      }
+      .strengths-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 56px;
+      }
+      .str-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin-bottom: 16px;
+      }
+      @media (max-width: 640px) {
+        .str-grid {
+          grid-template-columns: 1fr;
+        }
+      }
 
-    .str-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--r-xl);
-      padding: 32px;
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.4s, transform 0.4s cubic-bezier(0.16,1,0.3,1),
-                  box-shadow 0.4s cubic-bezier(0.16,1,0.3,1);
-    }
-    .str-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 3px;
-      height: 0;
-      background: var(--grad);
-      transition: height 0.45s cubic-bezier(0.16,1,0.3,1);
-    }
-    .str-card:hover {
-      border-color: rgba(255,107,74,0.3);
-      transform: translateY(-3px);
-      box-shadow: 0 16px 40px rgba(255,107,74,0.1);
-    }
-    .str-card:hover::before { height: 100%; }
-    .str-icon-wrap {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      background: rgba(255,107,74,0.1);
-      border: 1px solid rgba(255,107,74,0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
-    }
-    .str-icon-wrap svg { color: var(--coral); }
-    .str-badge {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--coral);
-      margin-bottom: 8px;
-      display: block;
-    }
-    .str-title {
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--text-1);
-      margin-bottom: 10px;
-      line-height: 1.3;
-    }
-    .str-desc {
-      font-size: 16px;
-      line-height: 1.8;
-      color: var(--text-2);
-    }
+      .str-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--r-xl);
+        padding: 32px;
+        position: relative;
+        overflow: hidden;
+        transition:
+          border-color 0.4s,
+          transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+          box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .str-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 0;
+        background: var(--grad);
+        transition: height 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .str-card:hover {
+        border-color: rgba(255, 107, 74, 0.3);
+        transform: translateY(-3px);
+        box-shadow: 0 16px 40px rgba(255, 107, 74, 0.1);
+      }
+      .str-card:hover::before {
+        height: 100%;
+      }
+      .str-icon-wrap {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        background: rgba(255, 107, 74, 0.1);
+        border: 1px solid rgba(255, 107, 74, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+      }
+      .str-icon-wrap svg {
+        color: var(--coral);
+      }
+      .str-badge {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--coral);
+        margin-bottom: 8px;
+        display: block;
+      }
+      .str-title {
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--text-1);
+        margin-bottom: 10px;
+        line-height: 1.3;
+      }
+      .str-desc {
+        font-size: 16px;
+        line-height: 1.8;
+        color: var(--text-2);
+      }
 
-    /* Indicator row */
-    .ind-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-    }
-    @media (max-width: 640px) { .ind-grid { grid-template-columns: repeat(2, 1fr); } }
+      /* Indicator row */
+      .ind-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+      @media (max-width: 640px) {
+        .ind-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
 
-    .ind-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--r);
-      padding: 20px 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-    .ind-card:hover {
-      border-color: rgba(255,107,74,0.25);
-      transform: translateY(-2px);
-    }
-    .ind-card svg { color: var(--coral); }
-    .ind-label {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text-1);
-      text-align: center;
-    }
+      .ind-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        padding: 20px 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        transition:
+          border-color 0.3s,
+          transform 0.3s;
+      }
+      .ind-card:hover {
+        border-color: rgba(255, 107, 74, 0.25);
+        transform: translateY(-2px);
+      }
+      .ind-card svg {
+        color: var(--coral);
+      }
+      .ind-label {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--text-1);
+        text-align: center;
+      }
 
-    /* ═══════════════════════════════════════════════
+      /* ═══════════════════════════════════════════════
        7. FINAL CTA — Ambient glow dark
     ═══════════════════════════════════════════════ */
-    #cta {
-      background: var(--bg-0);
-      position: relative;
-      overflow: hidden;
-    }
-    #cta::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 800px;
-      height: 800px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,107,74,0.1) 0%, rgba(255,154,61,0.05) 40%, transparent 70%);
-      pointer-events: none;
-    }
-    /* Lattice pattern */
-    #cta::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        repeating-linear-gradient(60deg, rgba(255,255,255,0.018) 0px, rgba(255,255,255,0.018) 1px, transparent 1px, transparent 48px),
-        repeating-linear-gradient(-60deg, rgba(255,255,255,0.018) 0px, rgba(255,255,255,0.018) 1px, transparent 1px, transparent 48px);
-      pointer-events: none;
-    }
-    .cta-inner {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      max-width: 780px;
-      margin: 0 auto;
-      padding: 120px 24px;
-    }
-    .cta-heading {
-      font-size: clamp(30px, 5vw, 54px);
-      font-weight: 900;
-      line-height: 1.18;
-      letter-spacing: -0.04em;
-      color: var(--text-1);
-      margin-bottom: 24px;
-    }
-    .cta-heading span {
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .cta-sub-lg {
-      font-size: clamp(16px, 2.5vw, 22px);
-      line-height: 1.8;
-      color: var(--text-2);
-      margin-bottom: 12px;
-    }
-    .cta-sub-sm {
-      font-size: 15px;
-      color: var(--text-3);
-    }
-    /* Decorative orbit ring */
-    .cta-ring {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 500px;
-      height: 500px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,107,74,0.08);
-      pointer-events: none;
-    }
-    .cta-ring-2 {
-      width: 350px;
-      height: 350px;
-      border-color: rgba(255,107,74,0.05);
-    }
+      #cta {
+        background: var(--bg-0);
+        position: relative;
+        overflow: hidden;
+        isolation: isolate;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      #cta::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 800px;
+        height: 800px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 107, 74, 0.1) 0%,
+          rgba(255, 154, 61, 0.05) 40%,
+          transparent 70%
+        );
+        pointer-events: none;
+        z-index: 1;
+      }
+      /* Lattice pattern */
+      #cta::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+          repeating-linear-gradient(
+            60deg,
+            rgba(255, 255, 255, 0.018) 0px,
+            rgba(255, 255, 255, 0.018) 1px,
+            transparent 1px,
+            transparent 48px
+          ),
+          repeating-linear-gradient(
+            -60deg,
+            rgba(255, 255, 255, 0.018) 0px,
+            rgba(255, 255, 255, 0.018) 1px,
+            transparent 1px,
+            transparent 48px
+          );
+        pointer-events: none;
+        z-index: 1;
+      }
 
-    /* ═══════════════════════════════════════════════
+      /* ── JARVIS core — focused holographic reactor behind the text ── */
+      .cta-core {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 620px;
+        height: 620px;
+        margin: -310px 0 0 -310px;
+        z-index: 0;
+        pointer-events: none;
+        border-radius: 50%;
+        mix-blend-mode: screen;
+        /* soft energy core glow */
+        background: radial-gradient(
+          circle at 50% 50%,
+          rgba(160, 100, 255, 0.24) 0%,
+          rgba(255, 107, 74, 0.1) 22%,
+          transparent 52%
+        );
+        animation: corePulse 5s ease-in-out infinite;
+      }
+      /* rotating radar sweep beam */
+      .cta-core::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background: conic-gradient(
+          from 0deg,
+          rgba(160, 100, 255, 0.32) 0deg,
+          rgba(160, 100, 255, 0.07) 28deg,
+          transparent 72deg,
+          transparent 360deg
+        );
+        -webkit-mask: radial-gradient(
+          circle,
+          transparent 13%,
+          #000 16%,
+          #000 70%,
+          transparent 73%
+        );
+        mask: radial-gradient(
+          circle,
+          transparent 13%,
+          #000 16%,
+          #000 70%,
+          transparent 73%
+        );
+        animation: coreSweep 7s linear infinite;
+      }
+      /* sonar ping pulsing outward */
+      .cta-core::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 32%;
+        height: 32%;
+        margin: -16% 0 0 -16%;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 107, 74, 0.5);
+        animation: corePing 4.5s ease-out infinite;
+      }
+      @keyframes coreSweep {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes corePulse {
+        0%,
+        100% {
+          opacity: 0.85;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+      @keyframes corePing {
+        0% {
+          transform: scale(0.55);
+          opacity: 0.7;
+        }
+        80% {
+          opacity: 0;
+        }
+        100% {
+          transform: scale(2.6);
+          opacity: 0;
+        }
+      }
+
+      .cta-inner {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 780px;
+        margin: 0 auto;
+        padding: 120px 24px;
+      }
+      .cta-heading {
+        font-size: clamp(30px, 5vw, 54px);
+        font-weight: 900;
+        line-height: 1.18;
+        letter-spacing: -0.04em;
+        color: var(--text-1);
+        margin-bottom: 24px;
+      }
+      .cta-heading span {
+        background: var(--grad);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .cta-sub-lg {
+        font-size: clamp(16px, 2.5vw, 22px);
+        line-height: 1.8;
+        color: var(--text-2);
+        margin-bottom: 12px;
+      }
+      .cta-sub-sm {
+        font-size: 15px;
+        color: var(--text-3);
+      }
+      /* coming-soon pill (hero-badge style, scaled up) */
+      .cta-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin-top: 36px;
+        padding: 9px 22px;
+        border-radius: 99px;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        color: var(--coral-2);
+        background: rgba(255, 107, 74, 0.1);
+        border: 1px solid rgba(255, 107, 74, 0.3);
+        backdrop-filter: blur(8px);
+        animation: badgeGlow 2.4s ease-in-out infinite;
+      }
+      @keyframes badgeGlow {
+        0%,
+        100% {
+          border-color: rgba(255, 107, 74, 0.28);
+          box-shadow: 0 0 0 rgba(255, 107, 74, 0);
+        }
+        50% {
+          border-color: rgba(255, 107, 74, 0.85);
+          box-shadow: 0 0 16px rgba(255, 107, 74, 0.4);
+        }
+      }
+      /* HUD concentric rings */
+      .cta-ring {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 560px;
+        height: 560px;
+        margin: -280px 0 0 -280px;
+        border-radius: 50%;
+        border: 1px dashed rgba(160, 100, 255, 0.18);
+        pointer-events: none;
+        z-index: 1;
+        animation: ringSpin 48s linear infinite;
+      }
+      .cta-ring::before {
+        content: '';
+        position: absolute;
+        top: -3px;
+        left: 50%;
+        width: 6px;
+        height: 6px;
+        margin-left: -3px;
+        border-radius: 50%;
+        background: #a064ff;
+        box-shadow: 0 0 12px 2px rgba(160, 100, 255, 0.7);
+      }
+      .cta-ring-2 {
+        width: 380px;
+        height: 380px;
+        margin: -190px 0 0 -190px;
+        border: 1px solid rgba(255, 107, 74, 0.14);
+        animation: ringSpin 34s linear infinite reverse;
+      }
+      .cta-ring-2::before {
+        background: var(--coral);
+        box-shadow: 0 0 12px 2px rgba(255, 107, 74, 0.7);
+      }
+      @keyframes ringSpin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .cta-core {
+          width: 420px;
+          height: 420px;
+          margin: -210px 0 0 -210px;
+        }
+        .cta-ring {
+          width: 380px;
+          height: 380px;
+          margin: -190px 0 0 -190px;
+        }
+        .cta-ring-2 {
+          width: 260px;
+          height: 260px;
+          margin: -130px 0 0 -130px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .cta-core,
+        .cta-core::before,
+        .cta-core::after,
+        .cta-ring,
+        .cta-ring-2,
+        .cta-badge {
+          animation: none !important;
+        }
+      }
+
+      /* ═══════════════════════════════════════════════
        8. FOOTER
     ═══════════════════════════════════════════════ */
-    #contact {
-      background: #0A0604;
-      border-top: 1px solid var(--border);
-    }
-    .footer-inner {
-      max-width: 1212px;
-      margin: 0 auto;
-      padding: 48px 24px 36px;
-    }
-    .footer-top {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 32px;
-      flex-wrap: wrap;
-    }
-    .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .footer-logo {
-      width: 36px; height: 36px;
-      border-radius: 10px;
-      background: var(--grad);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .footer-name {
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--text-1);
-      letter-spacing: -0.02em;
-    }
-    .footer-email {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      color: var(--text-3);
-    }
-    .footer-email svg { color: var(--coral); }
-    .footer-divider {
-      height: 1px;
-      background: var(--border);
-      margin-bottom: 24px;
-    }
-    .footer-bot {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .footer-copy { font-size: 13px; color: var(--text-3); }
+      #contact {
+        background: #0a0604;
+        border-top: 1px solid var(--border);
+      }
+      .footer-inner {
+        max-width: 1212px;
+        margin: 0 auto;
+        padding: 48px 24px 36px;
+      }
+      .footer-top {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 32px;
+        flex-wrap: wrap;
+      }
+      .footer-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .footer-logo-img {
+        height: 32px;
+        width: auto;
+        display: block;
+      }
+      .footer-tagline {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--text-2);
+        margin-bottom: 20px;
+      }
+      .footer-company {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 28px;
+      }
+      .footer-company-line {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+        font-size: 15px;
+        color: var(--text-3);
+        line-height: 1.6;
+      }
+      .footer-company-line a {
+        color: inherit;
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+      .footer-company-line a:hover {
+        color: var(--text-2);
+      }
+      .footer-dot {
+        color: var(--text-3);
+        opacity: 0.5;
+      }
+      .footer-divider {
+        height: 1px;
+        background: var(--border);
+        margin-bottom: 24px;
+      }
+      @media (max-width: 768px) {
+        .footer-dot {
+          display: none;
+        }
+        .footer-company-line {
+          gap: 2px;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+      .footer-bot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .footer-copy {
+        font-size: 15px;
+        color: var(--text-3);
+      }
 
-    /* ═══════════════════════════════════════════════
+      /* ═══════════════════════════════════════════════
        SECTION PADDING (shared)
     ═══════════════════════════════════════════════ */
-    .sec-pad { padding: 100px 0; }
-    @media (max-width: 768px) { .sec-pad { padding: 72px 0; } }
+      .sec-pad {
+        padding: 100px 0;
+      }
+      @media (max-width: 768px) {
+        .sec-pad {
+          padding: 72px 0;
+        }
+      }
 
-    /* ═══════════════════════════════════════════════
+      /* ═══════════════════════════════════════════════
        SECTION GROUPS
     ═══════════════════════════════════════════════ */
-    .group-wrap { position: relative; }
+      .group-wrap {
+        position: relative;
+      }
 
-    /* AI group hero banner */
-    .group-hero-band {
-      background: var(--bg-0);
-      position: relative;
-      overflow: hidden;
-      padding: 100px 0 0;
-      text-align: center;
-    }
-    .group-hero-band::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
-    }
-    .group-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      color: var(--coral);
-      margin-bottom: 24px;
-    }
-    .group-eyebrow::before,
-    .group-eyebrow::after {
-      content: '';
-      width: 36px;
-      height: 1px;
-      background: var(--coral);
-      opacity: 0.45;
-      flex-shrink: 0;
-    }
-    .group-hero-title {
-      font-size: clamp(44px, 7vw, 86px);
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      line-height: 1.05;
-      color: var(--text-1);
-      margin-bottom: 20px;
-    }
-    .group-hero-title em {
-      font-style: normal;
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .group-hero-sub {
-      font-size: 18px;
-      line-height: 1.8;
-      color: var(--text-2);
-      max-width: 560px;
-      margin: 0 auto;
-      padding-bottom: 72px;
-    }
+      /* AI group hero banner */
+      .group-hero-band {
+        background: var(--bg-0);
+        position: relative;
+        overflow: hidden;
+        padding: 100px 0 0;
+        text-align: center;
+      }
+      .group-hero-band::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+          linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.015) 1px,
+            transparent 1px
+          );
+        background-size: 60px 60px;
+        pointer-events: none;
+      }
+      .group-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--coral);
+        margin-bottom: 24px;
+      }
+      .group-eyebrow::before,
+      .group-eyebrow::after {
+        content: '';
+        width: 36px;
+        height: 1px;
+        background: var(--coral);
+        opacity: 0.45;
+        flex-shrink: 0;
+      }
+      .group-hero-title {
+        font-size: clamp(44px, 7vw, 86px);
+        font-weight: 900;
+        letter-spacing: -0.04em;
+        line-height: 1.05;
+        color: var(--text-1);
+        margin-bottom: 20px;
+      }
+      .group-hero-title em {
+        font-style: normal;
+        background: var(--grad);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
 
-
-    /* ═══════════════════════════════════════════════
+      /* ═══════════════════════════════════════════════
        LIGHT SECTIONS — Brand Story & Strengths
     ═══════════════════════════════════════════════ */
 
-    /* shared light palette */
-    #about,
-    #strengths {
-      --lt-bg:      #FBF4EE;
-      --lt-card:    #FFFFFF;
-      --lt-border:  rgba(180, 110, 70, 0.15);
-      --lt-text-1:  #1C0E06;
-      --lt-text-2:  #5A3A22;
-      --lt-text-3:  #8A6040;
-    }
+      /* shared light palette */
+      #about,
+      #strengths {
+        --lt-bg: #fbf4ee;
+        --lt-card: #ffffff;
+        --lt-border: rgba(180, 110, 70, 0.15);
+        --lt-text-1: #1c0e06;
+        --lt-text-2: #5a3a22;
+        --lt-text-3: #8a6040;
+      }
 
-    /* ── Brand Story ── */
-    #about {
-      background: var(--lt-bg);
-    }
-    #about::before {
-      background: radial-gradient(circle, rgba(255,107,74,0.07) 0%, transparent 70%);
-    }
-    #about .about-story-heading { color: var(--lt-text-1); }
-    #about .about-lead          { color: var(--lt-text-2); border-left-color: var(--coral); }
-    #about .about-body p        { color: var(--lt-text-3); }
-    #about .section-tag         { color: var(--coral); }
+      /* ── Brand Story ── */
+      #about {
+        background: var(--lt-bg);
+      }
+      #about::before {
+        background: radial-gradient(
+          circle,
+          rgba(255, 107, 74, 0.07) 0%,
+          transparent 70%
+        );
+      }
+      #about .about-story-heading {
+        color: var(--lt-text-1);
+      }
+      #about .about-lead {
+        color: var(--lt-text-2);
+        border-left-color: var(--coral);
+      }
+      #about .about-body p {
+        color: var(--lt-text-3);
+      }
+      #about .section-tag {
+        color: var(--coral);
+      }
 
-    #about .value-card {
-      background: var(--lt-card);
-      border-color: var(--lt-border);
-      box-shadow: 0 2px 16px rgba(160, 90, 40, 0.07);
-    }
-    #about .value-card:hover {
-      border-color: rgba(255,107,74,0.35);
-      background: #FFF8F2;
-      box-shadow: 0 8px 32px rgba(255,107,74,0.1);
-    }
-    #about .value-title { color: var(--lt-text-1); }
-    #about .value-desc  { color: var(--lt-text-2); }
+      #about .value-card {
+        background: var(--lt-card);
+        border-color: var(--lt-border);
+        box-shadow: 0 2px 16px rgba(160, 90, 40, 0.07);
+      }
+      #about .value-card:hover {
+        border-color: rgba(255, 107, 74, 0.35);
+        background: #fff8f2;
+        box-shadow: 0 8px 32px rgba(255, 107, 74, 0.1);
+      }
+      #about .value-title {
+        color: var(--lt-text-1);
+      }
+      #about .value-desc {
+        color: var(--lt-text-2);
+      }
 
-    #strengths {
-      background: var(--lt-bg);
-    }
-    #strengths .section-heading { color: var(--lt-text-1); }
-    #strengths .section-sub     { color: var(--lt-text-2); }
-    #strengths .section-tag     { color: var(--coral); }
+      #strengths {
+        background: var(--lt-bg);
+      }
+      #strengths .section-heading {
+        color: var(--lt-text-1);
+      }
+      #strengths .section-sub {
+        color: var(--lt-text-2);
+      }
+      #strengths .section-tag {
+        color: var(--coral);
+      }
 
-    #strengths .str-card {
-      background: var(--lt-card);
-      border-color: var(--lt-border);
-      box-shadow: 0 2px 16px rgba(160,90,40,0.07);
-    }
-    #strengths .str-card:hover {
-      border-color: rgba(255,107,74,0.35);
-      box-shadow: 0 16px 40px rgba(255,107,74,0.12);
-    }
-    #strengths .str-title { color: var(--lt-text-1); }
-    #strengths .str-desc  { color: var(--lt-text-2); }
-    #strengths .str-badge { color: var(--coral); }
-    #strengths .str-icon-wrap {
-      background: rgba(255,107,74,0.08);
-      border-color: rgba(255,107,74,0.18);
-    }
+      #strengths .str-card {
+        background: var(--lt-card);
+        border-color: var(--lt-border);
+        box-shadow: 0 2px 16px rgba(160, 90, 40, 0.07);
+      }
+      #strengths .str-card:hover {
+        border-color: rgba(255, 107, 74, 0.35);
+        box-shadow: 0 16px 40px rgba(255, 107, 74, 0.12);
+      }
+      #strengths .str-title {
+        color: var(--lt-text-1);
+      }
+      #strengths .str-desc {
+        color: var(--lt-text-2);
+      }
+      #strengths .str-badge {
+        color: var(--coral);
+      }
+      #strengths .str-icon-wrap {
+        background: rgba(255, 107, 74, 0.08);
+        border-color: rgba(255, 107, 74, 0.18);
+      }
 
-    #strengths .ind-card {
-      background: var(--lt-card);
-      border-color: var(--lt-border);
-      box-shadow: 0 2px 10px rgba(160,90,40,0.06);
-    }
-    #strengths .ind-card:hover {
-      border-color: rgba(255,107,74,0.3);
-    }
-    #strengths .ind-label { color: var(--lt-text-1); }
+      #strengths .ind-card {
+        background: var(--lt-card);
+        border-color: var(--lt-border);
+        box-shadow: 0 2px 10px rgba(160, 90, 40, 0.06);
+      }
+      #strengths .ind-card:hover {
+        border-color: rgba(255, 107, 74, 0.3);
+      }
+      #strengths .ind-label {
+        color: var(--lt-text-1);
+      }
 
-    /* ═══════════════════════════════════════════════
+      /* ═══════════════════════════════════════════════
        TAILWIND OVERRIDES
     ═══════════════════════════════════════════════ */
-    /* Kill old section-label styling */
-    .section-label { display: none !important; }
-  </style>
-</head>
+      /* Kill old section-label styling */
+      .section-label {
+        display: none !important;
+      }
+    </style>
+  </head>
 
-<body>
-
-
-<!-- ════════════════════════════════════════════════
+  <body>
+    <!-- ════════════════════════════════════════════════
      HERO
 ════════════════════════════════════════════════ -->
-<section id="hero">
-  <video
-    src="video/nextpartner_intro.mp4"
-    autoplay muted loop playsinline
-    aria-label="넥스트파트너 서비스 소개 영상"
-  ></video>
-  <div class="hero-overlay" aria-hidden="true"></div>
-  <div class="hero-brackets" aria-hidden="true"></div>
+    <section id="hero">
+      <video
+        id="hero-video"
+        src="video/nextpartner_intro.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+        aria-label="넥스트파트너 서비스 소개 영상"
+      ></video>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-brackets" aria-hidden="true"></div>
 
-  <div class="hero-content">
-    <div class="hero-badge" aria-hidden="true">AI 시니어 일자리 플랫폼</div>
-    <h1 class="hero-title">
-      <span class="hero-line-2">NextPartner</span>
-    </h1>
-    <p class="hero-subtitle">Senior Talent Marketplace</p>
-    <p class="hero-coming-soon">coming soon...</p>
-  </div>
+      <div class="hero-content">
+        <div class="hero-badge" aria-hidden="true">AI 시니어 일자리 플랫폼</div>
+        <h1 class="hero-title">
+          <span class="hero-line-2">NextPartner</span>
+        </h1>
+        <p class="hero-subtitle">Senior Talent Marketplace</p>
+        <p class="hero-coming-soon">coming soon...</p>
+      </div>
 
-  <div class="hero-scroll" aria-hidden="true">
-    <span>Scroll</span>
-    <div class="hero-scroll-line"></div>
-  </div>
-</section>
+      <div class="hero-scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="hero-scroll-line"></div>
+      </div>
 
+      <div class="hero-focus-caption" aria-hidden="true">
+        NextPartner<span class="dot">·</span>Senior Talent Marketplace
+      </div>
 
-<!-- ════════════════════════════════════════════════
+      <button
+        id="hero-sound"
+        class="hero-sound"
+        type="button"
+        aria-label="영상 소리 켜기"
+        aria-pressed="false"
+        onclick="toggleHeroSound()"
+      >
+        <i data-lucide="volume-x"></i>
+      </button>
+    </section>
+
+    <!-- ════════════════════════════════════════════════
      BRAND STORY
 ════════════════════════════════════════════════ -->
-<section id="about">
-  <div class="about-inner">
+    <section id="about">
+      <div class="about-inner">
+        <!-- Left: Story -->
+        <div data-reveal>
+          <span class="section-tag">Brand Story</span>
+          <h2 class="about-story-heading">
+            시니어의 경험이<br />
+            다음 기회로<br />
+            연결되도록
+          </h2>
+          <p class="about-lead">
+            일하고 싶은 시니어와 인재가 필요한 기업,<br />아직 충분히 연결되지
+            못한 가능성이 있습니다.
+          </p>
+          <div class="about-body">
+            <p>
+              50+ 액티브 시니어에게는 오랜 시간 쌓아온 경험과 책임감이 있고,
+              기업에는 그 경험이 필요한 자리가 있습니다.
+            </p>
+            <p>
+              넥스트파트너는 두 대상이 더 적합하게 연결될 수 있도록,
+              구직자에게는 AI 기반 지원 준비를 돕고 기업에게는 시니어 인재를
+              효율적으로 검토할 수 있는 환경을 제공합니다.
+            </p>
+            <p>
+              공고를 단순히 보여주는 것을 넘어, 경험이 필요한 자리와 그 경험을
+              가진 인재가 제대로 만나는 채용 방식을 만들어갑니다.
+            </p>
+          </div>
+        </div>
 
-    <!-- Left: Story -->
-    <div data-reveal>
-      <span class="section-tag">Brand Story</span>
-      <h2 class="about-story-heading">
-        시니어의 경험이<br>
-        다음 기회로<br>
-        연결되도록
-      </h2>
-      <p class="about-lead">
-        일하고 싶은 시니어와 인재가 필요한 기업,<br>아직 충분히 연결되지 못한 가능성이 있습니다.
-      </p>
-      <div class="about-body">
-        <p>
-          50+ 액티브 시니어에게는 오랜 시간 쌓아온 경험과 책임감이 있고, 기업에는 그 경험이 필요한 자리가 있습니다.
-        </p>
-        <p>
-          넥스트파트너는 두 대상이 더 적합하게 연결될 수 있도록, 구직자에게는 AI 기반 지원 준비를 돕고 기업에게는 시니어 인재를 효율적으로 검토할 수 있는 환경을 제공합니다.
-        </p>
-        <p>
-          공고를 단순히 보여주는 것을 넘어, 경험이 필요한 자리와 그 경험을 가진 인재가 제대로 만나는 채용 방식을 만들어갑니다.
-        </p>
-      </div>
-    </div>
-
-    <!-- Right: Value cards -->
-    <div class="value-stack">
-      <div class="value-card" data-reveal data-reveal-delay="1">
-        <div class="value-num">01</div>
-        <div>
-          <div class="value-title">경험</div>
-          <div class="value-desc">쌓아온 경력과 태도를 새로운 기회로 연결합니다.</div>
+        <!-- Right: Value cards -->
+        <div class="value-stack">
+          <div class="value-card" data-reveal data-reveal-delay="1">
+            <div class="value-num">01</div>
+            <div>
+              <div class="value-title">경험</div>
+              <div class="value-desc">
+                쌓아온 경력과 태도를 새로운 기회로 연결합니다.
+              </div>
+            </div>
+          </div>
+          <div class="value-card" data-reveal data-reveal-delay="2">
+            <div class="value-num">02</div>
+            <div>
+              <div class="value-title">준비</div>
+              <div class="value-desc">
+                자기소개서, 사진, 면접 준비를 AI와 함께합니다.
+              </div>
+            </div>
+          </div>
+          <div class="value-card" data-reveal data-reveal-delay="3">
+            <div class="value-num">03</div>
+            <div>
+              <div class="value-title">연결</div>
+              <div class="value-desc">
+                서로에게 맞는 조건으로 구직자와 기업을 연결합니다.
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="value-card" data-reveal data-reveal-delay="2">
-        <div class="value-num">02</div>
-        <div>
-          <div class="value-title">준비</div>
-          <div class="value-desc">자기소개서, 사진, 면접 준비를 AI와 함께합니다.</div>
-        </div>
-      </div>
-      <div class="value-card" data-reveal data-reveal-delay="3">
-        <div class="value-num">03</div>
-        <div>
-          <div class="value-title">연결</div>
-          <div class="value-desc">서로에게 맞는 조건으로 구직자와 기업을 연결합니다.</div>
-        </div>
-      </div>
-    </div>
+    </section>
 
-  </div>
-</section>
-
-
-<!-- ════════════════════════════════════════════════
+    <!-- ════════════════════════════════════════════════
      AI TOOLS GROUP
 ════════════════════════════════════════════════ -->
-<div class="group-wrap">
+    <div class="group-wrap">
+      <!-- Group Hero -->
+      <div class="group-hero-band">
+        <div class="wrap">
+          <div class="group-eyebrow" data-reveal>서비스 안내</div>
+          <h2 class="group-hero-title" data-reveal>
+            대상에 맞춘<br /><em>AI 기능</em>과 이용 방법
+          </h2>
+        </div>
+      </div>
 
-  <!-- Group Hero -->
-  <div class="group-hero-band">
-    <div class="wrap">
-      <div class="group-eyebrow" data-reveal>AI 도구</div>
-      <h2 class="group-hero-title" data-reveal>
-        구직자와 구인자 모두를 위한<br><em>AI 기능</em>
-      </h2>
-      <p class="group-hero-sub" data-reveal>
-        준비부터 채용까지, 필요한 순간마다 AI가 함께합니다.
-      </p>
-    </div>
-  </div>
-
-<!-- ════════════════════════════════════════════════
-     AI FEATURES
+      <!-- ════════════════════════════════════════════════
+     FEATURES + PROCESS (role tab)
 ════════════════════════════════════════════════ -->
-<section id="ai-features" class="sec-pad">
-  <div class="wrap">
-
-    <div class="ai-header" data-reveal>
-      <span class="section-tag" style="justify-content:center;">구직자 AI 도구</span>
-      <h2 class="ai-heading">
-        지원 준비, AI와 함께
-      </h2>
-      <p class="ai-sub">막막한 단계마다 AI가 옆에 있습니다.</p>
-    </div>
-
-    <!-- Top 3 cards -->
-    <div class="ai-grid-top">
-
-      <div class="ai-card-new" role="article" data-reveal data-reveal-delay="1">
-        <div class="ai-card-num">01</div>
-        <div class="ai-icon-wrap">
-          <i data-lucide="file-text" style="width:24px;height:24px;"></i>
-        </div>
-        <h3 class="ai-card-title">AI 자기소개서</h3>
-        <p class="ai-card-desc">내 경험을 바탕으로 AI가 초안을 작성해드립니다.</p>
-        <div class="ai-tags">
-          <span class="ai-tag">작성 부담 감소</span>
-          <span class="ai-tag">경력 정리</span>
-          <span class="ai-tag">완성도 향상</span>
-        </div>
-      </div>
-
-      <div class="ai-card-new" role="article" data-reveal data-reveal-delay="2">
-        <div class="ai-card-num">02</div>
-        <div class="ai-icon-wrap">
-          <i data-lucide="camera" style="width:24px;height:24px;"></i>
-        </div>
-        <h3 class="ai-card-title">AI 증명사진 생성</h3>
-        <p class="ai-card-desc">촬영 없이 단정한 프로필 사진을 빠르게 만듭니다.</p>
-        <div class="ai-tags">
-          <span class="ai-tag">사진 준비 부담 감소</span>
-          <span class="ai-tag">비대면 준비</span>
-          <span class="ai-tag">서류 완성도</span>
-        </div>
-      </div>
-
-      <div class="ai-card-new" role="article" data-reveal data-reveal-delay="3">
-        <div class="ai-card-num">03</div>
-        <div class="ai-icon-wrap">
-          <i data-lucide="sparkles" style="width:24px;height:24px;"></i>
-        </div>
-        <h3 class="ai-card-title">AI 복장 점검</h3>
-        <p class="ai-card-desc">면접 전 옷차림이 적절한지 AI가 확인해드립니다.</p>
-        <div class="ai-tags">
-          <span class="ai-tag">첫인상 준비</span>
-          <span class="ai-tag">면접 불안 감소</span>
-          <span class="ai-tag">이미지 점검</span>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Bottom 2 cards -->
-    <div class="ai-grid-bot">
-
-      <div class="ai-card-new" role="article" data-reveal data-reveal-delay="1">
-        <div class="ai-card-num">04</div>
-        <div class="ai-icon-wrap">
-          <i data-lucide="message-circle" style="width:24px;height:24px;"></i>
-        </div>
-        <h3 class="ai-card-title">AI 모의면접</h3>
-        <p class="ai-card-desc">예상 질문으로 연습하고 AI 피드백으로 답변을 다듬습니다.</p>
-        <div class="ai-tags">
-          <span class="ai-tag">면접 연습</span>
-          <span class="ai-tag">답변 구조화</span>
-          <span class="ai-tag">자신감 향상</span>
-        </div>
-      </div>
-
-      <div class="ai-card-new" role="article" data-reveal data-reveal-delay="2">
-        <div class="ai-card-num">05</div>
-        <div class="ai-icon-wrap">
-          <i data-lucide="building-2" style="width:24px;height:24px;"></i>
-        </div>
-        <h3 class="ai-card-title">AI 기업브리핑</h3>
-        <p class="ai-card-desc">면접 전 알아야 할 기업 정보를 한눈에 정리합니다.</p>
-        <div class="ai-tags">
-          <span class="ai-tag">기업 이해도 향상</span>
-          <span class="ai-tag">정보 탐색</span>
-          <span class="ai-tag">면접 준비 보완</span>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ════════════════════════════════════════════════
-     AI DEEP FEATURES
-════════════════════════════════════════════════ -->
-<section id="ai-deep" class="sec-pad" style="background: var(--bg-2);">
-  <div class="wrap">
-
-    <div class="ai-header" data-reveal>
-      <span class="section-tag" style="justify-content:center;">구인자 AI 도구</span>
-      <h2 class="ai-heading">
-        적합한 인재, AI와 함께 찾습니다
-      </h2>
-      <p class="ai-sub">적합도 분석부터 면접 점검까지 AI가 지원합니다.</p>
-    </div>
-
-    <div class="ai-grid-top" style="margin-bottom: 0;">
-
-      <div class="ai-card-new" role="article" data-reveal data-reveal-delay="1">
-        <div class="ai-card-num">01</div>
-        <div class="ai-icon-wrap">
-          <i data-lucide="target" style="width:24px;height:24px;"></i>
-        </div>
-        <h3 class="ai-card-title">AI 적합도 분석</h3>
-        <p class="ai-card-desc">이력과 희망 직무를 분석해 적합도와 보완점을 알려드립니다.</p>
-        <div class="ai-tags">
-          <span class="ai-tag">경력 매칭</span>
-          <span class="ai-tag">직무 적합성</span>
-          <span class="ai-tag">보완점 파악</span>
-        </div>
-      </div>
-
-      <div class="ai-card-new" role="article" data-reveal data-reveal-delay="2">
-        <div class="ai-card-num">02</div>
-        <div class="ai-icon-wrap">
-          <i data-lucide="trending-up" style="width:24px;height:24px;"></i>
-        </div>
-        <h3 class="ai-card-title">AI 경력 궤적 분석</h3>
-        <p class="ai-card-desc">경력 흐름을 정리하고 앞으로의 방향을 안내합니다.</p>
-        <div class="ai-tags">
-          <span class="ai-tag">경력 흐름 정리</span>
-          <span class="ai-tag">방향 제시</span>
-          <span class="ai-tag">강점 발견</span>
-        </div>
-      </div>
-
-      <div class="ai-card-new" role="article" data-reveal data-reveal-delay="3">
-        <div class="ai-card-num">03</div>
-        <div class="ai-icon-wrap">
-          <i data-lucide="list-checks" style="width:24px;height:24px;"></i>
-        </div>
-        <h3 class="ai-card-title">AI 면접 질문 및 답변 점검</h3>
-        <p class="ai-card-desc">예상 질문으로 연습하고 답변의 흐름과 강점을 점검합니다.</p>
-        <div class="ai-tags">
-          <span class="ai-tag">맞춤 질문</span>
-          <span class="ai-tag">답변 피드백</span>
-          <span class="ai-tag">면접 완성도</span>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ════════════════════════════════════════════════
-     HIRING CTA BANNER
-════════════════════════════════════════════════ -->
-<section id="hiring">
-  <div class="wrap">
-    <div class="hiring-card" data-reveal>
-      <div class="hiring-inner">
-        <h2 class="hiring-heading">
-          경험 있는 시니어 인재,<br>
-          더 쉽게 만나고 검토하세요
-        </h2>
-        <p class="hiring-sub">
-          공고 등록부터 지원자 확인, 면접 제안까지 효율적으로 진행할 수 있습니다.
-        </p>
-        <div class="hiring-tags" role="list" aria-label="기업 채용 서비스 특징">
-          <span class="hiring-tag" role="listitem">시니어 인재풀</span>
-          <span class="hiring-tag" role="listitem">지원자 검토</span>
-          <span class="hiring-tag" role="listitem">AI 기반 정보 정리</span>
-          <span class="hiring-tag" role="listitem">면접 제안</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-</div><!-- /AI TOOLS GROUP -->
-
-
-<!-- ════════════════════════════════════════════════
-     SERVICE FLOW GROUP
-════════════════════════════════════════════════ -->
-<div class="group-wrap">
-
-<!-- ════════════════════════════════════════════════
-     PROCESS
-════════════════════════════════════════════════ -->
-<section id="process" class="sec-pad" style="background: var(--bg-1);">
-  <div class="wrap">
-
-    <div class="process-header" data-reveal>
-      <span class="section-tag" style="justify-content:center;">이용 방법</span>
-      <h2 class="section-heading">
-        구직 준비부터 채용 연결까지<br>단계별로 쉽게 진행합니다
-      </h2>
-      <p class="section-sub">
-        구직자는 AI로 준비하고, 기업은 맞는 인재를 효율적으로 검토합니다.
-      </p>
-    </div>
-
-    <!-- Tab bar -->
-    <div class="tab-bar" role="tablist" aria-label="이용자 구분 선택">
-      <div class="tab-wrap">
-        <button
-          id="tab-jobseeker" role="tab" aria-selected="true"
-          aria-controls="panel-jobseeker"
-          class="tab-btn"
-          onclick="switchTab('jobseeker')"
-        >구직자</button>
-        <button
-          id="tab-company" role="tab" aria-selected="false"
-          aria-controls="panel-company"
-          class="tab-btn"
-          onclick="switchTab('company')"
-        >기업</button>
-      </div>
-    </div>
-
-    <!-- 구직자 패널 -->
-    <div id="panel-jobseeker" role="tabpanel" aria-labelledby="tab-jobseeker">
-      <!-- Desktop -->
-      <div class="step-desktop">
-        <div class="step-grid">
-          <div class="step-line" aria-hidden="true"></div>
-          <div class="step-card" data-reveal data-reveal-delay="1">
-            <div class="step-num-wrap">
-              <span class="step-label">STEP</span>
-              <span class="step-n">01</span>
+      <section id="ai-features" class="sec-pad" style="background: var(--bg-1)">
+        <div class="wrap">
+          <!-- Tab bar -->
+          <div class="tab-bar" role="tablist" aria-label="이용자 구분 선택">
+            <div class="tab-wrap">
+              <button
+                id="tab-jobseeker"
+                role="tab"
+                aria-selected="true"
+                aria-controls="panel-jobseeker"
+                class="tab-btn"
+                onclick="switchTab('jobseeker')"
+              >
+                구직자
+              </button>
+              <button
+                id="tab-company"
+                role="tab"
+                aria-selected="false"
+                aria-controls="panel-company"
+                class="tab-btn"
+                onclick="switchTab('company')"
+              >
+                기업
+              </button>
             </div>
-            <h3 class="step-title">기본 정보 입력</h3>
-            <p class="step-desc">희망 직무, 근무 지역, 경력, 지원 목적을 간단히 입력합니다.</p>
           </div>
-          <div class="step-card" data-reveal data-reveal-delay="2">
-            <div class="step-num-wrap">
-              <span class="step-label">STEP</span>
-              <span class="step-n">02</span>
-            </div>
-            <h3 class="step-title">AI 구직 준비</h3>
-            <p class="step-desc">AI 자기소개서·사진·복장·모의면접으로 지원을 준비합니다.</p>
-          </div>
-          <div class="step-card" data-reveal data-reveal-delay="3">
-            <div class="step-num-wrap">
-              <span class="step-label">STEP</span>
-              <span class="step-n">03</span>
-            </div>
-            <h3 class="step-title">기업 정보 확인</h3>
-            <p class="step-desc">AI 기업브리핑을 통해 지원하려는 기업과 직무를 쉽게 이해합니다.</p>
-          </div>
-          <div class="step-card" data-reveal data-reveal-delay="4">
-            <div class="step-num-wrap">
-              <span class="step-label">STEP</span>
-              <span class="step-n">04</span>
-            </div>
-            <h3 class="step-title">지원 및 연결</h3>
-            <p class="step-desc">준비를 마치고 관심 공고에 지원해 기업과 연결됩니다.</p>
-          </div>
-        </div>
-      </div>
 
-      <!-- Mobile -->
-      <div class="step-mobile">
-        <div class="step-row-mobile">
-          <div class="step-timeline-col">
-            <div class="step-num-wrap"><span class="step-label">STEP</span><span class="step-n">01</span></div>
-            <div class="step-line-v"></div>
+          <!-- 구직자 패널 -->
+          <div
+            id="panel-jobseeker"
+            role="tabpanel"
+            aria-labelledby="tab-jobseeker"
+          >
+            <!-- AI 기능 -->
+            <div class="ai-header" data-reveal>
+              <span class="section-tag" style="justify-content: center"
+                >AI 기능</span
+              >
+              <h2 class="ai-heading">지원 준비, AI와 함께</h2>
+              <p class="ai-sub">막막한 단계마다 AI가 옆에 있습니다.</p>
+            </div>
+
+            <!-- Top 3 cards -->
+            <div class="ai-grid-top">
+              <div
+                class="ai-card-new"
+                role="article"
+                data-reveal
+                data-reveal-delay="1"
+              >
+                <div class="ai-card-num">01</div>
+                <div class="ai-icon-wrap">
+                  <i
+                    data-lucide="file-text"
+                    style="width: 24px; height: 24px"
+                  ></i>
+                </div>
+                <h3 class="ai-card-title">AI 자기소개서</h3>
+                <p class="ai-card-desc">
+                  내 경험을 바탕으로 AI가 초안을 작성해드립니다.
+                </p>
+                <div class="ai-tags">
+                  <span class="ai-tag">작성 부담 감소</span>
+                  <span class="ai-tag">경력 정리</span>
+                  <span class="ai-tag">완성도 향상</span>
+                </div>
+              </div>
+
+              <div
+                class="ai-card-new"
+                role="article"
+                data-reveal
+                data-reveal-delay="2"
+              >
+                <div class="ai-card-num">02</div>
+                <div class="ai-icon-wrap">
+                  <i data-lucide="camera" style="width: 24px; height: 24px"></i>
+                </div>
+                <h3 class="ai-card-title">AI 증명사진 생성</h3>
+                <p class="ai-card-desc">
+                  촬영 없이 단정한 프로필 사진을 빠르게 만듭니다.
+                </p>
+                <div class="ai-tags">
+                  <span class="ai-tag">사진 준비 부담 감소</span>
+                  <span class="ai-tag">비대면 준비</span>
+                  <span class="ai-tag">서류 완성도</span>
+                </div>
+              </div>
+
+              <div
+                class="ai-card-new"
+                role="article"
+                data-reveal
+                data-reveal-delay="3"
+              >
+                <div class="ai-card-num">03</div>
+                <div class="ai-icon-wrap">
+                  <i
+                    data-lucide="sparkles"
+                    style="width: 24px; height: 24px"
+                  ></i>
+                </div>
+                <h3 class="ai-card-title">AI 복장 점검</h3>
+                <p class="ai-card-desc">
+                  면접 전 옷차림이 적절한지 AI가 확인해드립니다.
+                </p>
+                <div class="ai-tags">
+                  <span class="ai-tag">첫인상 준비</span>
+                  <span class="ai-tag">면접 불안 감소</span>
+                  <span class="ai-tag">이미지 점검</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom 2 cards -->
+            <div class="ai-grid-bot">
+              <div
+                class="ai-card-new"
+                role="article"
+                data-reveal
+                data-reveal-delay="1"
+              >
+                <div class="ai-card-num">04</div>
+                <div class="ai-icon-wrap">
+                  <i
+                    data-lucide="message-circle"
+                    style="width: 24px; height: 24px"
+                  ></i>
+                </div>
+                <h3 class="ai-card-title">AI 모의면접</h3>
+                <p class="ai-card-desc">
+                  예상 질문으로 연습하고 AI 피드백으로 답변을 다듬습니다.
+                </p>
+                <div class="ai-tags">
+                  <span class="ai-tag">면접 연습</span>
+                  <span class="ai-tag">답변 구조화</span>
+                  <span class="ai-tag">자신감 향상</span>
+                </div>
+              </div>
+
+              <div
+                class="ai-card-new"
+                role="article"
+                data-reveal
+                data-reveal-delay="2"
+              >
+                <div class="ai-card-num">05</div>
+                <div class="ai-icon-wrap">
+                  <i
+                    data-lucide="building-2"
+                    style="width: 24px; height: 24px"
+                  ></i>
+                </div>
+                <h3 class="ai-card-title">AI 기업브리핑</h3>
+                <p class="ai-card-desc">
+                  면접 전 알아야 할 기업 정보를 한눈에 정리합니다.
+                </p>
+                <div class="ai-tags">
+                  <span class="ai-tag">기업 이해도 향상</span>
+                  <span class="ai-tag">정보 탐색</span>
+                  <span class="ai-tag">면접 준비 보완</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 이용 방법 -->
+            <div class="process-header" data-reveal style="margin-top: 96px">
+              <span class="section-tag" style="justify-content: center"
+                >이용 방법</span
+              >
+              <h2 class="section-heading">
+                구직 준비부터 채용 연결까지<br />단계별로 진행합니다
+              </h2>
+              <p class="section-sub">
+                AI로 준비하고 관심 공고에 지원해 기업과 연결됩니다.
+              </p>
+            </div>
+
+            <!-- Desktop -->
+            <div class="step-desktop">
+              <div class="step-grid">
+                <div class="step-line" aria-hidden="true"></div>
+                <div class="step-card" data-reveal data-reveal-delay="1">
+                  <div class="step-num-wrap">
+                    <span class="step-label">STEP</span>
+                    <span class="step-n">01</span>
+                  </div>
+                  <h3 class="step-title">기본 정보 입력</h3>
+                  <p class="step-desc">
+                    희망 직무, 근무 지역, 경력, 지원 목적을 간단히 입력합니다.
+                  </p>
+                </div>
+                <div class="step-card" data-reveal data-reveal-delay="2">
+                  <div class="step-num-wrap">
+                    <span class="step-label">STEP</span>
+                    <span class="step-n">02</span>
+                  </div>
+                  <h3 class="step-title">AI 구직 준비</h3>
+                  <p class="step-desc">
+                    AI 자기소개서·사진·복장·모의면접으로 지원을 준비합니다.
+                  </p>
+                </div>
+                <div class="step-card" data-reveal data-reveal-delay="3">
+                  <div class="step-num-wrap">
+                    <span class="step-label">STEP</span>
+                    <span class="step-n">03</span>
+                  </div>
+                  <h3 class="step-title">기업 정보 확인</h3>
+                  <p class="step-desc">
+                    AI 기업브리핑을 통해 지원하려는 기업과 직무를 쉽게
+                    이해합니다.
+                  </p>
+                </div>
+                <div class="step-card" data-reveal data-reveal-delay="4">
+                  <div class="step-num-wrap">
+                    <span class="step-label">STEP</span>
+                    <span class="step-n">04</span>
+                  </div>
+                  <h3 class="step-title">지원 및 연결</h3>
+                  <p class="step-desc">
+                    준비를 마치고 관심 공고에 지원해 기업과 연결됩니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mobile -->
+            <div class="step-mobile">
+              <div class="step-row-mobile">
+                <div class="step-timeline-col">
+                  <div class="step-num-wrap">
+                    <span class="step-label">STEP</span
+                    ><span class="step-n">01</span>
+                  </div>
+                  <div class="step-line-v"></div>
+                </div>
+                <div class="step-content-col">
+                  <h3 class="step-title-m">기본 정보 입력</h3>
+                  <p class="step-desc-m">
+                    희망 직무, 근무 지역, 경력, 지원 목적을 간단히 입력합니다.
+                  </p>
+                </div>
+              </div>
+              <div class="step-row-mobile">
+                <div class="step-timeline-col">
+                  <div class="step-num-wrap">
+                    <span class="step-label">STEP</span
+                    ><span class="step-n">02</span>
+                  </div>
+                  <div class="step-line-v"></div>
+                </div>
+                <div class="step-content-col">
+                  <h3 class="step-title-m">AI 구직 준비</h3>
+                  <p class="step-desc-m">
+                    AI 자기소개서·사진·복장·모의면접으로 지원을 준비합니다.
+                  </p>
+                </div>
+              </div>
+              <div class="step-row-mobile">
+                <div class="step-timeline-col">
+                  <div class="step-num-wrap">
+                    <span class="step-label">STEP</span
+                    ><span class="step-n">03</span>
+                  </div>
+                  <div class="step-line-v"></div>
+                </div>
+                <div class="step-content-col">
+                  <h3 class="step-title-m">기업 정보 확인</h3>
+                  <p class="step-desc-m">
+                    AI 기업브리핑을 통해 지원하려는 기업과 직무를 쉽게
+                    이해합니다.
+                  </p>
+                </div>
+              </div>
+              <div class="step-row-mobile">
+                <div class="step-timeline-col">
+                  <div class="step-num-wrap">
+                    <span class="step-label">STEP</span
+                    ><span class="step-n">04</span>
+                  </div>
+                </div>
+                <div class="step-content-col">
+                  <h3 class="step-title-m">지원 및 연결</h3>
+                  <p class="step-desc-m">
+                    준비를 마치고 관심 공고에 지원해 기업과 연결됩니다.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="step-content-col">
-            <h3 class="step-title-m">기본 정보 입력</h3>
-            <p class="step-desc-m">희망 직무, 근무 지역, 경력, 지원 목적을 간단히 입력합니다.</p>
+
+          <!-- 기업 패널 -->
+          <div
+            id="panel-company"
+            role="tabpanel"
+            aria-labelledby="tab-company"
+            style="display: none"
+          >
+            <!-- AI 기능 -->
+            <div class="ai-header">
+              <span class="section-tag" style="justify-content: center"
+                >AI 기능</span
+              >
+              <h2 class="ai-heading">적합한 인재, AI와 함께 찾습니다</h2>
+              <p class="ai-sub">
+                적합도 분석부터 면접 점검까지 AI가 지원합니다.
+              </p>
+            </div>
+
+            <div class="ai-grid-top" style="margin-bottom: 0">
+              <div class="ai-card-new" role="article">
+                <div class="ai-card-num">01</div>
+                <div class="ai-icon-wrap">
+                  <i data-lucide="target" style="width: 24px; height: 24px"></i>
+                </div>
+                <h3 class="ai-card-title">AI 적합도 분석</h3>
+                <p class="ai-card-desc">
+                  이력과 희망 직무를 분석해 적합도와 보완점을 알려드립니다.
+                </p>
+                <div class="ai-tags">
+                  <span class="ai-tag">경력 매칭</span>
+                  <span class="ai-tag">직무 적합성</span>
+                  <span class="ai-tag">보완점 파악</span>
+                </div>
+              </div>
+
+              <div class="ai-card-new" role="article">
+                <div class="ai-card-num">02</div>
+                <div class="ai-icon-wrap">
+                  <i
+                    data-lucide="trending-up"
+                    style="width: 24px; height: 24px"
+                  ></i>
+                </div>
+                <h3 class="ai-card-title">AI 경력 궤적 분석</h3>
+                <p class="ai-card-desc">
+                  경력 흐름을 정리하고 앞으로의 방향을 안내합니다.
+                </p>
+                <div class="ai-tags">
+                  <span class="ai-tag">경력 흐름 정리</span>
+                  <span class="ai-tag">방향 제시</span>
+                  <span class="ai-tag">강점 발견</span>
+                </div>
+              </div>
+
+              <div class="ai-card-new" role="article">
+                <div class="ai-card-num">03</div>
+                <div class="ai-icon-wrap">
+                  <i
+                    data-lucide="list-checks"
+                    style="width: 24px; height: 24px"
+                  ></i>
+                </div>
+                <h3 class="ai-card-title">AI 면접 질문 및 답변 점검</h3>
+                <p class="ai-card-desc">
+                  예상 질문으로 연습하고 답변의 흐름과 강점을 점검합니다.
+                </p>
+                <div class="ai-tags">
+                  <span class="ai-tag">맞춤 질문</span>
+                  <span class="ai-tag">답변 피드백</span>
+                  <span class="ai-tag">면접 완성도</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 이용 방법 -->
+            <div class="process-header" style="margin-top: 96px">
+              <span class="section-tag" style="justify-content: center"
+                >이용 방법</span
+              >
+              <h2 class="section-heading">
+                채용 등록부터 면접 제안까지<br />효율적으로 진행합니다
+              </h2>
+              <p class="section-sub">
+                지원자를 확인하고 적합한 시니어 인재를 검토합니다.
+              </p>
+            </div>
+
+            <!-- Desktop -->
+            <div class="step-desktop">
+              <div class="step-grid">
+                <div class="step-line" aria-hidden="true"></div>
+                <div class="step-card">
+                  <div class="step-num-wrap">
+                    <span class="step-label">STEP</span
+                    ><span class="step-n">01</span>
+                  </div>
+                  <h3 class="step-title">채용 정보 등록</h3>
+                  <p class="step-desc">
+                    필요한 직무, 근무 조건, 우대 경험을 등록합니다.
+                  </p>
+                </div>
+                <div class="step-card">
+                  <div class="step-num-wrap">
+                    <span class="step-label">STEP</span
+                    ><span class="step-n">02</span>
+                  </div>
+                  <h3 class="step-title">지원자 정보 확인</h3>
+                  <p class="step-desc">
+                    지원자의 경력, 자기소개서, 준비 상태를 한눈에 확인합니다.
+                  </p>
+                </div>
+                <div class="step-card">
+                  <div class="step-num-wrap">
+                    <span class="step-label">STEP</span
+                    ><span class="step-n">03</span>
+                  </div>
+                  <h3 class="step-title">적합 인재 검토</h3>
+                  <p class="step-desc">
+                    직무 조건에 맞는 시니어 인재를 검토합니다.
+                  </p>
+                </div>
+                <div class="step-card">
+                  <div class="step-num-wrap">
+                    <span class="step-label">STEP</span
+                    ><span class="step-n">04</span>
+                  </div>
+                  <h3 class="step-title">면접 및 채용 진행</h3>
+                  <p class="step-desc">
+                    적합한 인재에게 면접을 제안하고 채용 과정을 진행합니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mobile -->
+            <div class="step-mobile">
+              <div class="step-row-mobile">
+                <div class="step-timeline-col">
+                  <div class="step-num-wrap">
+                    <span class="step-label">STEP</span
+                    ><span class="step-n">01</span>
+                  </div>
+                  <div class="step-line-v"></div>
+                </div>
+                <div class="step-content-col">
+                  <h3 class="step-title-m">채용 정보 등록</h3>
+                  <p class="step-desc-m">
+                    필요한 직무, 근무 조건, 우대 경험을 등록합니다.
+                  </p>
+                </div>
+              </div>
+              <div class="step-row-mobile">
+                <div class="step-timeline-col">
+                  <div class="step-num-wrap">
+                    <span class="step-label">STEP</span
+                    ><span class="step-n">02</span>
+                  </div>
+                  <div class="step-line-v"></div>
+                </div>
+                <div class="step-content-col">
+                  <h3 class="step-title-m">지원자 정보 확인</h3>
+                  <p class="step-desc-m">
+                    지원자의 경력, 자기소개서, 준비 상태를 한눈에 확인합니다.
+                  </p>
+                </div>
+              </div>
+              <div class="step-row-mobile">
+                <div class="step-timeline-col">
+                  <div class="step-num-wrap">
+                    <span class="step-label">STEP</span
+                    ><span class="step-n">03</span>
+                  </div>
+                  <div class="step-line-v"></div>
+                </div>
+                <div class="step-content-col">
+                  <h3 class="step-title-m">적합 인재 검토</h3>
+                  <p class="step-desc-m">
+                    직무 조건에 맞는 시니어 인재를 검토합니다.
+                  </p>
+                </div>
+              </div>
+              <div class="step-row-mobile">
+                <div class="step-timeline-col">
+                  <div class="step-num-wrap">
+                    <span class="step-label">STEP</span
+                    ><span class="step-n">04</span>
+                  </div>
+                </div>
+                <div class="step-content-col">
+                  <h3 class="step-title-m">면접 및 채용 진행</h3>
+                  <p class="step-desc-m">
+                    적합한 인재에게 면접을 제안하고 채용 과정을 진행합니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 채용 CTA 배너 -->
+            <div class="hiring-card" style="margin-top: 96px">
+              <div class="hiring-inner">
+                <h2 class="hiring-heading">
+                  경험 있는 시니어 인재,<br />
+                  더 쉽게 만나고 검토하세요
+                </h2>
+                <p class="hiring-sub">
+                  공고 등록부터 지원자 확인, 면접 제안까지 효율적으로 진행할 수
+                  있습니다.
+                </p>
+                <div
+                  class="hiring-tags"
+                  role="list"
+                  aria-label="기업 채용 서비스 특징"
+                >
+                  <span class="hiring-tag" role="listitem">시니어 인재풀</span>
+                  <span class="hiring-tag" role="listitem">지원자 검토</span>
+                  <span class="hiring-tag" role="listitem"
+                    >AI 기반 정보 정리</span
+                  >
+                  <span class="hiring-tag" role="listitem">면접 제안</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="step-row-mobile">
-          <div class="step-timeline-col">
-            <div class="step-num-wrap"><span class="step-label">STEP</span><span class="step-n">02</span></div>
-            <div class="step-line-v"></div>
-          </div>
-          <div class="step-content-col">
-            <h3 class="step-title-m">AI 구직 준비</h3>
-            <p class="step-desc-m">AI 자기소개서·사진·복장·모의면접으로 지원을 준비합니다.</p>
-          </div>
-        </div>
-        <div class="step-row-mobile">
-          <div class="step-timeline-col">
-            <div class="step-num-wrap"><span class="step-label">STEP</span><span class="step-n">03</span></div>
-            <div class="step-line-v"></div>
-          </div>
-          <div class="step-content-col">
-            <h3 class="step-title-m">기업 정보 확인</h3>
-            <p class="step-desc-m">AI 기업브리핑을 통해 지원하려는 기업과 직무를 쉽게 이해합니다.</p>
-          </div>
-        </div>
-        <div class="step-row-mobile">
-          <div class="step-timeline-col">
-            <div class="step-num-wrap"><span class="step-label">STEP</span><span class="step-n">04</span></div>
-          </div>
-          <div class="step-content-col">
-            <h3 class="step-title-m">지원 및 연결</h3>
-            <p class="step-desc-m">준비를 마치고 관심 공고에 지원해 기업과 연결됩니다.</p>
-          </div>
-        </div>
-      </div>
+      </section>
     </div>
+    <!-- /FEATURES + PROCESS GROUP -->
 
-    <!-- 기업 패널 -->
-    <div id="panel-company" role="tabpanel" aria-labelledby="tab-company" style="display:none;">
-      <!-- Desktop -->
-      <div class="step-desktop">
-        <div class="step-grid">
-          <div class="step-line" aria-hidden="true"></div>
-          <div class="step-card">
-            <div class="step-num-wrap"><span class="step-label">STEP</span><span class="step-n">01</span></div>
-            <h3 class="step-title">채용 정보 등록</h3>
-            <p class="step-desc">필요한 직무, 근무 조건, 우대 경험을 등록합니다.</p>
-          </div>
-          <div class="step-card">
-            <div class="step-num-wrap"><span class="step-label">STEP</span><span class="step-n">02</span></div>
-            <h3 class="step-title">지원자 정보 확인</h3>
-            <p class="step-desc">지원자의 경력, 자기소개서, 준비 상태를 한눈에 확인합니다.</p>
-          </div>
-          <div class="step-card">
-            <div class="step-num-wrap"><span class="step-label">STEP</span><span class="step-n">03</span></div>
-            <h3 class="step-title">적합 인재 검토</h3>
-            <p class="step-desc">직무 조건에 맞는 시니어 인재를 검토합니다.</p>
-          </div>
-          <div class="step-card">
-            <div class="step-num-wrap"><span class="step-label">STEP</span><span class="step-n">04</span></div>
-            <h3 class="step-title">면접 및 채용 진행</h3>
-            <p class="step-desc">적합한 인재에게 면접을 제안하고 채용 과정을 진행합니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Mobile -->
-      <div class="step-mobile">
-        <div class="step-row-mobile">
-          <div class="step-timeline-col">
-            <div class="step-num-wrap"><span class="step-label">STEP</span><span class="step-n">01</span></div>
-            <div class="step-line-v"></div>
-          </div>
-          <div class="step-content-col">
-            <h3 class="step-title-m">채용 정보 등록</h3>
-            <p class="step-desc-m">필요한 직무, 근무 조건, 우대 경험을 등록합니다.</p>
-          </div>
-        </div>
-        <div class="step-row-mobile">
-          <div class="step-timeline-col">
-            <div class="step-num-wrap"><span class="step-label">STEP</span><span class="step-n">02</span></div>
-            <div class="step-line-v"></div>
-          </div>
-          <div class="step-content-col">
-            <h3 class="step-title-m">지원자 정보 확인</h3>
-            <p class="step-desc-m">지원자의 경력, 자기소개서, 준비 상태를 한눈에 확인합니다.</p>
-          </div>
-        </div>
-        <div class="step-row-mobile">
-          <div class="step-timeline-col">
-            <div class="step-num-wrap"><span class="step-label">STEP</span><span class="step-n">03</span></div>
-            <div class="step-line-v"></div>
-          </div>
-          <div class="step-content-col">
-            <h3 class="step-title-m">적합 인재 검토</h3>
-            <p class="step-desc-m">직무 조건에 맞는 시니어 인재를 검토합니다.</p>
-          </div>
-        </div>
-        <div class="step-row-mobile">
-          <div class="step-timeline-col">
-            <div class="step-num-wrap"><span class="step-label">STEP</span><span class="step-n">04</span></div>
-          </div>
-          <div class="step-content-col">
-            <h3 class="step-title-m">면접 및 채용 진행</h3>
-            <p class="step-desc-m">적합한 인재에게 면접을 제안하고 채용 과정을 진행합니다.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-</div><!-- /SERVICE FLOW GROUP -->
-
-
-<!-- ════════════════════════════════════════════════
+    <!-- ════════════════════════════════════════════════
      PLATFORM TRUST GROUP
 ════════════════════════════════════════════════ -->
-<div class="group-wrap">
-
-<!-- ════════════════════════════════════════════════
+    <div class="group-wrap">
+      <!-- ════════════════════════════════════════════════
      STRENGTHS
 ════════════════════════════════════════════════ -->
-<section id="strengths" class="sec-pad">
-  <div class="wrap">
+      <section id="strengths" class="sec-pad">
+        <div class="wrap">
+          <div class="strengths-header" data-reveal>
+            <span class="section-tag" style="justify-content: center"
+              >운영 강점</span
+            >
+            <h2 class="section-heading">
+              구직자와 기업 모두에게<br />안심할 수 있는 연결 경험을 제공합니다
+            </h2>
+            <p class="section-sub">
+              구직자의 여정과 기업의 채용 흐름을 함께 고려해 설계합니다.
+            </p>
+          </div>
 
-    <div class="strengths-header" data-reveal>
-      <span class="section-tag" style="justify-content:center;">운영 강점</span>
-      <h2 class="section-heading">
-        구직자와 기업 모두에게<br>안심할 수 있는 연결 경험을 제공합니다
-      </h2>
-      <p class="section-sub">
-        구직자의 여정과 기업의 채용 흐름을 함께 고려해 설계합니다.
-      </p>
-    </div>
+          <!-- 2×2 Strength cards -->
+          <div class="str-grid">
+            <div
+              class="str-card"
+              role="article"
+              data-reveal
+              data-reveal-delay="1"
+            >
+              <div class="str-icon-wrap">
+                <i data-lucide="users" style="width: 24px; height: 24px"></i>
+              </div>
+              <span class="str-badge">구직자 지원</span>
+              <h3 class="str-title">50+ 맞춤 구직 흐름</h3>
+              <p class="str-desc">
+                시니어가 절차에 막히지 않도록 간결한 구조로 설계됩니다.
+              </p>
+            </div>
 
-    <!-- 2×2 Strength cards -->
-    <div class="str-grid">
+            <div
+              class="str-card"
+              role="article"
+              data-reveal
+              data-reveal-delay="2"
+            >
+              <div class="str-icon-wrap">
+                <i data-lucide="cpu" style="width: 24px; height: 24px"></i>
+              </div>
+              <span class="str-badge">AI 기술</span>
+              <h3 class="str-title">AI 기반 지원 준비</h3>
+              <p class="str-desc">
+                지원에 필요한 모든 준비 과정을 AI와 함께합니다.
+              </p>
+            </div>
 
-      <div class="str-card" role="article" data-reveal data-reveal-delay="1">
-        <div class="str-icon-wrap">
-          <i data-lucide="users" style="width:24px;height:24px;"></i>
+            <div
+              class="str-card"
+              role="article"
+              data-reveal
+              data-reveal-delay="3"
+            >
+              <div class="str-icon-wrap">
+                <i
+                  data-lucide="briefcase"
+                  style="width: 24px; height: 24px"
+                ></i>
+              </div>
+              <span class="str-badge">기업 지원</span>
+              <h3 class="str-title">기업 채용 검토 지원</h3>
+              <p class="str-desc">
+                지원자 정보를 빠르게 파악하고 채용 흐름을 정리합니다.
+              </p>
+            </div>
+
+            <div
+              class="str-card"
+              role="article"
+              data-reveal
+              data-reveal-delay="4"
+            >
+              <div class="str-icon-wrap">
+                <i data-lucide="link-2" style="width: 24px; height: 24px"></i>
+              </div>
+              <span class="str-badge">연결 구조</span>
+              <h3 class="str-title">구직자·기업 연결 구조</h3>
+              <p class="str-desc">
+                구직자는 더 쉽게 지원하고, 기업은 더 효율적으로 인재를
+                검토합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- 4 indicator cards -->
+          <div class="ind-grid" style="margin-top: 16px">
+            <div class="ind-card" data-reveal data-reveal-delay="1">
+              <i
+                data-lucide="check-circle-2"
+                style="width: 28px; height: 28px"
+              ></i>
+              <span class="ind-label">구직 준비 지원</span>
+            </div>
+            <div class="ind-card" data-reveal data-reveal-delay="2">
+              <i data-lucide="search" style="width: 28px; height: 28px"></i>
+              <span class="ind-label">기업 정보 이해</span>
+            </div>
+            <div class="ind-card" data-reveal data-reveal-delay="3">
+              <i data-lucide="mic" style="width: 28px; height: 28px"></i>
+              <span class="ind-label">면접 대비</span>
+            </div>
+            <div class="ind-card" data-reveal data-reveal-delay="4">
+              <i data-lucide="link-2" style="width: 28px; height: 28px"></i>
+              <span class="ind-label">채용 연결</span>
+            </div>
+          </div>
         </div>
-        <span class="str-badge">구직자 지원</span>
-        <h3 class="str-title">50+ 맞춤 구직 흐름</h3>
-        <p class="str-desc">시니어가 절차에 막히지 않도록 간결한 구조로 설계됩니다.</p>
-      </div>
+      </section>
 
-      <div class="str-card" role="article" data-reveal data-reveal-delay="2">
-        <div class="str-icon-wrap">
-          <i data-lucide="cpu" style="width:24px;height:24px;"></i>
-        </div>
-        <span class="str-badge">AI 기술</span>
-        <h3 class="str-title">AI 기반 지원 준비</h3>
-        <p class="str-desc">지원에 필요한 모든 준비 과정을 AI와 함께합니다.</p>
-      </div>
-
-      <div class="str-card" role="article" data-reveal data-reveal-delay="3">
-        <div class="str-icon-wrap">
-          <i data-lucide="briefcase" style="width:24px;height:24px;"></i>
-        </div>
-        <span class="str-badge">기업 지원</span>
-        <h3 class="str-title">기업 채용 검토 지원</h3>
-        <p class="str-desc">지원자 정보를 빠르게 파악하고 채용 흐름을 정리합니다.</p>
-      </div>
-
-      <div class="str-card" role="article" data-reveal data-reveal-delay="4">
-        <div class="str-icon-wrap">
-          <i data-lucide="link-2" style="width:24px;height:24px;"></i>
-        </div>
-        <span class="str-badge">연결 구조</span>
-        <h3 class="str-title">구직자·기업 연결 구조</h3>
-        <p class="str-desc">구직자는 더 쉽게 지원하고, 기업은 더 효율적으로 인재를 검토합니다.</p>
-      </div>
-
-    </div>
-
-    <!-- 4 indicator cards -->
-    <div class="ind-grid" style="margin-top:16px;">
-      <div class="ind-card" data-reveal data-reveal-delay="1">
-        <i data-lucide="check-circle-2" style="width:28px;height:28px;"></i>
-        <span class="ind-label">구직 준비 지원</span>
-      </div>
-      <div class="ind-card" data-reveal data-reveal-delay="2">
-        <i data-lucide="search" style="width:28px;height:28px;"></i>
-        <span class="ind-label">기업 정보 이해</span>
-      </div>
-      <div class="ind-card" data-reveal data-reveal-delay="3">
-        <i data-lucide="mic" style="width:28px;height:28px;"></i>
-        <span class="ind-label">면접 대비</span>
-      </div>
-      <div class="ind-card" data-reveal data-reveal-delay="4">
-        <i data-lucide="link-2" style="width:28px;height:28px;"></i>
-        <span class="ind-label">채용 연결</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ════════════════════════════════════════════════
+      <!-- ════════════════════════════════════════════════
      FINAL CTA
 ════════════════════════════════════════════════ -->
-<section id="cta">
-  <div class="cta-ring" aria-hidden="true"></div>
-  <div class="cta-ring cta-ring-2" aria-hidden="true"></div>
-  <div class="cta-inner" data-reveal>
-    <h2 class="cta-heading">
-      경험이 다시 일로 이어지는 순간,<br>
-      <span>넥스트파트너에서 시작하세요</span>
-    </h2>
-    <p class="cta-sub-lg">
-      구직자는 AI로 준비하고,<br>기업은 적합한 시니어 인재와 연결됩니다.
-    </p>
-    <p class="cta-sub-sm">
-      지원 준비부터 채용 연결까지 한 곳에서.
-    </p>
-  </div>
-</section>
+      <section id="cta">
+        <div class="cta-core" aria-hidden="true"></div>
+        <div class="cta-ring" aria-hidden="true"></div>
+        <div class="cta-ring cta-ring-2" aria-hidden="true"></div>
+        <div class="cta-inner" data-reveal>
+          <h2 class="cta-heading">
+            경험이 다시 일로 이어지는 순간,<br />
+            <span>넥스트파트너에서 시작하세요</span>
+          </h2>
+          <p class="cta-sub-lg">
+            구직자는 AI로 준비하고,<br />기업은 적합한 시니어 인재와 연결됩니다.
+          </p>
+          <p class="cta-sub-sm">지원 준비부터 채용 연결까지 한 곳에서.</p>
+          <div class="cta-badge">오픈 예정</div>
+        </div>
+      </section>
+    </div>
+    <!-- /PLATFORM TRUST GROUP -->
 
-</div><!-- /PLATFORM TRUST GROUP -->
-
-
-<!-- ════════════════════════════════════════════════
+    <!-- ════════════════════════════════════════════════
      FOOTER
 ════════════════════════════════════════════════ -->
-<footer id="contact">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="footer-logo">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <path d="M10 2L17 6V14L10 18L3 14V6L10 2Z" fill="white" fill-opacity="0.85"/>
-            <path d="M10 5.5L13.5 7.5V11.5L10 13.5L6.5 11.5V7.5L10 5.5Z" fill="white"/>
-          </svg>
+    <footer id="contact">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <img
+              class="footer-logo-img"
+              src="src/img/Logo2-white.png"
+              alt="넥스트파트너"
+            />
+          </div>
         </div>
-        <span class="footer-name">넥스트파트너</span>
+        <p class="footer-tagline">중장년층을 위한 AI 일자리 매칭 플랫폼</p>
+        <div class="footer-company">
+          <p class="footer-company-line">
+            <span>주식회사 모리아타운</span>
+            <span class="footer-dot">·</span>
+            <span>대표: 권오형</span>
+            <span class="footer-dot">·</span>
+            <span>사업자등록번호: 215-86-89431</span>
+          </p>
+          <p class="footer-company-line">
+            <span
+              >주소: 05854 서울특별시 송파구 법원로 114 (문정동) 비동
+              915호</span
+            >
+            <span class="footer-dot">·</span>
+            <span>전화: <a href="tel:02-6713-7076">02-6713-7076</a></span>
+          </p>
+          <p class="footer-company-line">
+            직업정보제공사업 신고번호: 서울동부 제2026-11호
+          </p>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bot">
+          <p class="footer-copy">© 2026 NextPartner. All rights reserved.</p>
+        </div>
       </div>
-      <div class="footer-email">
-        <i data-lucide="mail" style="width:16px;height:16px;"></i>
-        contact@nextpartner.co.kr
-      </div>
-    </div>
-    <div class="footer-divider"></div>
-    <div class="footer-bot">
-      <p class="footer-copy">© 2025 넥스트파트너. All rights reserved.</p>
-      <p class="footer-copy">AI 시니어 일자리 플랫폼</p>
-    </div>
-  </div>
-</footer>
+    </footer>
 
+    <script>
+      lucide.createIcons();
 
-<script>
-  lucide.createIcons();
-
-  // ── Tab switching ──────────────────────────────
-  function switchTab(tab) {
-    const jBtn = document.getElementById('tab-jobseeker');
-    const cBtn = document.getElementById('tab-company');
-    const jPanel = document.getElementById('panel-jobseeker');
-    const cPanel = document.getElementById('panel-company');
-
-    if (tab === 'jobseeker') {
-      jBtn.setAttribute('aria-selected', 'true');
-      cBtn.setAttribute('aria-selected', 'false');
-      jPanel.style.display = '';
-      cPanel.style.display = 'none';
-    } else {
-      cBtn.setAttribute('aria-selected', 'true');
-      jBtn.setAttribute('aria-selected', 'false');
-      cPanel.style.display = '';
-      jPanel.style.display = 'none';
-    }
-  }
-
-  // Tab keyboard nav
-  document.querySelectorAll('[role="tab"]').forEach(tab => {
-    tab.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tab.click(); }
-      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-        e.preventDefault();
-        const tabs = [...document.querySelectorAll('[role="tab"]')];
-        const idx  = tabs.indexOf(tab);
-        const next = e.key === 'ArrowRight' ? tabs[(idx+1) % tabs.length] : tabs[(idx-1+tabs.length) % tabs.length];
-        next.click(); next.focus();
+      // ── Hero video sound toggle ─────────────────────
+      function toggleHeroSound() {
+        const v = document.getElementById('hero-video');
+        const btn = document.getElementById('hero-sound');
+        if (!v) return;
+        v.muted = !v.muted;
+        if (!v.muted) {
+          v.volume = 1;
+          const p = v.play();
+          if (p && p.catch) p.catch(() => {});
+        }
+        const on = !v.muted;
+        document.getElementById('hero').classList.toggle('hero--focus', on);
+        btn.setAttribute('aria-pressed', String(on));
+        btn.setAttribute(
+          'aria-label',
+          on ? '영상 소리 끄기' : '영상 소리 켜기',
+        );
+        btn.innerHTML =
+          '<i data-lucide="' + (on ? 'volume-2' : 'volume-x') + '"></i>';
+        lucide.createIcons();
       }
-    });
-  });
 
-  // ── Scroll reveal ──────────────────────────────
-  const ro = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('revealed'); ro.unobserve(e.target); }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+      // ── Tab switching ──────────────────────────────
+      function switchTab(tab) {
+        const jBtn = document.getElementById('tab-jobseeker');
+        const cBtn = document.getElementById('tab-company');
+        const jPanel = document.getElementById('panel-jobseeker');
+        const cPanel = document.getElementById('panel-company');
 
-  document.querySelectorAll('[data-reveal]').forEach(el => ro.observe(el));
-</script>
+        if (tab === 'jobseeker') {
+          jBtn.setAttribute('aria-selected', 'true');
+          cBtn.setAttribute('aria-selected', 'false');
+          jPanel.style.display = '';
+          cPanel.style.display = 'none';
+        } else {
+          cBtn.setAttribute('aria-selected', 'true');
+          jBtn.setAttribute('aria-selected', 'false');
+          cPanel.style.display = '';
+          jPanel.style.display = 'none';
+        }
+      }
 
-</body>
+      // Tab keyboard nav
+      document.querySelectorAll('[role="tab"]').forEach((tab) => {
+        tab.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            tab.click();
+          }
+          if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+            e.preventDefault();
+            const tabs = [...document.querySelectorAll('[role="tab"]')];
+            const idx = tabs.indexOf(tab);
+            const next =
+              e.key === 'ArrowRight'
+                ? tabs[(idx + 1) % tabs.length]
+                : tabs[(idx - 1 + tabs.length) % tabs.length];
+            next.click();
+            next.focus();
+          }
+        });
+      });
+
+      // ── Scroll reveal ──────────────────────────────
+      const ro = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add('revealed');
+              ro.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -30px 0px' },
+      );
+
+      document
+        .querySelectorAll('[data-reveal]')
+        .forEach((el) => ro.observe(el));
+    </script>
+  </body>
 </html>
